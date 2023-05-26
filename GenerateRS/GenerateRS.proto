@@ -1,0 +1,54 @@
+// Copyright 2015 gRPC authors.
+//
+// Licensed under the Apache License, Version 2.0 (the "License");
+// you may not use this file except in compliance with the License.
+// You may obtain a copy of the License at
+//
+//     http://www.apache.org/licenses/LICENSE-2.0
+//
+// Unless required by applicable law or agreed to in writing, software
+// distributed under the License is distributed on an "AS IS" BASIS,
+// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+// See the License for the specific language governing permissions and
+// limitations under the License.
+
+syntax = "proto3";
+package AppleRemoteAuth;
+
+// The aid service definition.
+service aid {
+  // 生成rs和rs.sig 文件信息
+  rpc GenerateRS (RemoteDeviceInfo) returns (rsdata) {}
+  // 生成 Grappa 信息
+  rpc GenerateGrappa (rqGeneGrappa) returns (Grappa) {}
+}
+
+// The request GenerateRS message 
+message RemoteDeviceInfo {
+  bytes rq_data=1;
+  bytes rq_sig_data=2;
+  uint32 grappa_session_id=3;
+  //bytes key_fair_play_guid=4;
+  bytes fair_play_certificate=5;
+  int64 fair_device_type=6;
+  //uint32 private_key=7;
+  string fair_play_guid=8;
+  optional bytes grappa=9;
+}
+
+// The response GenerateRS message 
+message rsdata {
+  bytes rs_data = 1;
+  bool ret = 2;
+  optional bytes rs_sig_data = 3;
+}
+// The response GenerateGrappa message 
+message Grappa {
+  bytes grappaData=1;
+  uint32 grappa_session_id=2;
+  bool ret = 3;
+}
+// The request GenerateGrappa message 
+message rqGeneGrappa {
+  string udid=1;
+}
