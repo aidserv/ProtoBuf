@@ -53,6 +53,7 @@ static GPBFileDescriptor *GenerateRsRoot_FileDescriptor(void) {
 @dynamic fairDeviceType;
 @dynamic fairPlayGuid;
 @dynamic hasGrappa, grappa;
+@dynamic hasDsid, dsid;
 
 typedef struct RemoteDeviceInfo__storage_ {
   uint32_t _has_storage_[1];
@@ -63,6 +64,7 @@ typedef struct RemoteDeviceInfo__storage_ {
   NSString *fairPlayGuid;
   NSData *grappa;
   int64_t fairDeviceType;
+  int64_t dsid;
 } RemoteDeviceInfo__storage_;
 
 // This method is threadsafe because it is initially called
@@ -133,6 +135,15 @@ typedef struct RemoteDeviceInfo__storage_ {
         .offset = (uint32_t)offsetof(RemoteDeviceInfo__storage_, grappa),
         .flags = GPBFieldOptional,
         .dataType = GPBDataTypeBytes,
+      },
+      {
+        .name = "dsid",
+        .dataTypeSpecific.clazz = Nil,
+        .number = RemoteDeviceInfo_FieldNumber_Dsid,
+        .hasIndex = 7,
+        .offset = (uint32_t)offsetof(RemoteDeviceInfo__storage_, dsid),
+        .flags = GPBFieldOptional,
+        .dataType = GPBDataTypeInt64,
       },
     };
     GPBDescriptor *localDescriptor =
@@ -324,6 +335,133 @@ typedef struct rqGeneGrappa__storage_ {
                                         fields:fields
                                     fieldCount:(uint32_t)(sizeof(fields) / sizeof(GPBMessageFieldDescription))
                                    storageSize:sizeof(rqGeneGrappa__storage_)
+                                         flags:(GPBDescriptorInitializationFlags)(GPBDescriptorInitializationFlag_UsesClassRefs | GPBDescriptorInitializationFlag_Proto3OptionalKnown)];
+    #if defined(DEBUG) && DEBUG
+      NSAssert(descriptor == nil, @"Startup recursed!");
+    #endif  // DEBUG
+    descriptor = localDescriptor;
+  }
+  return descriptor;
+}
+
+@end
+
+#pragma mark - scinfo
+
+@implementation scinfo
+
+@dynamic sidb;
+@dynamic sidd;
+@dynamic txt;
+@dynamic hardwareInfo;
+
+typedef struct scinfo__storage_ {
+  uint32_t _has_storage_[1];
+  NSData *sidb;
+  NSData *sidd;
+  NSData *txt;
+  NSData *hardwareInfo;
+} scinfo__storage_;
+
+// This method is threadsafe because it is initially called
+// in +initialize for each subclass.
++ (GPBDescriptor *)descriptor {
+  static GPBDescriptor *descriptor = nil;
+  if (!descriptor) {
+    static GPBMessageFieldDescription fields[] = {
+      {
+        .name = "sidb",
+        .dataTypeSpecific.clazz = Nil,
+        .number = scinfo_FieldNumber_Sidb,
+        .hasIndex = 0,
+        .offset = (uint32_t)offsetof(scinfo__storage_, sidb),
+        .flags = (GPBFieldFlags)(GPBFieldOptional | GPBFieldClearHasIvarOnZero),
+        .dataType = GPBDataTypeBytes,
+      },
+      {
+        .name = "sidd",
+        .dataTypeSpecific.clazz = Nil,
+        .number = scinfo_FieldNumber_Sidd,
+        .hasIndex = 1,
+        .offset = (uint32_t)offsetof(scinfo__storage_, sidd),
+        .flags = (GPBFieldFlags)(GPBFieldOptional | GPBFieldClearHasIvarOnZero),
+        .dataType = GPBDataTypeBytes,
+      },
+      {
+        .name = "txt",
+        .dataTypeSpecific.clazz = Nil,
+        .number = scinfo_FieldNumber_Txt,
+        .hasIndex = 2,
+        .offset = (uint32_t)offsetof(scinfo__storage_, txt),
+        .flags = (GPBFieldFlags)(GPBFieldOptional | GPBFieldClearHasIvarOnZero),
+        .dataType = GPBDataTypeBytes,
+      },
+      {
+        .name = "hardwareInfo",
+        .dataTypeSpecific.clazz = Nil,
+        .number = scinfo_FieldNumber_HardwareInfo,
+        .hasIndex = 3,
+        .offset = (uint32_t)offsetof(scinfo__storage_, hardwareInfo),
+        .flags = (GPBFieldFlags)(GPBFieldOptional | GPBFieldTextFormatNameCustom | GPBFieldClearHasIvarOnZero),
+        .dataType = GPBDataTypeBytes,
+      },
+    };
+    GPBDescriptor *localDescriptor =
+        [GPBDescriptor allocDescriptorForClass:[scinfo class]
+                                     rootClass:[GenerateRsRoot class]
+                                          file:GenerateRsRoot_FileDescriptor()
+                                        fields:fields
+                                    fieldCount:(uint32_t)(sizeof(fields) / sizeof(GPBMessageFieldDescription))
+                                   storageSize:sizeof(scinfo__storage_)
+                                         flags:(GPBDescriptorInitializationFlags)(GPBDescriptorInitializationFlag_UsesClassRefs | GPBDescriptorInitializationFlag_Proto3OptionalKnown)];
+#if !GPBOBJC_SKIP_MESSAGE_TEXTFORMAT_EXTRAS
+    static const char *extraTextFormatInfo =
+        "\001\004\014\000";
+    [localDescriptor setupExtraTextInfo:extraTextFormatInfo];
+#endif  // !GPBOBJC_SKIP_MESSAGE_TEXTFORMAT_EXTRAS
+    #if defined(DEBUG) && DEBUG
+      NSAssert(descriptor == nil, @"Startup recursed!");
+    #endif  // DEBUG
+    descriptor = localDescriptor;
+  }
+  return descriptor;
+}
+
+@end
+
+#pragma mark - rsscinfo
+
+@implementation rsscinfo
+
+@dynamic ret;
+
+typedef struct rsscinfo__storage_ {
+  uint32_t _has_storage_[1];
+} rsscinfo__storage_;
+
+// This method is threadsafe because it is initially called
+// in +initialize for each subclass.
++ (GPBDescriptor *)descriptor {
+  static GPBDescriptor *descriptor = nil;
+  if (!descriptor) {
+    static GPBMessageFieldDescription fields[] = {
+      {
+        .name = "ret",
+        .dataTypeSpecific.clazz = Nil,
+        .number = rsscinfo_FieldNumber_Ret,
+        .hasIndex = 0,
+        .offset = 1,  // Stored in _has_storage_ to save space.
+        .flags = (GPBFieldFlags)(GPBFieldOptional | GPBFieldClearHasIvarOnZero),
+        .dataType = GPBDataTypeBool,
+      },
+    };
+    GPBDescriptor *localDescriptor =
+        [GPBDescriptor allocDescriptorForClass:[rsscinfo class]
+                                     rootClass:[GenerateRsRoot class]
+                                          file:GenerateRsRoot_FileDescriptor()
+                                        fields:fields
+                                    fieldCount:(uint32_t)(sizeof(fields) / sizeof(GPBMessageFieldDescription))
+                                   storageSize:sizeof(rsscinfo__storage_)
                                          flags:(GPBDescriptorInitializationFlags)(GPBDescriptorInitializationFlag_UsesClassRefs | GPBDescriptorInitializationFlag_Proto3OptionalKnown)];
     #if defined(DEBUG) && DEBUG
       NSAssert(descriptor == nil, @"Startup recursed!");

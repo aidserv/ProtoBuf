@@ -82,6 +82,17 @@ public final class GenerateRS {
      * @return The grappa.
      */
     com.google.protobuf.ByteString getGrappa();
+
+    /**
+     * <code>optional int64 dsid = 10;</code>
+     * @return Whether the dsid field is set.
+     */
+    boolean hasDsid();
+    /**
+     * <code>optional int64 dsid = 10;</code>
+     * @return The dsid.
+     */
+    long getDsid();
   }
   /**
    * <pre>
@@ -172,6 +183,11 @@ public final class GenerateRS {
             case 74: {
               bitField0_ |= 0x00000001;
               grappa_ = input.readBytes();
+              break;
+            }
+            case 80: {
+              bitField0_ |= 0x00000002;
+              dsid_ = input.readInt64();
               break;
             }
             default: {
@@ -333,6 +349,25 @@ public final class GenerateRS {
       return grappa_;
     }
 
+    public static final int DSID_FIELD_NUMBER = 10;
+    private long dsid_;
+    /**
+     * <code>optional int64 dsid = 10;</code>
+     * @return Whether the dsid field is set.
+     */
+    @java.lang.Override
+    public boolean hasDsid() {
+      return ((bitField0_ & 0x00000002) != 0);
+    }
+    /**
+     * <code>optional int64 dsid = 10;</code>
+     * @return The dsid.
+     */
+    @java.lang.Override
+    public long getDsid() {
+      return dsid_;
+    }
+
     private byte memoizedIsInitialized = -1;
     @java.lang.Override
     public final boolean isInitialized() {
@@ -367,6 +402,9 @@ public final class GenerateRS {
       }
       if (((bitField0_ & 0x00000001) != 0)) {
         output.writeBytes(9, grappa_);
+      }
+      if (((bitField0_ & 0x00000002) != 0)) {
+        output.writeInt64(10, dsid_);
       }
       unknownFields.writeTo(output);
     }
@@ -404,6 +442,10 @@ public final class GenerateRS {
         size += com.google.protobuf.CodedOutputStream
           .computeBytesSize(9, grappa_);
       }
+      if (((bitField0_ & 0x00000002) != 0)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt64Size(10, dsid_);
+      }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
       return size;
@@ -436,6 +478,11 @@ public final class GenerateRS {
         if (!getGrappa()
             .equals(other.getGrappa())) return false;
       }
+      if (hasDsid() != other.hasDsid()) return false;
+      if (hasDsid()) {
+        if (getDsid()
+            != other.getDsid()) return false;
+      }
       if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
@@ -463,6 +510,11 @@ public final class GenerateRS {
       if (hasGrappa()) {
         hash = (37 * hash) + GRAPPA_FIELD_NUMBER;
         hash = (53 * hash) + getGrappa().hashCode();
+      }
+      if (hasDsid()) {
+        hash = (37 * hash) + DSID_FIELD_NUMBER;
+        hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+            getDsid());
       }
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
@@ -615,6 +667,8 @@ public final class GenerateRS {
 
         grappa_ = com.google.protobuf.ByteString.EMPTY;
         bitField0_ = (bitField0_ & ~0x00000001);
+        dsid_ = 0L;
+        bitField0_ = (bitField0_ & ~0x00000002);
         return this;
       }
 
@@ -653,6 +707,10 @@ public final class GenerateRS {
           to_bitField0_ |= 0x00000001;
         }
         result.grappa_ = grappa_;
+        if (((from_bitField0_ & 0x00000002) != 0)) {
+          result.dsid_ = dsid_;
+          to_bitField0_ |= 0x00000002;
+        }
         result.bitField0_ = to_bitField0_;
         onBuilt();
         return result;
@@ -723,6 +781,9 @@ public final class GenerateRS {
         }
         if (other.hasGrappa()) {
           setGrappa(other.getGrappa());
+        }
+        if (other.hasDsid()) {
+          setDsid(other.getDsid());
         }
         this.mergeUnknownFields(other.unknownFields);
         onChanged();
@@ -1064,6 +1125,45 @@ public final class GenerateRS {
       public Builder clearGrappa() {
         bitField0_ = (bitField0_ & ~0x00000001);
         grappa_ = getDefaultInstance().getGrappa();
+        onChanged();
+        return this;
+      }
+
+      private long dsid_ ;
+      /**
+       * <code>optional int64 dsid = 10;</code>
+       * @return Whether the dsid field is set.
+       */
+      @java.lang.Override
+      public boolean hasDsid() {
+        return ((bitField0_ & 0x00000002) != 0);
+      }
+      /**
+       * <code>optional int64 dsid = 10;</code>
+       * @return The dsid.
+       */
+      @java.lang.Override
+      public long getDsid() {
+        return dsid_;
+      }
+      /**
+       * <code>optional int64 dsid = 10;</code>
+       * @param value The dsid to set.
+       * @return This builder for chaining.
+       */
+      public Builder setDsid(long value) {
+        bitField0_ |= 0x00000002;
+        dsid_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional int64 dsid = 10;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearDsid() {
+        bitField0_ = (bitField0_ & ~0x00000002);
+        dsid_ = 0L;
         onChanged();
         return this;
       }
@@ -3023,6 +3123,1229 @@ public final class GenerateRS {
 
   }
 
+  public interface scinfoOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:AppleRemoteAuth.scinfo)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <code>bytes sidb = 1;</code>
+     * @return The sidb.
+     */
+    com.google.protobuf.ByteString getSidb();
+
+    /**
+     * <code>bytes sidd = 2;</code>
+     * @return The sidd.
+     */
+    com.google.protobuf.ByteString getSidd();
+
+    /**
+     * <code>bytes txt = 3;</code>
+     * @return The txt.
+     */
+    com.google.protobuf.ByteString getTxt();
+
+    /**
+     * <code>bytes hardwareInfo = 4;</code>
+     * @return The hardwareInfo.
+     */
+    com.google.protobuf.ByteString getHardwareInfo();
+  }
+  /**
+   * <pre>
+   * the scinfo
+   * </pre>
+   *
+   * Protobuf type {@code AppleRemoteAuth.scinfo}
+   */
+  public static final class scinfo extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:AppleRemoteAuth.scinfo)
+      scinfoOrBuilder {
+  private static final long serialVersionUID = 0L;
+    // Use scinfo.newBuilder() to construct.
+    private scinfo(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private scinfo() {
+      sidb_ = com.google.protobuf.ByteString.EMPTY;
+      sidd_ = com.google.protobuf.ByteString.EMPTY;
+      txt_ = com.google.protobuf.ByteString.EMPTY;
+      hardwareInfo_ = com.google.protobuf.ByteString.EMPTY;
+    }
+
+    @java.lang.Override
+    @SuppressWarnings({"unused"})
+    protected java.lang.Object newInstance(
+        UnusedPrivateParameter unused) {
+      return new scinfo();
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return this.unknownFields;
+    }
+    private scinfo(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+
+              sidb_ = input.readBytes();
+              break;
+            }
+            case 18: {
+
+              sidd_ = input.readBytes();
+              break;
+            }
+            case 26: {
+
+              txt_ = input.readBytes();
+              break;
+            }
+            case 34: {
+
+              hardwareInfo_ = input.readBytes();
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return AppleRemoteAuth.GenerateRS.internal_static_AppleRemoteAuth_scinfo_descriptor;
+    }
+
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return AppleRemoteAuth.GenerateRS.internal_static_AppleRemoteAuth_scinfo_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              AppleRemoteAuth.GenerateRS.scinfo.class, AppleRemoteAuth.GenerateRS.scinfo.Builder.class);
+    }
+
+    public static final int SIDB_FIELD_NUMBER = 1;
+    private com.google.protobuf.ByteString sidb_;
+    /**
+     * <code>bytes sidb = 1;</code>
+     * @return The sidb.
+     */
+    @java.lang.Override
+    public com.google.protobuf.ByteString getSidb() {
+      return sidb_;
+    }
+
+    public static final int SIDD_FIELD_NUMBER = 2;
+    private com.google.protobuf.ByteString sidd_;
+    /**
+     * <code>bytes sidd = 2;</code>
+     * @return The sidd.
+     */
+    @java.lang.Override
+    public com.google.protobuf.ByteString getSidd() {
+      return sidd_;
+    }
+
+    public static final int TXT_FIELD_NUMBER = 3;
+    private com.google.protobuf.ByteString txt_;
+    /**
+     * <code>bytes txt = 3;</code>
+     * @return The txt.
+     */
+    @java.lang.Override
+    public com.google.protobuf.ByteString getTxt() {
+      return txt_;
+    }
+
+    public static final int HARDWAREINFO_FIELD_NUMBER = 4;
+    private com.google.protobuf.ByteString hardwareInfo_;
+    /**
+     * <code>bytes hardwareInfo = 4;</code>
+     * @return The hardwareInfo.
+     */
+    @java.lang.Override
+    public com.google.protobuf.ByteString getHardwareInfo() {
+      return hardwareInfo_;
+    }
+
+    private byte memoizedIsInitialized = -1;
+    @java.lang.Override
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    @java.lang.Override
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      if (!sidb_.isEmpty()) {
+        output.writeBytes(1, sidb_);
+      }
+      if (!sidd_.isEmpty()) {
+        output.writeBytes(2, sidd_);
+      }
+      if (!txt_.isEmpty()) {
+        output.writeBytes(3, txt_);
+      }
+      if (!hardwareInfo_.isEmpty()) {
+        output.writeBytes(4, hardwareInfo_);
+      }
+      unknownFields.writeTo(output);
+    }
+
+    @java.lang.Override
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (!sidb_.isEmpty()) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeBytesSize(1, sidb_);
+      }
+      if (!sidd_.isEmpty()) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeBytesSize(2, sidd_);
+      }
+      if (!txt_.isEmpty()) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeBytesSize(3, txt_);
+      }
+      if (!hardwareInfo_.isEmpty()) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeBytesSize(4, hardwareInfo_);
+      }
+      size += unknownFields.getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof AppleRemoteAuth.GenerateRS.scinfo)) {
+        return super.equals(obj);
+      }
+      AppleRemoteAuth.GenerateRS.scinfo other = (AppleRemoteAuth.GenerateRS.scinfo) obj;
+
+      if (!getSidb()
+          .equals(other.getSidb())) return false;
+      if (!getSidd()
+          .equals(other.getSidd())) return false;
+      if (!getTxt()
+          .equals(other.getTxt())) return false;
+      if (!getHardwareInfo()
+          .equals(other.getHardwareInfo())) return false;
+      if (!unknownFields.equals(other.unknownFields)) return false;
+      return true;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      hash = (37 * hash) + SIDB_FIELD_NUMBER;
+      hash = (53 * hash) + getSidb().hashCode();
+      hash = (37 * hash) + SIDD_FIELD_NUMBER;
+      hash = (53 * hash) + getSidd().hashCode();
+      hash = (37 * hash) + TXT_FIELD_NUMBER;
+      hash = (53 * hash) + getTxt().hashCode();
+      hash = (37 * hash) + HARDWAREINFO_FIELD_NUMBER;
+      hash = (53 * hash) + getHardwareInfo().hashCode();
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static AppleRemoteAuth.GenerateRS.scinfo parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static AppleRemoteAuth.GenerateRS.scinfo parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static AppleRemoteAuth.GenerateRS.scinfo parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static AppleRemoteAuth.GenerateRS.scinfo parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static AppleRemoteAuth.GenerateRS.scinfo parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static AppleRemoteAuth.GenerateRS.scinfo parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static AppleRemoteAuth.GenerateRS.scinfo parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static AppleRemoteAuth.GenerateRS.scinfo parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static AppleRemoteAuth.GenerateRS.scinfo parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static AppleRemoteAuth.GenerateRS.scinfo parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static AppleRemoteAuth.GenerateRS.scinfo parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static AppleRemoteAuth.GenerateRS.scinfo parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    @java.lang.Override
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(AppleRemoteAuth.GenerateRS.scinfo prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    @java.lang.Override
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * <pre>
+     * the scinfo
+     * </pre>
+     *
+     * Protobuf type {@code AppleRemoteAuth.scinfo}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:AppleRemoteAuth.scinfo)
+        AppleRemoteAuth.GenerateRS.scinfoOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return AppleRemoteAuth.GenerateRS.internal_static_AppleRemoteAuth_scinfo_descriptor;
+      }
+
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return AppleRemoteAuth.GenerateRS.internal_static_AppleRemoteAuth_scinfo_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                AppleRemoteAuth.GenerateRS.scinfo.class, AppleRemoteAuth.GenerateRS.scinfo.Builder.class);
+      }
+
+      // Construct using AppleRemoteAuth.GenerateRS.scinfo.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
+      }
+      @java.lang.Override
+      public Builder clear() {
+        super.clear();
+        sidb_ = com.google.protobuf.ByteString.EMPTY;
+
+        sidd_ = com.google.protobuf.ByteString.EMPTY;
+
+        txt_ = com.google.protobuf.ByteString.EMPTY;
+
+        hardwareInfo_ = com.google.protobuf.ByteString.EMPTY;
+
+        return this;
+      }
+
+      @java.lang.Override
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return AppleRemoteAuth.GenerateRS.internal_static_AppleRemoteAuth_scinfo_descriptor;
+      }
+
+      @java.lang.Override
+      public AppleRemoteAuth.GenerateRS.scinfo getDefaultInstanceForType() {
+        return AppleRemoteAuth.GenerateRS.scinfo.getDefaultInstance();
+      }
+
+      @java.lang.Override
+      public AppleRemoteAuth.GenerateRS.scinfo build() {
+        AppleRemoteAuth.GenerateRS.scinfo result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      @java.lang.Override
+      public AppleRemoteAuth.GenerateRS.scinfo buildPartial() {
+        AppleRemoteAuth.GenerateRS.scinfo result = new AppleRemoteAuth.GenerateRS.scinfo(this);
+        result.sidb_ = sidb_;
+        result.sidd_ = sidd_;
+        result.txt_ = txt_;
+        result.hardwareInfo_ = hardwareInfo_;
+        onBuilt();
+        return result;
+      }
+
+      @java.lang.Override
+      public Builder clone() {
+        return super.clone();
+      }
+      @java.lang.Override
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.setField(field, value);
+      }
+      @java.lang.Override
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return super.clearField(field);
+      }
+      @java.lang.Override
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return super.clearOneof(oneof);
+      }
+      @java.lang.Override
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, java.lang.Object value) {
+        return super.setRepeatedField(field, index, value);
+      }
+      @java.lang.Override
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.addRepeatedField(field, value);
+      }
+      @java.lang.Override
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof AppleRemoteAuth.GenerateRS.scinfo) {
+          return mergeFrom((AppleRemoteAuth.GenerateRS.scinfo)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(AppleRemoteAuth.GenerateRS.scinfo other) {
+        if (other == AppleRemoteAuth.GenerateRS.scinfo.getDefaultInstance()) return this;
+        if (other.getSidb() != com.google.protobuf.ByteString.EMPTY) {
+          setSidb(other.getSidb());
+        }
+        if (other.getSidd() != com.google.protobuf.ByteString.EMPTY) {
+          setSidd(other.getSidd());
+        }
+        if (other.getTxt() != com.google.protobuf.ByteString.EMPTY) {
+          setTxt(other.getTxt());
+        }
+        if (other.getHardwareInfo() != com.google.protobuf.ByteString.EMPTY) {
+          setHardwareInfo(other.getHardwareInfo());
+        }
+        this.mergeUnknownFields(other.unknownFields);
+        onChanged();
+        return this;
+      }
+
+      @java.lang.Override
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      @java.lang.Override
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        AppleRemoteAuth.GenerateRS.scinfo parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (AppleRemoteAuth.GenerateRS.scinfo) e.getUnfinishedMessage();
+          throw e.unwrapIOException();
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+
+      private com.google.protobuf.ByteString sidb_ = com.google.protobuf.ByteString.EMPTY;
+      /**
+       * <code>bytes sidb = 1;</code>
+       * @return The sidb.
+       */
+      @java.lang.Override
+      public com.google.protobuf.ByteString getSidb() {
+        return sidb_;
+      }
+      /**
+       * <code>bytes sidb = 1;</code>
+       * @param value The sidb to set.
+       * @return This builder for chaining.
+       */
+      public Builder setSidb(com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        sidb_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>bytes sidb = 1;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearSidb() {
+        
+        sidb_ = getDefaultInstance().getSidb();
+        onChanged();
+        return this;
+      }
+
+      private com.google.protobuf.ByteString sidd_ = com.google.protobuf.ByteString.EMPTY;
+      /**
+       * <code>bytes sidd = 2;</code>
+       * @return The sidd.
+       */
+      @java.lang.Override
+      public com.google.protobuf.ByteString getSidd() {
+        return sidd_;
+      }
+      /**
+       * <code>bytes sidd = 2;</code>
+       * @param value The sidd to set.
+       * @return This builder for chaining.
+       */
+      public Builder setSidd(com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        sidd_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>bytes sidd = 2;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearSidd() {
+        
+        sidd_ = getDefaultInstance().getSidd();
+        onChanged();
+        return this;
+      }
+
+      private com.google.protobuf.ByteString txt_ = com.google.protobuf.ByteString.EMPTY;
+      /**
+       * <code>bytes txt = 3;</code>
+       * @return The txt.
+       */
+      @java.lang.Override
+      public com.google.protobuf.ByteString getTxt() {
+        return txt_;
+      }
+      /**
+       * <code>bytes txt = 3;</code>
+       * @param value The txt to set.
+       * @return This builder for chaining.
+       */
+      public Builder setTxt(com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        txt_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>bytes txt = 3;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearTxt() {
+        
+        txt_ = getDefaultInstance().getTxt();
+        onChanged();
+        return this;
+      }
+
+      private com.google.protobuf.ByteString hardwareInfo_ = com.google.protobuf.ByteString.EMPTY;
+      /**
+       * <code>bytes hardwareInfo = 4;</code>
+       * @return The hardwareInfo.
+       */
+      @java.lang.Override
+      public com.google.protobuf.ByteString getHardwareInfo() {
+        return hardwareInfo_;
+      }
+      /**
+       * <code>bytes hardwareInfo = 4;</code>
+       * @param value The hardwareInfo to set.
+       * @return This builder for chaining.
+       */
+      public Builder setHardwareInfo(com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        hardwareInfo_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>bytes hardwareInfo = 4;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearHardwareInfo() {
+        
+        hardwareInfo_ = getDefaultInstance().getHardwareInfo();
+        onChanged();
+        return this;
+      }
+      @java.lang.Override
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFields(unknownFields);
+      }
+
+      @java.lang.Override
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:AppleRemoteAuth.scinfo)
+    }
+
+    // @@protoc_insertion_point(class_scope:AppleRemoteAuth.scinfo)
+    private static final AppleRemoteAuth.GenerateRS.scinfo DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new AppleRemoteAuth.GenerateRS.scinfo();
+    }
+
+    public static AppleRemoteAuth.GenerateRS.scinfo getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static final com.google.protobuf.Parser<scinfo>
+        PARSER = new com.google.protobuf.AbstractParser<scinfo>() {
+      @java.lang.Override
+      public scinfo parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new scinfo(input, extensionRegistry);
+      }
+    };
+
+    public static com.google.protobuf.Parser<scinfo> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<scinfo> getParserForType() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public AppleRemoteAuth.GenerateRS.scinfo getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
+  public interface rsscinfoOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:AppleRemoteAuth.rsscinfo)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <code>bool ret = 1;</code>
+     * @return The ret.
+     */
+    boolean getRet();
+  }
+  /**
+   * <pre>
+   * The response  scinfo
+   * </pre>
+   *
+   * Protobuf type {@code AppleRemoteAuth.rsscinfo}
+   */
+  public static final class rsscinfo extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:AppleRemoteAuth.rsscinfo)
+      rsscinfoOrBuilder {
+  private static final long serialVersionUID = 0L;
+    // Use rsscinfo.newBuilder() to construct.
+    private rsscinfo(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private rsscinfo() {
+    }
+
+    @java.lang.Override
+    @SuppressWarnings({"unused"})
+    protected java.lang.Object newInstance(
+        UnusedPrivateParameter unused) {
+      return new rsscinfo();
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return this.unknownFields;
+    }
+    private rsscinfo(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 8: {
+
+              ret_ = input.readBool();
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return AppleRemoteAuth.GenerateRS.internal_static_AppleRemoteAuth_rsscinfo_descriptor;
+    }
+
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return AppleRemoteAuth.GenerateRS.internal_static_AppleRemoteAuth_rsscinfo_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              AppleRemoteAuth.GenerateRS.rsscinfo.class, AppleRemoteAuth.GenerateRS.rsscinfo.Builder.class);
+    }
+
+    public static final int RET_FIELD_NUMBER = 1;
+    private boolean ret_;
+    /**
+     * <code>bool ret = 1;</code>
+     * @return The ret.
+     */
+    @java.lang.Override
+    public boolean getRet() {
+      return ret_;
+    }
+
+    private byte memoizedIsInitialized = -1;
+    @java.lang.Override
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    @java.lang.Override
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      if (ret_ != false) {
+        output.writeBool(1, ret_);
+      }
+      unknownFields.writeTo(output);
+    }
+
+    @java.lang.Override
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (ret_ != false) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeBoolSize(1, ret_);
+      }
+      size += unknownFields.getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof AppleRemoteAuth.GenerateRS.rsscinfo)) {
+        return super.equals(obj);
+      }
+      AppleRemoteAuth.GenerateRS.rsscinfo other = (AppleRemoteAuth.GenerateRS.rsscinfo) obj;
+
+      if (getRet()
+          != other.getRet()) return false;
+      if (!unknownFields.equals(other.unknownFields)) return false;
+      return true;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      hash = (37 * hash) + RET_FIELD_NUMBER;
+      hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
+          getRet());
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static AppleRemoteAuth.GenerateRS.rsscinfo parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static AppleRemoteAuth.GenerateRS.rsscinfo parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static AppleRemoteAuth.GenerateRS.rsscinfo parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static AppleRemoteAuth.GenerateRS.rsscinfo parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static AppleRemoteAuth.GenerateRS.rsscinfo parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static AppleRemoteAuth.GenerateRS.rsscinfo parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static AppleRemoteAuth.GenerateRS.rsscinfo parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static AppleRemoteAuth.GenerateRS.rsscinfo parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static AppleRemoteAuth.GenerateRS.rsscinfo parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static AppleRemoteAuth.GenerateRS.rsscinfo parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static AppleRemoteAuth.GenerateRS.rsscinfo parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static AppleRemoteAuth.GenerateRS.rsscinfo parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    @java.lang.Override
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(AppleRemoteAuth.GenerateRS.rsscinfo prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    @java.lang.Override
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * <pre>
+     * The response  scinfo
+     * </pre>
+     *
+     * Protobuf type {@code AppleRemoteAuth.rsscinfo}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:AppleRemoteAuth.rsscinfo)
+        AppleRemoteAuth.GenerateRS.rsscinfoOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return AppleRemoteAuth.GenerateRS.internal_static_AppleRemoteAuth_rsscinfo_descriptor;
+      }
+
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return AppleRemoteAuth.GenerateRS.internal_static_AppleRemoteAuth_rsscinfo_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                AppleRemoteAuth.GenerateRS.rsscinfo.class, AppleRemoteAuth.GenerateRS.rsscinfo.Builder.class);
+      }
+
+      // Construct using AppleRemoteAuth.GenerateRS.rsscinfo.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
+      }
+      @java.lang.Override
+      public Builder clear() {
+        super.clear();
+        ret_ = false;
+
+        return this;
+      }
+
+      @java.lang.Override
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return AppleRemoteAuth.GenerateRS.internal_static_AppleRemoteAuth_rsscinfo_descriptor;
+      }
+
+      @java.lang.Override
+      public AppleRemoteAuth.GenerateRS.rsscinfo getDefaultInstanceForType() {
+        return AppleRemoteAuth.GenerateRS.rsscinfo.getDefaultInstance();
+      }
+
+      @java.lang.Override
+      public AppleRemoteAuth.GenerateRS.rsscinfo build() {
+        AppleRemoteAuth.GenerateRS.rsscinfo result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      @java.lang.Override
+      public AppleRemoteAuth.GenerateRS.rsscinfo buildPartial() {
+        AppleRemoteAuth.GenerateRS.rsscinfo result = new AppleRemoteAuth.GenerateRS.rsscinfo(this);
+        result.ret_ = ret_;
+        onBuilt();
+        return result;
+      }
+
+      @java.lang.Override
+      public Builder clone() {
+        return super.clone();
+      }
+      @java.lang.Override
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.setField(field, value);
+      }
+      @java.lang.Override
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return super.clearField(field);
+      }
+      @java.lang.Override
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return super.clearOneof(oneof);
+      }
+      @java.lang.Override
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, java.lang.Object value) {
+        return super.setRepeatedField(field, index, value);
+      }
+      @java.lang.Override
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.addRepeatedField(field, value);
+      }
+      @java.lang.Override
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof AppleRemoteAuth.GenerateRS.rsscinfo) {
+          return mergeFrom((AppleRemoteAuth.GenerateRS.rsscinfo)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(AppleRemoteAuth.GenerateRS.rsscinfo other) {
+        if (other == AppleRemoteAuth.GenerateRS.rsscinfo.getDefaultInstance()) return this;
+        if (other.getRet() != false) {
+          setRet(other.getRet());
+        }
+        this.mergeUnknownFields(other.unknownFields);
+        onChanged();
+        return this;
+      }
+
+      @java.lang.Override
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      @java.lang.Override
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        AppleRemoteAuth.GenerateRS.rsscinfo parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (AppleRemoteAuth.GenerateRS.rsscinfo) e.getUnfinishedMessage();
+          throw e.unwrapIOException();
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+
+      private boolean ret_ ;
+      /**
+       * <code>bool ret = 1;</code>
+       * @return The ret.
+       */
+      @java.lang.Override
+      public boolean getRet() {
+        return ret_;
+      }
+      /**
+       * <code>bool ret = 1;</code>
+       * @param value The ret to set.
+       * @return This builder for chaining.
+       */
+      public Builder setRet(boolean value) {
+        
+        ret_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>bool ret = 1;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearRet() {
+        
+        ret_ = false;
+        onChanged();
+        return this;
+      }
+      @java.lang.Override
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFields(unknownFields);
+      }
+
+      @java.lang.Override
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:AppleRemoteAuth.rsscinfo)
+    }
+
+    // @@protoc_insertion_point(class_scope:AppleRemoteAuth.rsscinfo)
+    private static final AppleRemoteAuth.GenerateRS.rsscinfo DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new AppleRemoteAuth.GenerateRS.rsscinfo();
+    }
+
+    public static AppleRemoteAuth.GenerateRS.rsscinfo getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static final com.google.protobuf.Parser<rsscinfo>
+        PARSER = new com.google.protobuf.AbstractParser<rsscinfo>() {
+      @java.lang.Override
+      public rsscinfo parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new rsscinfo(input, extensionRegistry);
+      }
+    };
+
+    public static com.google.protobuf.Parser<rsscinfo> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<rsscinfo> getParserForType() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public AppleRemoteAuth.GenerateRS.rsscinfo getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
   private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_AppleRemoteAuth_RemoteDeviceInfo_descriptor;
   private static final 
@@ -3043,6 +4366,16 @@ public final class GenerateRS {
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_AppleRemoteAuth_rqGeneGrappa_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_AppleRemoteAuth_scinfo_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_AppleRemoteAuth_scinfo_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_AppleRemoteAuth_rsscinfo_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_AppleRemoteAuth_rsscinfo_fieldAccessorTable;
 
   public static com.google.protobuf.Descriptors.FileDescriptor
       getDescriptor() {
@@ -3052,21 +4385,26 @@ public final class GenerateRS {
       descriptor;
   static {
     java.lang.String[] descriptorData = {
-      "\n\020GenerateRS.proto\022\017AppleRemoteAuth\"\304\001\n\020" +
+      "\n\020GenerateRS.proto\022\017AppleRemoteAuth\"\340\001\n\020" +
       "RemoteDeviceInfo\022\017\n\007rq_data\030\001 \001(\014\022\023\n\013rq_" +
       "sig_data\030\002 \001(\014\022\031\n\021grappa_session_id\030\003 \001(" +
       "\r\022\035\n\025fair_play_certificate\030\005 \001(\014\022\030\n\020fair" +
       "_device_type\030\006 \001(\003\022\026\n\016fair_play_guid\030\010 \001" +
-      "(\t\022\023\n\006grappa\030\t \001(\014H\000\210\001\001B\t\n\007_grappa\"P\n\006rs" +
-      "data\022\017\n\007rs_data\030\001 \001(\014\022\013\n\003ret\030\002 \001(\010\022\030\n\013rs" +
-      "_sig_data\030\003 \001(\014H\000\210\001\001B\016\n\014_rs_sig_data\"D\n\006" +
-      "Grappa\022\022\n\ngrappaData\030\001 \001(\014\022\031\n\021grappa_ses" +
-      "sion_id\030\002 \001(\r\022\013\n\003ret\030\003 \001(\010\"\034\n\014rqGeneGrap" +
-      "pa\022\014\n\004udid\030\001 \001(\t2\235\001\n\003aid\022J\n\nGenerateRS\022!" +
-      ".AppleRemoteAuth.RemoteDeviceInfo\032\027.Appl" +
-      "eRemoteAuth.rsdata\"\000\022J\n\016GenerateGrappa\022\035" +
-      ".AppleRemoteAuth.rqGeneGrappa\032\027.AppleRem" +
-      "oteAuth.Grappa\"\000b\006proto3"
+      "(\t\022\023\n\006grappa\030\t \001(\014H\000\210\001\001\022\021\n\004dsid\030\n \001(\003H\001\210" +
+      "\001\001B\t\n\007_grappaB\007\n\005_dsid\"P\n\006rsdata\022\017\n\007rs_d" +
+      "ata\030\001 \001(\014\022\013\n\003ret\030\002 \001(\010\022\030\n\013rs_sig_data\030\003 " +
+      "\001(\014H\000\210\001\001B\016\n\014_rs_sig_data\"D\n\006Grappa\022\022\n\ngr" +
+      "appaData\030\001 \001(\014\022\031\n\021grappa_session_id\030\002 \001(" +
+      "\r\022\013\n\003ret\030\003 \001(\010\"\034\n\014rqGeneGrappa\022\014\n\004udid\030\001" +
+      " \001(\t\"G\n\006scinfo\022\014\n\004sidb\030\001 \001(\014\022\014\n\004sidd\030\002 \001" +
+      "(\014\022\013\n\003txt\030\003 \001(\014\022\024\n\014hardwareInfo\030\004 \001(\014\"\027\n" +
+      "\010rsscinfo\022\013\n\003ret\030\001 \001(\0102\343\001\n\003aid\022J\n\nGenera" +
+      "teRS\022!.AppleRemoteAuth.RemoteDeviceInfo\032" +
+      "\027.AppleRemoteAuth.rsdata\"\000\022J\n\016GenerateGr" +
+      "appa\022\035.AppleRemoteAuth.rqGeneGrappa\032\027.Ap" +
+      "pleRemoteAuth.Grappa\"\000\022D\n\014UploadScinfo\022\027" +
+      ".AppleRemoteAuth.scinfo\032\031.AppleRemoteAut" +
+      "h.rsscinfo\"\000b\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -3077,7 +4415,7 @@ public final class GenerateRS {
     internal_static_AppleRemoteAuth_RemoteDeviceInfo_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_AppleRemoteAuth_RemoteDeviceInfo_descriptor,
-        new java.lang.String[] { "RqData", "RqSigData", "GrappaSessionId", "FairPlayCertificate", "FairDeviceType", "FairPlayGuid", "Grappa", "Grappa", });
+        new java.lang.String[] { "RqData", "RqSigData", "GrappaSessionId", "FairPlayCertificate", "FairDeviceType", "FairPlayGuid", "Grappa", "Dsid", "Grappa", "Dsid", });
     internal_static_AppleRemoteAuth_rsdata_descriptor =
       getDescriptor().getMessageTypes().get(1);
     internal_static_AppleRemoteAuth_rsdata_fieldAccessorTable = new
@@ -3096,6 +4434,18 @@ public final class GenerateRS {
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_AppleRemoteAuth_rqGeneGrappa_descriptor,
         new java.lang.String[] { "Udid", });
+    internal_static_AppleRemoteAuth_scinfo_descriptor =
+      getDescriptor().getMessageTypes().get(4);
+    internal_static_AppleRemoteAuth_scinfo_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_AppleRemoteAuth_scinfo_descriptor,
+        new java.lang.String[] { "Sidb", "Sidd", "Txt", "HardwareInfo", });
+    internal_static_AppleRemoteAuth_rsscinfo_descriptor =
+      getDescriptor().getMessageTypes().get(5);
+    internal_static_AppleRemoteAuth_rsscinfo_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_AppleRemoteAuth_rsscinfo_descriptor,
+        new java.lang.String[] { "Ret", });
   }
 
   // @@protoc_insertion_point(outer_class_scope)

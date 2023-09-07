@@ -54,6 +54,7 @@ typedef GPB_ENUM(RemoteDeviceInfo_FieldNumber) {
   RemoteDeviceInfo_FieldNumber_FairDeviceType = 6,
   RemoteDeviceInfo_FieldNumber_FairPlayGuid = 8,
   RemoteDeviceInfo_FieldNumber_Grappa = 9,
+  RemoteDeviceInfo_FieldNumber_Dsid = 10,
 };
 
 /**
@@ -79,6 +80,9 @@ GPB_FINAL @interface RemoteDeviceInfo : GPBMessage
 /** Test to see if @c grappa has been set. */
 @property(nonatomic, readwrite) BOOL hasGrappa;
 
+@property(nonatomic, readwrite) int64_t dsid;
+
+@property(nonatomic, readwrite) BOOL hasDsid;
 @end
 
 #pragma mark - rsdata
@@ -137,6 +141,45 @@ typedef GPB_ENUM(rqGeneGrappa_FieldNumber) {
 GPB_FINAL @interface rqGeneGrappa : GPBMessage
 
 @property(nonatomic, readwrite, copy, null_resettable) NSString *udid;
+
+@end
+
+#pragma mark - scinfo
+
+typedef GPB_ENUM(scinfo_FieldNumber) {
+  scinfo_FieldNumber_Sidb = 1,
+  scinfo_FieldNumber_Sidd = 2,
+  scinfo_FieldNumber_Txt = 3,
+  scinfo_FieldNumber_HardwareInfo = 4,
+};
+
+/**
+ * the scinfo
+ **/
+GPB_FINAL @interface scinfo : GPBMessage
+
+@property(nonatomic, readwrite, copy, null_resettable) NSData *sidb;
+
+@property(nonatomic, readwrite, copy, null_resettable) NSData *sidd;
+
+@property(nonatomic, readwrite, copy, null_resettable) NSData *txt;
+
+@property(nonatomic, readwrite, copy, null_resettable) NSData *hardwareInfo;
+
+@end
+
+#pragma mark - rsscinfo
+
+typedef GPB_ENUM(rsscinfo_FieldNumber) {
+  rsscinfo_FieldNumber_Ret = 1,
+};
+
+/**
+ * The response  scinfo
+ **/
+GPB_FINAL @interface rsscinfo : GPBMessage
+
+@property(nonatomic, readwrite) BOOL ret;
 
 @end
 

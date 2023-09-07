@@ -13,6 +13,7 @@ Google::Protobuf::DescriptorPool.generated_pool.build do
       optional :fair_device_type, :int64, 6
       optional :fair_play_guid, :string, 8
       proto3_optional :grappa, :bytes, 9
+      proto3_optional :dsid, :int64, 10
     end
     add_message "AppleRemoteAuth.rsdata" do
       optional :rs_data, :bytes, 1
@@ -27,6 +28,15 @@ Google::Protobuf::DescriptorPool.generated_pool.build do
     add_message "AppleRemoteAuth.rqGeneGrappa" do
       optional :udid, :string, 1
     end
+    add_message "AppleRemoteAuth.scinfo" do
+      optional :sidb, :bytes, 1
+      optional :sidd, :bytes, 2
+      optional :txt, :bytes, 3
+      optional :hardwareInfo, :bytes, 4
+    end
+    add_message "AppleRemoteAuth.rsscinfo" do
+      optional :ret, :bool, 1
+    end
   end
 end
 
@@ -35,4 +45,6 @@ module AppleRemoteAuth
   Rsdata = ::Google::Protobuf::DescriptorPool.generated_pool.lookup("AppleRemoteAuth.rsdata").msgclass
   Grappa = ::Google::Protobuf::DescriptorPool.generated_pool.lookup("AppleRemoteAuth.Grappa").msgclass
   RqGeneGrappa = ::Google::Protobuf::DescriptorPool.generated_pool.lookup("AppleRemoteAuth.rqGeneGrappa").msgclass
+  Scinfo = ::Google::Protobuf::DescriptorPool.generated_pool.lookup("AppleRemoteAuth.scinfo").msgclass
+  Rsscinfo = ::Google::Protobuf::DescriptorPool.generated_pool.lookup("AppleRemoteAuth.rsscinfo").msgclass
 end

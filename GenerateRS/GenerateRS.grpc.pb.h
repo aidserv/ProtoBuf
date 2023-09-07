@@ -67,6 +67,14 @@ class aid final {
     std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::AppleRemoteAuth::Grappa>> PrepareAsyncGenerateGrappa(::grpc::ClientContext* context, const ::AppleRemoteAuth::rqGeneGrappa& request, ::grpc::CompletionQueue* cq) {
       return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::AppleRemoteAuth::Grappa>>(PrepareAsyncGenerateGrappaRaw(context, request, cq));
     }
+    // 生成 scinfo 
+    virtual ::grpc::Status UploadScinfo(::grpc::ClientContext* context, const ::AppleRemoteAuth::scinfo& request, ::AppleRemoteAuth::rsscinfo* response) = 0;
+    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::AppleRemoteAuth::rsscinfo>> AsyncUploadScinfo(::grpc::ClientContext* context, const ::AppleRemoteAuth::scinfo& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::AppleRemoteAuth::rsscinfo>>(AsyncUploadScinfoRaw(context, request, cq));
+    }
+    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::AppleRemoteAuth::rsscinfo>> PrepareAsyncUploadScinfo(::grpc::ClientContext* context, const ::AppleRemoteAuth::scinfo& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::AppleRemoteAuth::rsscinfo>>(PrepareAsyncUploadScinfoRaw(context, request, cq));
+    }
     class async_interface {
      public:
       virtual ~async_interface() {}
@@ -76,6 +84,9 @@ class aid final {
       // 生成 Grappa 信息
       virtual void GenerateGrappa(::grpc::ClientContext* context, const ::AppleRemoteAuth::rqGeneGrappa* request, ::AppleRemoteAuth::Grappa* response, std::function<void(::grpc::Status)>) = 0;
       virtual void GenerateGrappa(::grpc::ClientContext* context, const ::AppleRemoteAuth::rqGeneGrappa* request, ::AppleRemoteAuth::Grappa* response, ::grpc::ClientUnaryReactor* reactor) = 0;
+      // 生成 scinfo 
+      virtual void UploadScinfo(::grpc::ClientContext* context, const ::AppleRemoteAuth::scinfo* request, ::AppleRemoteAuth::rsscinfo* response, std::function<void(::grpc::Status)>) = 0;
+      virtual void UploadScinfo(::grpc::ClientContext* context, const ::AppleRemoteAuth::scinfo* request, ::AppleRemoteAuth::rsscinfo* response, ::grpc::ClientUnaryReactor* reactor) = 0;
     };
     typedef class async_interface experimental_async_interface;
     virtual class async_interface* async() { return nullptr; }
@@ -85,6 +96,8 @@ class aid final {
     virtual ::grpc::ClientAsyncResponseReaderInterface< ::AppleRemoteAuth::rsdata>* PrepareAsyncGenerateRSRaw(::grpc::ClientContext* context, const ::AppleRemoteAuth::RemoteDeviceInfo& request, ::grpc::CompletionQueue* cq) = 0;
     virtual ::grpc::ClientAsyncResponseReaderInterface< ::AppleRemoteAuth::Grappa>* AsyncGenerateGrappaRaw(::grpc::ClientContext* context, const ::AppleRemoteAuth::rqGeneGrappa& request, ::grpc::CompletionQueue* cq) = 0;
     virtual ::grpc::ClientAsyncResponseReaderInterface< ::AppleRemoteAuth::Grappa>* PrepareAsyncGenerateGrappaRaw(::grpc::ClientContext* context, const ::AppleRemoteAuth::rqGeneGrappa& request, ::grpc::CompletionQueue* cq) = 0;
+    virtual ::grpc::ClientAsyncResponseReaderInterface< ::AppleRemoteAuth::rsscinfo>* AsyncUploadScinfoRaw(::grpc::ClientContext* context, const ::AppleRemoteAuth::scinfo& request, ::grpc::CompletionQueue* cq) = 0;
+    virtual ::grpc::ClientAsyncResponseReaderInterface< ::AppleRemoteAuth::rsscinfo>* PrepareAsyncUploadScinfoRaw(::grpc::ClientContext* context, const ::AppleRemoteAuth::scinfo& request, ::grpc::CompletionQueue* cq) = 0;
   };
   class Stub final : public StubInterface {
    public:
@@ -103,6 +116,13 @@ class aid final {
     std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::AppleRemoteAuth::Grappa>> PrepareAsyncGenerateGrappa(::grpc::ClientContext* context, const ::AppleRemoteAuth::rqGeneGrappa& request, ::grpc::CompletionQueue* cq) {
       return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::AppleRemoteAuth::Grappa>>(PrepareAsyncGenerateGrappaRaw(context, request, cq));
     }
+    ::grpc::Status UploadScinfo(::grpc::ClientContext* context, const ::AppleRemoteAuth::scinfo& request, ::AppleRemoteAuth::rsscinfo* response) override;
+    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::AppleRemoteAuth::rsscinfo>> AsyncUploadScinfo(::grpc::ClientContext* context, const ::AppleRemoteAuth::scinfo& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::AppleRemoteAuth::rsscinfo>>(AsyncUploadScinfoRaw(context, request, cq));
+    }
+    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::AppleRemoteAuth::rsscinfo>> PrepareAsyncUploadScinfo(::grpc::ClientContext* context, const ::AppleRemoteAuth::scinfo& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::AppleRemoteAuth::rsscinfo>>(PrepareAsyncUploadScinfoRaw(context, request, cq));
+    }
     class async final :
       public StubInterface::async_interface {
      public:
@@ -110,6 +130,8 @@ class aid final {
       void GenerateRS(::grpc::ClientContext* context, const ::AppleRemoteAuth::RemoteDeviceInfo* request, ::AppleRemoteAuth::rsdata* response, ::grpc::ClientUnaryReactor* reactor) override;
       void GenerateGrappa(::grpc::ClientContext* context, const ::AppleRemoteAuth::rqGeneGrappa* request, ::AppleRemoteAuth::Grappa* response, std::function<void(::grpc::Status)>) override;
       void GenerateGrappa(::grpc::ClientContext* context, const ::AppleRemoteAuth::rqGeneGrappa* request, ::AppleRemoteAuth::Grappa* response, ::grpc::ClientUnaryReactor* reactor) override;
+      void UploadScinfo(::grpc::ClientContext* context, const ::AppleRemoteAuth::scinfo* request, ::AppleRemoteAuth::rsscinfo* response, std::function<void(::grpc::Status)>) override;
+      void UploadScinfo(::grpc::ClientContext* context, const ::AppleRemoteAuth::scinfo* request, ::AppleRemoteAuth::rsscinfo* response, ::grpc::ClientUnaryReactor* reactor) override;
      private:
       friend class Stub;
       explicit async(Stub* stub): stub_(stub) { }
@@ -125,8 +147,11 @@ class aid final {
     ::grpc::ClientAsyncResponseReader< ::AppleRemoteAuth::rsdata>* PrepareAsyncGenerateRSRaw(::grpc::ClientContext* context, const ::AppleRemoteAuth::RemoteDeviceInfo& request, ::grpc::CompletionQueue* cq) override;
     ::grpc::ClientAsyncResponseReader< ::AppleRemoteAuth::Grappa>* AsyncGenerateGrappaRaw(::grpc::ClientContext* context, const ::AppleRemoteAuth::rqGeneGrappa& request, ::grpc::CompletionQueue* cq) override;
     ::grpc::ClientAsyncResponseReader< ::AppleRemoteAuth::Grappa>* PrepareAsyncGenerateGrappaRaw(::grpc::ClientContext* context, const ::AppleRemoteAuth::rqGeneGrappa& request, ::grpc::CompletionQueue* cq) override;
+    ::grpc::ClientAsyncResponseReader< ::AppleRemoteAuth::rsscinfo>* AsyncUploadScinfoRaw(::grpc::ClientContext* context, const ::AppleRemoteAuth::scinfo& request, ::grpc::CompletionQueue* cq) override;
+    ::grpc::ClientAsyncResponseReader< ::AppleRemoteAuth::rsscinfo>* PrepareAsyncUploadScinfoRaw(::grpc::ClientContext* context, const ::AppleRemoteAuth::scinfo& request, ::grpc::CompletionQueue* cq) override;
     const ::grpc::internal::RpcMethod rpcmethod_GenerateRS_;
     const ::grpc::internal::RpcMethod rpcmethod_GenerateGrappa_;
+    const ::grpc::internal::RpcMethod rpcmethod_UploadScinfo_;
   };
   static std::unique_ptr<Stub> NewStub(const std::shared_ptr< ::grpc::ChannelInterface>& channel, const ::grpc::StubOptions& options = ::grpc::StubOptions());
 
@@ -138,6 +163,8 @@ class aid final {
     virtual ::grpc::Status GenerateRS(::grpc::ServerContext* context, const ::AppleRemoteAuth::RemoteDeviceInfo* request, ::AppleRemoteAuth::rsdata* response);
     // 生成 Grappa 信息
     virtual ::grpc::Status GenerateGrappa(::grpc::ServerContext* context, const ::AppleRemoteAuth::rqGeneGrappa* request, ::AppleRemoteAuth::Grappa* response);
+    // 生成 scinfo 
+    virtual ::grpc::Status UploadScinfo(::grpc::ServerContext* context, const ::AppleRemoteAuth::scinfo* request, ::AppleRemoteAuth::rsscinfo* response);
   };
   template <class BaseClass>
   class WithAsyncMethod_GenerateRS : public BaseClass {
@@ -179,7 +206,27 @@ class aid final {
       ::grpc::Service::RequestAsyncUnary(1, context, request, response, new_call_cq, notification_cq, tag);
     }
   };
-  typedef WithAsyncMethod_GenerateRS<WithAsyncMethod_GenerateGrappa<Service > > AsyncService;
+  template <class BaseClass>
+  class WithAsyncMethod_UploadScinfo : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+   public:
+    WithAsyncMethod_UploadScinfo() {
+      ::grpc::Service::MarkMethodAsync(2);
+    }
+    ~WithAsyncMethod_UploadScinfo() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status UploadScinfo(::grpc::ServerContext* /*context*/, const ::AppleRemoteAuth::scinfo* /*request*/, ::AppleRemoteAuth::rsscinfo* /*response*/) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    void RequestUploadScinfo(::grpc::ServerContext* context, ::AppleRemoteAuth::scinfo* request, ::grpc::ServerAsyncResponseWriter< ::AppleRemoteAuth::rsscinfo>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
+      ::grpc::Service::RequestAsyncUnary(2, context, request, response, new_call_cq, notification_cq, tag);
+    }
+  };
+  typedef WithAsyncMethod_GenerateRS<WithAsyncMethod_GenerateGrappa<WithAsyncMethod_UploadScinfo<Service > > > AsyncService;
   template <class BaseClass>
   class WithCallbackMethod_GenerateRS : public BaseClass {
    private:
@@ -234,7 +281,34 @@ class aid final {
     virtual ::grpc::ServerUnaryReactor* GenerateGrappa(
       ::grpc::CallbackServerContext* /*context*/, const ::AppleRemoteAuth::rqGeneGrappa* /*request*/, ::AppleRemoteAuth::Grappa* /*response*/)  { return nullptr; }
   };
-  typedef WithCallbackMethod_GenerateRS<WithCallbackMethod_GenerateGrappa<Service > > CallbackService;
+  template <class BaseClass>
+  class WithCallbackMethod_UploadScinfo : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+   public:
+    WithCallbackMethod_UploadScinfo() {
+      ::grpc::Service::MarkMethodCallback(2,
+          new ::grpc::internal::CallbackUnaryHandler< ::AppleRemoteAuth::scinfo, ::AppleRemoteAuth::rsscinfo>(
+            [this](
+                   ::grpc::CallbackServerContext* context, const ::AppleRemoteAuth::scinfo* request, ::AppleRemoteAuth::rsscinfo* response) { return this->UploadScinfo(context, request, response); }));}
+    void SetMessageAllocatorFor_UploadScinfo(
+        ::grpc::MessageAllocator< ::AppleRemoteAuth::scinfo, ::AppleRemoteAuth::rsscinfo>* allocator) {
+      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::GetHandler(2);
+      static_cast<::grpc::internal::CallbackUnaryHandler< ::AppleRemoteAuth::scinfo, ::AppleRemoteAuth::rsscinfo>*>(handler)
+              ->SetMessageAllocator(allocator);
+    }
+    ~WithCallbackMethod_UploadScinfo() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status UploadScinfo(::grpc::ServerContext* /*context*/, const ::AppleRemoteAuth::scinfo* /*request*/, ::AppleRemoteAuth::rsscinfo* /*response*/) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    virtual ::grpc::ServerUnaryReactor* UploadScinfo(
+      ::grpc::CallbackServerContext* /*context*/, const ::AppleRemoteAuth::scinfo* /*request*/, ::AppleRemoteAuth::rsscinfo* /*response*/)  { return nullptr; }
+  };
+  typedef WithCallbackMethod_GenerateRS<WithCallbackMethod_GenerateGrappa<WithCallbackMethod_UploadScinfo<Service > > > CallbackService;
   typedef CallbackService ExperimentalCallbackService;
   template <class BaseClass>
   class WithGenericMethod_GenerateRS : public BaseClass {
@@ -266,6 +340,23 @@ class aid final {
     }
     // disable synchronous version of this method
     ::grpc::Status GenerateGrappa(::grpc::ServerContext* /*context*/, const ::AppleRemoteAuth::rqGeneGrappa* /*request*/, ::AppleRemoteAuth::Grappa* /*response*/) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+  };
+  template <class BaseClass>
+  class WithGenericMethod_UploadScinfo : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+   public:
+    WithGenericMethod_UploadScinfo() {
+      ::grpc::Service::MarkMethodGeneric(2);
+    }
+    ~WithGenericMethod_UploadScinfo() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status UploadScinfo(::grpc::ServerContext* /*context*/, const ::AppleRemoteAuth::scinfo* /*request*/, ::AppleRemoteAuth::rsscinfo* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
@@ -311,6 +402,26 @@ class aid final {
     }
   };
   template <class BaseClass>
+  class WithRawMethod_UploadScinfo : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+   public:
+    WithRawMethod_UploadScinfo() {
+      ::grpc::Service::MarkMethodRaw(2);
+    }
+    ~WithRawMethod_UploadScinfo() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status UploadScinfo(::grpc::ServerContext* /*context*/, const ::AppleRemoteAuth::scinfo* /*request*/, ::AppleRemoteAuth::rsscinfo* /*response*/) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    void RequestUploadScinfo(::grpc::ServerContext* context, ::grpc::ByteBuffer* request, ::grpc::ServerAsyncResponseWriter< ::grpc::ByteBuffer>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
+      ::grpc::Service::RequestAsyncUnary(2, context, request, response, new_call_cq, notification_cq, tag);
+    }
+  };
+  template <class BaseClass>
   class WithRawCallbackMethod_GenerateRS : public BaseClass {
    private:
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
@@ -352,6 +463,28 @@ class aid final {
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
     virtual ::grpc::ServerUnaryReactor* GenerateGrappa(
+      ::grpc::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/, ::grpc::ByteBuffer* /*response*/)  { return nullptr; }
+  };
+  template <class BaseClass>
+  class WithRawCallbackMethod_UploadScinfo : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+   public:
+    WithRawCallbackMethod_UploadScinfo() {
+      ::grpc::Service::MarkMethodRawCallback(2,
+          new ::grpc::internal::CallbackUnaryHandler< ::grpc::ByteBuffer, ::grpc::ByteBuffer>(
+            [this](
+                   ::grpc::CallbackServerContext* context, const ::grpc::ByteBuffer* request, ::grpc::ByteBuffer* response) { return this->UploadScinfo(context, request, response); }));
+    }
+    ~WithRawCallbackMethod_UploadScinfo() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status UploadScinfo(::grpc::ServerContext* /*context*/, const ::AppleRemoteAuth::scinfo* /*request*/, ::AppleRemoteAuth::rsscinfo* /*response*/) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    virtual ::grpc::ServerUnaryReactor* UploadScinfo(
       ::grpc::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/, ::grpc::ByteBuffer* /*response*/)  { return nullptr; }
   };
   template <class BaseClass>
@@ -408,9 +541,36 @@ class aid final {
     // replace default version of method with streamed unary
     virtual ::grpc::Status StreamedGenerateGrappa(::grpc::ServerContext* context, ::grpc::ServerUnaryStreamer< ::AppleRemoteAuth::rqGeneGrappa,::AppleRemoteAuth::Grappa>* server_unary_streamer) = 0;
   };
-  typedef WithStreamedUnaryMethod_GenerateRS<WithStreamedUnaryMethod_GenerateGrappa<Service > > StreamedUnaryService;
+  template <class BaseClass>
+  class WithStreamedUnaryMethod_UploadScinfo : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+   public:
+    WithStreamedUnaryMethod_UploadScinfo() {
+      ::grpc::Service::MarkMethodStreamed(2,
+        new ::grpc::internal::StreamedUnaryHandler<
+          ::AppleRemoteAuth::scinfo, ::AppleRemoteAuth::rsscinfo>(
+            [this](::grpc::ServerContext* context,
+                   ::grpc::ServerUnaryStreamer<
+                     ::AppleRemoteAuth::scinfo, ::AppleRemoteAuth::rsscinfo>* streamer) {
+                       return this->StreamedUploadScinfo(context,
+                         streamer);
+                  }));
+    }
+    ~WithStreamedUnaryMethod_UploadScinfo() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable regular version of this method
+    ::grpc::Status UploadScinfo(::grpc::ServerContext* /*context*/, const ::AppleRemoteAuth::scinfo* /*request*/, ::AppleRemoteAuth::rsscinfo* /*response*/) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    // replace default version of method with streamed unary
+    virtual ::grpc::Status StreamedUploadScinfo(::grpc::ServerContext* context, ::grpc::ServerUnaryStreamer< ::AppleRemoteAuth::scinfo,::AppleRemoteAuth::rsscinfo>* server_unary_streamer) = 0;
+  };
+  typedef WithStreamedUnaryMethod_GenerateRS<WithStreamedUnaryMethod_GenerateGrappa<WithStreamedUnaryMethod_UploadScinfo<Service > > > StreamedUnaryService;
   typedef Service SplitStreamedService;
-  typedef WithStreamedUnaryMethod_GenerateRS<WithStreamedUnaryMethod_GenerateGrappa<Service > > StreamedService;
+  typedef WithStreamedUnaryMethod_GenerateRS<WithStreamedUnaryMethod_GenerateGrappa<WithStreamedUnaryMethod_UploadScinfo<Service > > > StreamedService;
 };
 
 }  // namespace AppleRemoteAuth

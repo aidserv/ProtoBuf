@@ -57,12 +57,20 @@ extern rqGeneGrappaDefaultTypeInternal _rqGeneGrappa_default_instance_;
 class rsdata;
 struct rsdataDefaultTypeInternal;
 extern rsdataDefaultTypeInternal _rsdata_default_instance_;
+class rsscinfo;
+struct rsscinfoDefaultTypeInternal;
+extern rsscinfoDefaultTypeInternal _rsscinfo_default_instance_;
+class scinfo;
+struct scinfoDefaultTypeInternal;
+extern scinfoDefaultTypeInternal _scinfo_default_instance_;
 }  // namespace AppleRemoteAuth
 PROTOBUF_NAMESPACE_OPEN
 template<> ::AppleRemoteAuth::Grappa* Arena::CreateMaybeMessage<::AppleRemoteAuth::Grappa>(Arena*);
 template<> ::AppleRemoteAuth::RemoteDeviceInfo* Arena::CreateMaybeMessage<::AppleRemoteAuth::RemoteDeviceInfo>(Arena*);
 template<> ::AppleRemoteAuth::rqGeneGrappa* Arena::CreateMaybeMessage<::AppleRemoteAuth::rqGeneGrappa>(Arena*);
 template<> ::AppleRemoteAuth::rsdata* Arena::CreateMaybeMessage<::AppleRemoteAuth::rsdata>(Arena*);
+template<> ::AppleRemoteAuth::rsscinfo* Arena::CreateMaybeMessage<::AppleRemoteAuth::rsscinfo>(Arena*);
+template<> ::AppleRemoteAuth::scinfo* Arena::CreateMaybeMessage<::AppleRemoteAuth::scinfo>(Arena*);
 PROTOBUF_NAMESPACE_CLOSE
 namespace AppleRemoteAuth {
 
@@ -195,6 +203,7 @@ class RemoteDeviceInfo final :
     kFairPlayGuidFieldNumber = 8,
     kGrappaFieldNumber = 9,
     kFairDeviceTypeFieldNumber = 6,
+    kDsidFieldNumber = 10,
     kGrappaSessionIdFieldNumber = 3,
   };
   // bytes rq_data = 1;
@@ -280,6 +289,19 @@ class RemoteDeviceInfo final :
   void _internal_set_fair_device_type(int64_t value);
   public:
 
+  // optional int64 dsid = 10;
+  bool has_dsid() const;
+  private:
+  bool _internal_has_dsid() const;
+  public:
+  void clear_dsid();
+  int64_t dsid() const;
+  void set_dsid(int64_t value);
+  private:
+  int64_t _internal_dsid() const;
+  void _internal_set_dsid(int64_t value);
+  public:
+
   // uint32 grappa_session_id = 3;
   void clear_grappa_session_id();
   uint32_t grappa_session_id() const;
@@ -305,6 +327,7 @@ class RemoteDeviceInfo final :
     ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr fair_play_guid_;
     ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr grappa_;
     int64_t fair_device_type_;
+    int64_t dsid_;
     uint32_t grappa_session_id_;
   };
   union { Impl_ _impl_; };
@@ -823,6 +846,355 @@ class rqGeneGrappa final :
   union { Impl_ _impl_; };
   friend struct ::TableStruct_GenerateRS_2eproto;
 };
+// -------------------------------------------------------------------
+
+class scinfo final :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:AppleRemoteAuth.scinfo) */ {
+ public:
+  inline scinfo() : scinfo(nullptr) {}
+  ~scinfo() override;
+  explicit PROTOBUF_CONSTEXPR scinfo(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+
+  scinfo(const scinfo& from);
+  scinfo(scinfo&& from) noexcept
+    : scinfo() {
+    *this = ::std::move(from);
+  }
+
+  inline scinfo& operator=(const scinfo& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline scinfo& operator=(scinfo&& from) noexcept {
+    if (this == &from) return *this;
+    if (GetOwningArena() == from.GetOwningArena()
+  #ifdef PROTOBUF_FORCE_COPY_IN_MOVE
+        && GetOwningArena() != nullptr
+  #endif  // !PROTOBUF_FORCE_COPY_IN_MOVE
+    ) {
+      InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return default_instance().GetMetadata().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return default_instance().GetMetadata().reflection;
+  }
+  static const scinfo& default_instance() {
+    return *internal_default_instance();
+  }
+  static inline const scinfo* internal_default_instance() {
+    return reinterpret_cast<const scinfo*>(
+               &_scinfo_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    4;
+
+  friend void swap(scinfo& a, scinfo& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(scinfo* other) {
+    if (other == this) return;
+  #ifdef PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() != nullptr &&
+        GetOwningArena() == other->GetOwningArena()) {
+   #else  // PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() == other->GetOwningArena()) {
+  #endif  // !PROTOBUF_FORCE_COPY_IN_SWAP
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(scinfo* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetOwningArena() == other->GetOwningArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  scinfo* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
+    return CreateMaybeMessage<scinfo>(arena);
+  }
+  using ::PROTOBUF_NAMESPACE_ID::Message::CopyFrom;
+  void CopyFrom(const scinfo& from);
+  using ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom;
+  void MergeFrom( const scinfo& from) {
+    scinfo::MergeImpl(*this, from);
+  }
+  private:
+  static void MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg);
+  public:
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  uint8_t* _InternalSerialize(
+      uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _impl_._cached_size_.Get(); }
+
+  private:
+  void SharedCtor(::PROTOBUF_NAMESPACE_ID::Arena* arena, bool is_message_owned);
+  void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(scinfo* other);
+
+  private:
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "AppleRemoteAuth.scinfo";
+  }
+  protected:
+  explicit scinfo(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                       bool is_message_owned = false);
+  public:
+
+  static const ClassData _class_data_;
+  const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*GetClassData() const final;
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kSidbFieldNumber = 1,
+    kSiddFieldNumber = 2,
+    kTxtFieldNumber = 3,
+    kHardwareInfoFieldNumber = 4,
+  };
+  // bytes sidb = 1;
+  void clear_sidb();
+  const std::string& sidb() const;
+  template <typename ArgT0 = const std::string&, typename... ArgT>
+  void set_sidb(ArgT0&& arg0, ArgT... args);
+  std::string* mutable_sidb();
+  PROTOBUF_NODISCARD std::string* release_sidb();
+  void set_allocated_sidb(std::string* sidb);
+  private:
+  const std::string& _internal_sidb() const;
+  inline PROTOBUF_ALWAYS_INLINE void _internal_set_sidb(const std::string& value);
+  std::string* _internal_mutable_sidb();
+  public:
+
+  // bytes sidd = 2;
+  void clear_sidd();
+  const std::string& sidd() const;
+  template <typename ArgT0 = const std::string&, typename... ArgT>
+  void set_sidd(ArgT0&& arg0, ArgT... args);
+  std::string* mutable_sidd();
+  PROTOBUF_NODISCARD std::string* release_sidd();
+  void set_allocated_sidd(std::string* sidd);
+  private:
+  const std::string& _internal_sidd() const;
+  inline PROTOBUF_ALWAYS_INLINE void _internal_set_sidd(const std::string& value);
+  std::string* _internal_mutable_sidd();
+  public:
+
+  // bytes txt = 3;
+  void clear_txt();
+  const std::string& txt() const;
+  template <typename ArgT0 = const std::string&, typename... ArgT>
+  void set_txt(ArgT0&& arg0, ArgT... args);
+  std::string* mutable_txt();
+  PROTOBUF_NODISCARD std::string* release_txt();
+  void set_allocated_txt(std::string* txt);
+  private:
+  const std::string& _internal_txt() const;
+  inline PROTOBUF_ALWAYS_INLINE void _internal_set_txt(const std::string& value);
+  std::string* _internal_mutable_txt();
+  public:
+
+  // bytes hardwareInfo = 4;
+  void clear_hardwareinfo();
+  const std::string& hardwareinfo() const;
+  template <typename ArgT0 = const std::string&, typename... ArgT>
+  void set_hardwareinfo(ArgT0&& arg0, ArgT... args);
+  std::string* mutable_hardwareinfo();
+  PROTOBUF_NODISCARD std::string* release_hardwareinfo();
+  void set_allocated_hardwareinfo(std::string* hardwareinfo);
+  private:
+  const std::string& _internal_hardwareinfo() const;
+  inline PROTOBUF_ALWAYS_INLINE void _internal_set_hardwareinfo(const std::string& value);
+  std::string* _internal_mutable_hardwareinfo();
+  public:
+
+  // @@protoc_insertion_point(class_scope:AppleRemoteAuth.scinfo)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  struct Impl_ {
+    ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr sidb_;
+    ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr sidd_;
+    ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr txt_;
+    ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr hardwareinfo_;
+    mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+  };
+  union { Impl_ _impl_; };
+  friend struct ::TableStruct_GenerateRS_2eproto;
+};
+// -------------------------------------------------------------------
+
+class rsscinfo final :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:AppleRemoteAuth.rsscinfo) */ {
+ public:
+  inline rsscinfo() : rsscinfo(nullptr) {}
+  ~rsscinfo() override;
+  explicit PROTOBUF_CONSTEXPR rsscinfo(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+
+  rsscinfo(const rsscinfo& from);
+  rsscinfo(rsscinfo&& from) noexcept
+    : rsscinfo() {
+    *this = ::std::move(from);
+  }
+
+  inline rsscinfo& operator=(const rsscinfo& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline rsscinfo& operator=(rsscinfo&& from) noexcept {
+    if (this == &from) return *this;
+    if (GetOwningArena() == from.GetOwningArena()
+  #ifdef PROTOBUF_FORCE_COPY_IN_MOVE
+        && GetOwningArena() != nullptr
+  #endif  // !PROTOBUF_FORCE_COPY_IN_MOVE
+    ) {
+      InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return default_instance().GetMetadata().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return default_instance().GetMetadata().reflection;
+  }
+  static const rsscinfo& default_instance() {
+    return *internal_default_instance();
+  }
+  static inline const rsscinfo* internal_default_instance() {
+    return reinterpret_cast<const rsscinfo*>(
+               &_rsscinfo_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    5;
+
+  friend void swap(rsscinfo& a, rsscinfo& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(rsscinfo* other) {
+    if (other == this) return;
+  #ifdef PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() != nullptr &&
+        GetOwningArena() == other->GetOwningArena()) {
+   #else  // PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() == other->GetOwningArena()) {
+  #endif  // !PROTOBUF_FORCE_COPY_IN_SWAP
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(rsscinfo* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetOwningArena() == other->GetOwningArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  rsscinfo* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
+    return CreateMaybeMessage<rsscinfo>(arena);
+  }
+  using ::PROTOBUF_NAMESPACE_ID::Message::CopyFrom;
+  void CopyFrom(const rsscinfo& from);
+  using ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom;
+  void MergeFrom( const rsscinfo& from) {
+    rsscinfo::MergeImpl(*this, from);
+  }
+  private:
+  static void MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg);
+  public:
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  uint8_t* _InternalSerialize(
+      uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _impl_._cached_size_.Get(); }
+
+  private:
+  void SharedCtor(::PROTOBUF_NAMESPACE_ID::Arena* arena, bool is_message_owned);
+  void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(rsscinfo* other);
+
+  private:
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "AppleRemoteAuth.rsscinfo";
+  }
+  protected:
+  explicit rsscinfo(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                       bool is_message_owned = false);
+  public:
+
+  static const ClassData _class_data_;
+  const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*GetClassData() const final;
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kRetFieldNumber = 1,
+  };
+  // bool ret = 1;
+  void clear_ret();
+  bool ret() const;
+  void set_ret(bool value);
+  private:
+  bool _internal_ret() const;
+  void _internal_set_ret(bool value);
+  public:
+
+  // @@protoc_insertion_point(class_scope:AppleRemoteAuth.rsscinfo)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  struct Impl_ {
+    bool ret_;
+    mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+  };
+  union { Impl_ _impl_; };
+  friend struct ::TableStruct_GenerateRS_2eproto;
+};
 // ===================================================================
 
 
@@ -1142,6 +1514,34 @@ inline void RemoteDeviceInfo::set_allocated_grappa(std::string* grappa) {
   // @@protoc_insertion_point(field_set_allocated:AppleRemoteAuth.RemoteDeviceInfo.grappa)
 }
 
+// optional int64 dsid = 10;
+inline bool RemoteDeviceInfo::_internal_has_dsid() const {
+  bool value = (_impl_._has_bits_[0] & 0x00000002u) != 0;
+  return value;
+}
+inline bool RemoteDeviceInfo::has_dsid() const {
+  return _internal_has_dsid();
+}
+inline void RemoteDeviceInfo::clear_dsid() {
+  _impl_.dsid_ = int64_t{0};
+  _impl_._has_bits_[0] &= ~0x00000002u;
+}
+inline int64_t RemoteDeviceInfo::_internal_dsid() const {
+  return _impl_.dsid_;
+}
+inline int64_t RemoteDeviceInfo::dsid() const {
+  // @@protoc_insertion_point(field_get:AppleRemoteAuth.RemoteDeviceInfo.dsid)
+  return _internal_dsid();
+}
+inline void RemoteDeviceInfo::_internal_set_dsid(int64_t value) {
+  _impl_._has_bits_[0] |= 0x00000002u;
+  _impl_.dsid_ = value;
+}
+inline void RemoteDeviceInfo::set_dsid(int64_t value) {
+  _internal_set_dsid(value);
+  // @@protoc_insertion_point(field_set:AppleRemoteAuth.RemoteDeviceInfo.dsid)
+}
+
 // -------------------------------------------------------------------
 
 // rsdata
@@ -1432,9 +1832,241 @@ inline void rqGeneGrappa::set_allocated_udid(std::string* udid) {
   // @@protoc_insertion_point(field_set_allocated:AppleRemoteAuth.rqGeneGrappa.udid)
 }
 
+// -------------------------------------------------------------------
+
+// scinfo
+
+// bytes sidb = 1;
+inline void scinfo::clear_sidb() {
+  _impl_.sidb_.ClearToEmpty();
+}
+inline const std::string& scinfo::sidb() const {
+  // @@protoc_insertion_point(field_get:AppleRemoteAuth.scinfo.sidb)
+  return _internal_sidb();
+}
+template <typename ArgT0, typename... ArgT>
+inline PROTOBUF_ALWAYS_INLINE
+void scinfo::set_sidb(ArgT0&& arg0, ArgT... args) {
+ 
+ _impl_.sidb_.SetBytes(static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
+  // @@protoc_insertion_point(field_set:AppleRemoteAuth.scinfo.sidb)
+}
+inline std::string* scinfo::mutable_sidb() {
+  std::string* _s = _internal_mutable_sidb();
+  // @@protoc_insertion_point(field_mutable:AppleRemoteAuth.scinfo.sidb)
+  return _s;
+}
+inline const std::string& scinfo::_internal_sidb() const {
+  return _impl_.sidb_.Get();
+}
+inline void scinfo::_internal_set_sidb(const std::string& value) {
+  
+  _impl_.sidb_.Set(value, GetArenaForAllocation());
+}
+inline std::string* scinfo::_internal_mutable_sidb() {
+  
+  return _impl_.sidb_.Mutable(GetArenaForAllocation());
+}
+inline std::string* scinfo::release_sidb() {
+  // @@protoc_insertion_point(field_release:AppleRemoteAuth.scinfo.sidb)
+  return _impl_.sidb_.Release();
+}
+inline void scinfo::set_allocated_sidb(std::string* sidb) {
+  if (sidb != nullptr) {
+    
+  } else {
+    
+  }
+  _impl_.sidb_.SetAllocated(sidb, GetArenaForAllocation());
+#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  if (_impl_.sidb_.IsDefault()) {
+    _impl_.sidb_.Set("", GetArenaForAllocation());
+  }
+#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  // @@protoc_insertion_point(field_set_allocated:AppleRemoteAuth.scinfo.sidb)
+}
+
+// bytes sidd = 2;
+inline void scinfo::clear_sidd() {
+  _impl_.sidd_.ClearToEmpty();
+}
+inline const std::string& scinfo::sidd() const {
+  // @@protoc_insertion_point(field_get:AppleRemoteAuth.scinfo.sidd)
+  return _internal_sidd();
+}
+template <typename ArgT0, typename... ArgT>
+inline PROTOBUF_ALWAYS_INLINE
+void scinfo::set_sidd(ArgT0&& arg0, ArgT... args) {
+ 
+ _impl_.sidd_.SetBytes(static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
+  // @@protoc_insertion_point(field_set:AppleRemoteAuth.scinfo.sidd)
+}
+inline std::string* scinfo::mutable_sidd() {
+  std::string* _s = _internal_mutable_sidd();
+  // @@protoc_insertion_point(field_mutable:AppleRemoteAuth.scinfo.sidd)
+  return _s;
+}
+inline const std::string& scinfo::_internal_sidd() const {
+  return _impl_.sidd_.Get();
+}
+inline void scinfo::_internal_set_sidd(const std::string& value) {
+  
+  _impl_.sidd_.Set(value, GetArenaForAllocation());
+}
+inline std::string* scinfo::_internal_mutable_sidd() {
+  
+  return _impl_.sidd_.Mutable(GetArenaForAllocation());
+}
+inline std::string* scinfo::release_sidd() {
+  // @@protoc_insertion_point(field_release:AppleRemoteAuth.scinfo.sidd)
+  return _impl_.sidd_.Release();
+}
+inline void scinfo::set_allocated_sidd(std::string* sidd) {
+  if (sidd != nullptr) {
+    
+  } else {
+    
+  }
+  _impl_.sidd_.SetAllocated(sidd, GetArenaForAllocation());
+#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  if (_impl_.sidd_.IsDefault()) {
+    _impl_.sidd_.Set("", GetArenaForAllocation());
+  }
+#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  // @@protoc_insertion_point(field_set_allocated:AppleRemoteAuth.scinfo.sidd)
+}
+
+// bytes txt = 3;
+inline void scinfo::clear_txt() {
+  _impl_.txt_.ClearToEmpty();
+}
+inline const std::string& scinfo::txt() const {
+  // @@protoc_insertion_point(field_get:AppleRemoteAuth.scinfo.txt)
+  return _internal_txt();
+}
+template <typename ArgT0, typename... ArgT>
+inline PROTOBUF_ALWAYS_INLINE
+void scinfo::set_txt(ArgT0&& arg0, ArgT... args) {
+ 
+ _impl_.txt_.SetBytes(static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
+  // @@protoc_insertion_point(field_set:AppleRemoteAuth.scinfo.txt)
+}
+inline std::string* scinfo::mutable_txt() {
+  std::string* _s = _internal_mutable_txt();
+  // @@protoc_insertion_point(field_mutable:AppleRemoteAuth.scinfo.txt)
+  return _s;
+}
+inline const std::string& scinfo::_internal_txt() const {
+  return _impl_.txt_.Get();
+}
+inline void scinfo::_internal_set_txt(const std::string& value) {
+  
+  _impl_.txt_.Set(value, GetArenaForAllocation());
+}
+inline std::string* scinfo::_internal_mutable_txt() {
+  
+  return _impl_.txt_.Mutable(GetArenaForAllocation());
+}
+inline std::string* scinfo::release_txt() {
+  // @@protoc_insertion_point(field_release:AppleRemoteAuth.scinfo.txt)
+  return _impl_.txt_.Release();
+}
+inline void scinfo::set_allocated_txt(std::string* txt) {
+  if (txt != nullptr) {
+    
+  } else {
+    
+  }
+  _impl_.txt_.SetAllocated(txt, GetArenaForAllocation());
+#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  if (_impl_.txt_.IsDefault()) {
+    _impl_.txt_.Set("", GetArenaForAllocation());
+  }
+#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  // @@protoc_insertion_point(field_set_allocated:AppleRemoteAuth.scinfo.txt)
+}
+
+// bytes hardwareInfo = 4;
+inline void scinfo::clear_hardwareinfo() {
+  _impl_.hardwareinfo_.ClearToEmpty();
+}
+inline const std::string& scinfo::hardwareinfo() const {
+  // @@protoc_insertion_point(field_get:AppleRemoteAuth.scinfo.hardwareInfo)
+  return _internal_hardwareinfo();
+}
+template <typename ArgT0, typename... ArgT>
+inline PROTOBUF_ALWAYS_INLINE
+void scinfo::set_hardwareinfo(ArgT0&& arg0, ArgT... args) {
+ 
+ _impl_.hardwareinfo_.SetBytes(static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
+  // @@protoc_insertion_point(field_set:AppleRemoteAuth.scinfo.hardwareInfo)
+}
+inline std::string* scinfo::mutable_hardwareinfo() {
+  std::string* _s = _internal_mutable_hardwareinfo();
+  // @@protoc_insertion_point(field_mutable:AppleRemoteAuth.scinfo.hardwareInfo)
+  return _s;
+}
+inline const std::string& scinfo::_internal_hardwareinfo() const {
+  return _impl_.hardwareinfo_.Get();
+}
+inline void scinfo::_internal_set_hardwareinfo(const std::string& value) {
+  
+  _impl_.hardwareinfo_.Set(value, GetArenaForAllocation());
+}
+inline std::string* scinfo::_internal_mutable_hardwareinfo() {
+  
+  return _impl_.hardwareinfo_.Mutable(GetArenaForAllocation());
+}
+inline std::string* scinfo::release_hardwareinfo() {
+  // @@protoc_insertion_point(field_release:AppleRemoteAuth.scinfo.hardwareInfo)
+  return _impl_.hardwareinfo_.Release();
+}
+inline void scinfo::set_allocated_hardwareinfo(std::string* hardwareinfo) {
+  if (hardwareinfo != nullptr) {
+    
+  } else {
+    
+  }
+  _impl_.hardwareinfo_.SetAllocated(hardwareinfo, GetArenaForAllocation());
+#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  if (_impl_.hardwareinfo_.IsDefault()) {
+    _impl_.hardwareinfo_.Set("", GetArenaForAllocation());
+  }
+#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  // @@protoc_insertion_point(field_set_allocated:AppleRemoteAuth.scinfo.hardwareInfo)
+}
+
+// -------------------------------------------------------------------
+
+// rsscinfo
+
+// bool ret = 1;
+inline void rsscinfo::clear_ret() {
+  _impl_.ret_ = false;
+}
+inline bool rsscinfo::_internal_ret() const {
+  return _impl_.ret_;
+}
+inline bool rsscinfo::ret() const {
+  // @@protoc_insertion_point(field_get:AppleRemoteAuth.rsscinfo.ret)
+  return _internal_ret();
+}
+inline void rsscinfo::_internal_set_ret(bool value) {
+  
+  _impl_.ret_ = value;
+}
+inline void rsscinfo::set_ret(bool value) {
+  _internal_set_ret(value);
+  // @@protoc_insertion_point(field_set:AppleRemoteAuth.rsscinfo.ret)
+}
+
 #ifdef __GNUC__
   #pragma GCC diagnostic pop
 #endif  // __GNUC__
+// -------------------------------------------------------------------
+
+// -------------------------------------------------------------------
+
 // -------------------------------------------------------------------
 
 // -------------------------------------------------------------------

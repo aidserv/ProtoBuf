@@ -24,26 +24,33 @@ namespace AppleRemoteAuth {
     static GenerateRSReflection() {
       byte[] descriptorData = global::System.Convert.FromBase64String(
           string.Concat(
-            "ChBHZW5lcmF0ZVJTLnByb3RvEg9BcHBsZVJlbW90ZUF1dGgixAEKEFJlbW90",
+            "ChBHZW5lcmF0ZVJTLnByb3RvEg9BcHBsZVJlbW90ZUF1dGgi4AEKEFJlbW90",
             "ZURldmljZUluZm8SDwoHcnFfZGF0YRgBIAEoDBITCgtycV9zaWdfZGF0YRgC",
             "IAEoDBIZChFncmFwcGFfc2Vzc2lvbl9pZBgDIAEoDRIdChVmYWlyX3BsYXlf",
             "Y2VydGlmaWNhdGUYBSABKAwSGAoQZmFpcl9kZXZpY2VfdHlwZRgGIAEoAxIW",
-            "Cg5mYWlyX3BsYXlfZ3VpZBgIIAEoCRITCgZncmFwcGEYCSABKAxIAIgBAUIJ",
-            "CgdfZ3JhcHBhIlAKBnJzZGF0YRIPCgdyc19kYXRhGAEgASgMEgsKA3JldBgC",
-            "IAEoCBIYCgtyc19zaWdfZGF0YRgDIAEoDEgAiAEBQg4KDF9yc19zaWdfZGF0",
-            "YSJECgZHcmFwcGESEgoKZ3JhcHBhRGF0YRgBIAEoDBIZChFncmFwcGFfc2Vz",
-            "c2lvbl9pZBgCIAEoDRILCgNyZXQYAyABKAgiHAoMcnFHZW5lR3JhcHBhEgwK",
-            "BHVkaWQYASABKAkynQEKA2FpZBJKCgpHZW5lcmF0ZVJTEiEuQXBwbGVSZW1v",
-            "dGVBdXRoLlJlbW90ZURldmljZUluZm8aFy5BcHBsZVJlbW90ZUF1dGgucnNk",
-            "YXRhIgASSgoOR2VuZXJhdGVHcmFwcGESHS5BcHBsZVJlbW90ZUF1dGgucnFH",
-            "ZW5lR3JhcHBhGhcuQXBwbGVSZW1vdGVBdXRoLkdyYXBwYSIAYgZwcm90bzM="));
+            "Cg5mYWlyX3BsYXlfZ3VpZBgIIAEoCRITCgZncmFwcGEYCSABKAxIAIgBARIR",
+            "CgRkc2lkGAogASgDSAGIAQFCCQoHX2dyYXBwYUIHCgVfZHNpZCJQCgZyc2Rh",
+            "dGESDwoHcnNfZGF0YRgBIAEoDBILCgNyZXQYAiABKAgSGAoLcnNfc2lnX2Rh",
+            "dGEYAyABKAxIAIgBAUIOCgxfcnNfc2lnX2RhdGEiRAoGR3JhcHBhEhIKCmdy",
+            "YXBwYURhdGEYASABKAwSGQoRZ3JhcHBhX3Nlc3Npb25faWQYAiABKA0SCwoD",
+            "cmV0GAMgASgIIhwKDHJxR2VuZUdyYXBwYRIMCgR1ZGlkGAEgASgJIkcKBnNj",
+            "aW5mbxIMCgRzaWRiGAEgASgMEgwKBHNpZGQYAiABKAwSCwoDdHh0GAMgASgM",
+            "EhQKDGhhcmR3YXJlSW5mbxgEIAEoDCIXCghyc3NjaW5mbxILCgNyZXQYASAB",
+            "KAgy4wEKA2FpZBJKCgpHZW5lcmF0ZVJTEiEuQXBwbGVSZW1vdGVBdXRoLlJl",
+            "bW90ZURldmljZUluZm8aFy5BcHBsZVJlbW90ZUF1dGgucnNkYXRhIgASSgoO",
+            "R2VuZXJhdGVHcmFwcGESHS5BcHBsZVJlbW90ZUF1dGgucnFHZW5lR3JhcHBh",
+            "GhcuQXBwbGVSZW1vdGVBdXRoLkdyYXBwYSIAEkQKDFVwbG9hZFNjaW5mbxIX",
+            "LkFwcGxlUmVtb3RlQXV0aC5zY2luZm8aGS5BcHBsZVJlbW90ZUF1dGgucnNz",
+            "Y2luZm8iAGIGcHJvdG8z"));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { },
           new pbr::GeneratedClrTypeInfo(null, null, new pbr::GeneratedClrTypeInfo[] {
-            new pbr::GeneratedClrTypeInfo(typeof(global::AppleRemoteAuth.RemoteDeviceInfo), global::AppleRemoteAuth.RemoteDeviceInfo.Parser, new[]{ "RqData", "RqSigData", "GrappaSessionId", "FairPlayCertificate", "FairDeviceType", "FairPlayGuid", "Grappa" }, new[]{ "Grappa" }, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::AppleRemoteAuth.RemoteDeviceInfo), global::AppleRemoteAuth.RemoteDeviceInfo.Parser, new[]{ "RqData", "RqSigData", "GrappaSessionId", "FairPlayCertificate", "FairDeviceType", "FairPlayGuid", "Grappa", "Dsid" }, new[]{ "Grappa", "Dsid" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::AppleRemoteAuth.rsdata), global::AppleRemoteAuth.rsdata.Parser, new[]{ "RsData", "Ret", "RsSigData" }, new[]{ "RsSigData" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::AppleRemoteAuth.Grappa), global::AppleRemoteAuth.Grappa.Parser, new[]{ "GrappaData", "GrappaSessionId", "Ret" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::AppleRemoteAuth.rqGeneGrappa), global::AppleRemoteAuth.rqGeneGrappa.Parser, new[]{ "Udid" }, null, null, null, null)
+            new pbr::GeneratedClrTypeInfo(typeof(global::AppleRemoteAuth.rqGeneGrappa), global::AppleRemoteAuth.rqGeneGrappa.Parser, new[]{ "Udid" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::AppleRemoteAuth.scinfo), global::AppleRemoteAuth.scinfo.Parser, new[]{ "Sidb", "Sidd", "Txt", "HardwareInfo" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::AppleRemoteAuth.rsscinfo), global::AppleRemoteAuth.rsscinfo.Parser, new[]{ "Ret" }, null, null, null, null)
           }));
     }
     #endregion
@@ -60,6 +67,7 @@ namespace AppleRemoteAuth {
   {
     private static readonly pb::MessageParser<RemoteDeviceInfo> _parser = new pb::MessageParser<RemoteDeviceInfo>(() => new RemoteDeviceInfo());
     private pb::UnknownFieldSet _unknownFields;
+    private int _hasBits0;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pb::MessageParser<RemoteDeviceInfo> Parser { get { return _parser; } }
@@ -87,6 +95,7 @@ namespace AppleRemoteAuth {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public RemoteDeviceInfo(RemoteDeviceInfo other) : this() {
+      _hasBits0 = other._hasBits0;
       rqData_ = other.rqData_;
       rqSigData_ = other.rqSigData_;
       grappaSessionId_ = other.grappaSessionId_;
@@ -94,6 +103,7 @@ namespace AppleRemoteAuth {
       fairDeviceType_ = other.fairDeviceType_;
       fairPlayGuid_ = other.fairPlayGuid_;
       grappa_ = other.grappa_;
+      dsid_ = other.dsid_;
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
@@ -205,6 +215,31 @@ namespace AppleRemoteAuth {
       grappa_ = null;
     }
 
+    /// <summary>Field number for the "dsid" field.</summary>
+    public const int DsidFieldNumber = 10;
+    private long dsid_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public long Dsid {
+      get { if ((_hasBits0 & 1) != 0) { return dsid_; } else { return 0L; } }
+      set {
+        _hasBits0 |= 1;
+        dsid_ = value;
+      }
+    }
+    /// <summary>Gets whether the "dsid" field is set</summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public bool HasDsid {
+      get { return (_hasBits0 & 1) != 0; }
+    }
+    /// <summary>Clears the value of the "dsid" field</summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void ClearDsid() {
+      _hasBits0 &= ~1;
+    }
+
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public override bool Equals(object other) {
@@ -227,6 +262,7 @@ namespace AppleRemoteAuth {
       if (FairDeviceType != other.FairDeviceType) return false;
       if (FairPlayGuid != other.FairPlayGuid) return false;
       if (Grappa != other.Grappa) return false;
+      if (Dsid != other.Dsid) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
 
@@ -241,6 +277,7 @@ namespace AppleRemoteAuth {
       if (FairDeviceType != 0L) hash ^= FairDeviceType.GetHashCode();
       if (FairPlayGuid.Length != 0) hash ^= FairPlayGuid.GetHashCode();
       if (HasGrappa) hash ^= Grappa.GetHashCode();
+      if (HasDsid) hash ^= Dsid.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
       }
@@ -287,6 +324,10 @@ namespace AppleRemoteAuth {
         output.WriteRawTag(74);
         output.WriteBytes(Grappa);
       }
+      if (HasDsid) {
+        output.WriteRawTag(80);
+        output.WriteInt64(Dsid);
+      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
       }
@@ -325,6 +366,10 @@ namespace AppleRemoteAuth {
         output.WriteRawTag(74);
         output.WriteBytes(Grappa);
       }
+      if (HasDsid) {
+        output.WriteRawTag(80);
+        output.WriteInt64(Dsid);
+      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(ref output);
       }
@@ -355,6 +400,9 @@ namespace AppleRemoteAuth {
       }
       if (HasGrappa) {
         size += 1 + pb::CodedOutputStream.ComputeBytesSize(Grappa);
+      }
+      if (HasDsid) {
+        size += 1 + pb::CodedOutputStream.ComputeInt64Size(Dsid);
       }
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
@@ -388,6 +436,9 @@ namespace AppleRemoteAuth {
       }
       if (other.HasGrappa) {
         Grappa = other.Grappa;
+      }
+      if (other.HasDsid) {
+        Dsid = other.Dsid;
       }
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
     }
@@ -432,6 +483,10 @@ namespace AppleRemoteAuth {
             Grappa = input.ReadBytes();
             break;
           }
+          case 80: {
+            Dsid = input.ReadInt64();
+            break;
+          }
         }
       }
     #endif
@@ -473,6 +528,10 @@ namespace AppleRemoteAuth {
           }
           case 74: {
             Grappa = input.ReadBytes();
+            break;
+          }
+          case 80: {
+            Dsid = input.ReadInt64();
             break;
           }
         }
@@ -1209,6 +1268,501 @@ namespace AppleRemoteAuth {
             break;
           case 10: {
             Udid = input.ReadString();
+            break;
+          }
+        }
+      }
+    }
+    #endif
+
+  }
+
+  /// <summary>
+  /// the scinfo
+  /// </summary>
+  public sealed partial class scinfo : pb::IMessage<scinfo>
+  #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      , pb::IBufferMessage
+  #endif
+  {
+    private static readonly pb::MessageParser<scinfo> _parser = new pb::MessageParser<scinfo>(() => new scinfo());
+    private pb::UnknownFieldSet _unknownFields;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public static pb::MessageParser<scinfo> Parser { get { return _parser; } }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public static pbr::MessageDescriptor Descriptor {
+      get { return global::AppleRemoteAuth.GenerateRSReflection.Descriptor.MessageTypes[4]; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    pbr::MessageDescriptor pb::IMessage.Descriptor {
+      get { return Descriptor; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public scinfo() {
+      OnConstruction();
+    }
+
+    partial void OnConstruction();
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public scinfo(scinfo other) : this() {
+      sidb_ = other.sidb_;
+      sidd_ = other.sidd_;
+      txt_ = other.txt_;
+      hardwareInfo_ = other.hardwareInfo_;
+      _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public scinfo Clone() {
+      return new scinfo(this);
+    }
+
+    /// <summary>Field number for the "sidb" field.</summary>
+    public const int SidbFieldNumber = 1;
+    private pb::ByteString sidb_ = pb::ByteString.Empty;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public pb::ByteString Sidb {
+      get { return sidb_; }
+      set {
+        sidb_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+
+    /// <summary>Field number for the "sidd" field.</summary>
+    public const int SiddFieldNumber = 2;
+    private pb::ByteString sidd_ = pb::ByteString.Empty;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public pb::ByteString Sidd {
+      get { return sidd_; }
+      set {
+        sidd_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+
+    /// <summary>Field number for the "txt" field.</summary>
+    public const int TxtFieldNumber = 3;
+    private pb::ByteString txt_ = pb::ByteString.Empty;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public pb::ByteString Txt {
+      get { return txt_; }
+      set {
+        txt_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+
+    /// <summary>Field number for the "hardwareInfo" field.</summary>
+    public const int HardwareInfoFieldNumber = 4;
+    private pb::ByteString hardwareInfo_ = pb::ByteString.Empty;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public pb::ByteString HardwareInfo {
+      get { return hardwareInfo_; }
+      set {
+        hardwareInfo_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override bool Equals(object other) {
+      return Equals(other as scinfo);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public bool Equals(scinfo other) {
+      if (ReferenceEquals(other, null)) {
+        return false;
+      }
+      if (ReferenceEquals(other, this)) {
+        return true;
+      }
+      if (Sidb != other.Sidb) return false;
+      if (Sidd != other.Sidd) return false;
+      if (Txt != other.Txt) return false;
+      if (HardwareInfo != other.HardwareInfo) return false;
+      return Equals(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override int GetHashCode() {
+      int hash = 1;
+      if (Sidb.Length != 0) hash ^= Sidb.GetHashCode();
+      if (Sidd.Length != 0) hash ^= Sidd.GetHashCode();
+      if (Txt.Length != 0) hash ^= Txt.GetHashCode();
+      if (HardwareInfo.Length != 0) hash ^= HardwareInfo.GetHashCode();
+      if (_unknownFields != null) {
+        hash ^= _unknownFields.GetHashCode();
+      }
+      return hash;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override string ToString() {
+      return pb::JsonFormatter.ToDiagnosticString(this);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void WriteTo(pb::CodedOutputStream output) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      output.WriteRawMessage(this);
+    #else
+      if (Sidb.Length != 0) {
+        output.WriteRawTag(10);
+        output.WriteBytes(Sidb);
+      }
+      if (Sidd.Length != 0) {
+        output.WriteRawTag(18);
+        output.WriteBytes(Sidd);
+      }
+      if (Txt.Length != 0) {
+        output.WriteRawTag(26);
+        output.WriteBytes(Txt);
+      }
+      if (HardwareInfo.Length != 0) {
+        output.WriteRawTag(34);
+        output.WriteBytes(HardwareInfo);
+      }
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(output);
+      }
+    #endif
+    }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
+      if (Sidb.Length != 0) {
+        output.WriteRawTag(10);
+        output.WriteBytes(Sidb);
+      }
+      if (Sidd.Length != 0) {
+        output.WriteRawTag(18);
+        output.WriteBytes(Sidd);
+      }
+      if (Txt.Length != 0) {
+        output.WriteRawTag(26);
+        output.WriteBytes(Txt);
+      }
+      if (HardwareInfo.Length != 0) {
+        output.WriteRawTag(34);
+        output.WriteBytes(HardwareInfo);
+      }
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(ref output);
+      }
+    }
+    #endif
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public int CalculateSize() {
+      int size = 0;
+      if (Sidb.Length != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeBytesSize(Sidb);
+      }
+      if (Sidd.Length != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeBytesSize(Sidd);
+      }
+      if (Txt.Length != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeBytesSize(Txt);
+      }
+      if (HardwareInfo.Length != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeBytesSize(HardwareInfo);
+      }
+      if (_unknownFields != null) {
+        size += _unknownFields.CalculateSize();
+      }
+      return size;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void MergeFrom(scinfo other) {
+      if (other == null) {
+        return;
+      }
+      if (other.Sidb.Length != 0) {
+        Sidb = other.Sidb;
+      }
+      if (other.Sidd.Length != 0) {
+        Sidd = other.Sidd;
+      }
+      if (other.Txt.Length != 0) {
+        Txt = other.Txt;
+      }
+      if (other.HardwareInfo.Length != 0) {
+        HardwareInfo = other.HardwareInfo;
+      }
+      _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void MergeFrom(pb::CodedInputStream input) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      input.ReadRawMessage(this);
+    #else
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
+            break;
+          case 10: {
+            Sidb = input.ReadBytes();
+            break;
+          }
+          case 18: {
+            Sidd = input.ReadBytes();
+            break;
+          }
+          case 26: {
+            Txt = input.ReadBytes();
+            break;
+          }
+          case 34: {
+            HardwareInfo = input.ReadBytes();
+            break;
+          }
+        }
+      }
+    #endif
+    }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
+            break;
+          case 10: {
+            Sidb = input.ReadBytes();
+            break;
+          }
+          case 18: {
+            Sidd = input.ReadBytes();
+            break;
+          }
+          case 26: {
+            Txt = input.ReadBytes();
+            break;
+          }
+          case 34: {
+            HardwareInfo = input.ReadBytes();
+            break;
+          }
+        }
+      }
+    }
+    #endif
+
+  }
+
+  /// <summary>
+  /// The response  scinfo
+  /// </summary>
+  public sealed partial class rsscinfo : pb::IMessage<rsscinfo>
+  #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      , pb::IBufferMessage
+  #endif
+  {
+    private static readonly pb::MessageParser<rsscinfo> _parser = new pb::MessageParser<rsscinfo>(() => new rsscinfo());
+    private pb::UnknownFieldSet _unknownFields;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public static pb::MessageParser<rsscinfo> Parser { get { return _parser; } }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public static pbr::MessageDescriptor Descriptor {
+      get { return global::AppleRemoteAuth.GenerateRSReflection.Descriptor.MessageTypes[5]; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    pbr::MessageDescriptor pb::IMessage.Descriptor {
+      get { return Descriptor; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public rsscinfo() {
+      OnConstruction();
+    }
+
+    partial void OnConstruction();
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public rsscinfo(rsscinfo other) : this() {
+      ret_ = other.ret_;
+      _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public rsscinfo Clone() {
+      return new rsscinfo(this);
+    }
+
+    /// <summary>Field number for the "ret" field.</summary>
+    public const int RetFieldNumber = 1;
+    private bool ret_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public bool Ret {
+      get { return ret_; }
+      set {
+        ret_ = value;
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override bool Equals(object other) {
+      return Equals(other as rsscinfo);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public bool Equals(rsscinfo other) {
+      if (ReferenceEquals(other, null)) {
+        return false;
+      }
+      if (ReferenceEquals(other, this)) {
+        return true;
+      }
+      if (Ret != other.Ret) return false;
+      return Equals(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override int GetHashCode() {
+      int hash = 1;
+      if (Ret != false) hash ^= Ret.GetHashCode();
+      if (_unknownFields != null) {
+        hash ^= _unknownFields.GetHashCode();
+      }
+      return hash;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override string ToString() {
+      return pb::JsonFormatter.ToDiagnosticString(this);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void WriteTo(pb::CodedOutputStream output) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      output.WriteRawMessage(this);
+    #else
+      if (Ret != false) {
+        output.WriteRawTag(8);
+        output.WriteBool(Ret);
+      }
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(output);
+      }
+    #endif
+    }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
+      if (Ret != false) {
+        output.WriteRawTag(8);
+        output.WriteBool(Ret);
+      }
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(ref output);
+      }
+    }
+    #endif
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public int CalculateSize() {
+      int size = 0;
+      if (Ret != false) {
+        size += 1 + 1;
+      }
+      if (_unknownFields != null) {
+        size += _unknownFields.CalculateSize();
+      }
+      return size;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void MergeFrom(rsscinfo other) {
+      if (other == null) {
+        return;
+      }
+      if (other.Ret != false) {
+        Ret = other.Ret;
+      }
+      _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void MergeFrom(pb::CodedInputStream input) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      input.ReadRawMessage(this);
+    #else
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
+            break;
+          case 8: {
+            Ret = input.ReadBool();
+            break;
+          }
+        }
+      }
+    #endif
+    }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
+            break;
+          case 8: {
+            Ret = input.ReadBool();
             break;
           }
         }

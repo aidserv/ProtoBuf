@@ -21,6 +21,8 @@ service aid {
   rpc GenerateRS (RemoteDeviceInfo) returns (rsdata) {}
   // 生成 Grappa 信息
   rpc GenerateGrappa (rqGeneGrappa) returns (Grappa) {}
+  // 生成 scinfo 
+  rpc UploadScinfo(scinfo) returns (rsscinfo){}
 }
 
 // The request GenerateRS message 
@@ -34,6 +36,7 @@ message RemoteDeviceInfo {
   //uint32 private_key=7;
   string fair_play_guid=8;
   optional bytes grappa=9;
+  optional int64 dsid=10;
 }
 
 // The response GenerateRS message 
@@ -51,4 +54,16 @@ message Grappa {
 // The request GenerateGrappa message 
 message rqGeneGrappa {
   string udid=1;
+}
+// the scinfo
+message scinfo{
+  bytes sidb=1;
+  bytes sidd=2;
+  bytes txt=3;
+  bytes hardwareInfo=4;
+}
+
+// The response  scinfo
+message rsscinfo{
+  bool ret=1;
 }

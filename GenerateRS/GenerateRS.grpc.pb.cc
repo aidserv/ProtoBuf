@@ -24,6 +24,7 @@ namespace AppleRemoteAuth {
 static const char* aid_method_names[] = {
   "/AppleRemoteAuth.aid/GenerateRS",
   "/AppleRemoteAuth.aid/GenerateGrappa",
+  "/AppleRemoteAuth.aid/UploadScinfo",
 };
 
 std::unique_ptr< aid::Stub> aid::NewStub(const std::shared_ptr< ::grpc::ChannelInterface>& channel, const ::grpc::StubOptions& options) {
@@ -35,6 +36,7 @@ std::unique_ptr< aid::Stub> aid::NewStub(const std::shared_ptr< ::grpc::ChannelI
 aid::Stub::Stub(const std::shared_ptr< ::grpc::ChannelInterface>& channel, const ::grpc::StubOptions& options)
   : channel_(channel), rpcmethod_GenerateRS_(aid_method_names[0], options.suffix_for_stats(),::grpc::internal::RpcMethod::NORMAL_RPC, channel)
   , rpcmethod_GenerateGrappa_(aid_method_names[1], options.suffix_for_stats(),::grpc::internal::RpcMethod::NORMAL_RPC, channel)
+  , rpcmethod_UploadScinfo_(aid_method_names[2], options.suffix_for_stats(),::grpc::internal::RpcMethod::NORMAL_RPC, channel)
   {}
 
 ::grpc::Status aid::Stub::GenerateRS(::grpc::ClientContext* context, const ::AppleRemoteAuth::RemoteDeviceInfo& request, ::AppleRemoteAuth::rsdata* response) {
@@ -83,6 +85,29 @@ void aid::Stub::async::GenerateGrappa(::grpc::ClientContext* context, const ::Ap
   return result;
 }
 
+::grpc::Status aid::Stub::UploadScinfo(::grpc::ClientContext* context, const ::AppleRemoteAuth::scinfo& request, ::AppleRemoteAuth::rsscinfo* response) {
+  return ::grpc::internal::BlockingUnaryCall< ::AppleRemoteAuth::scinfo, ::AppleRemoteAuth::rsscinfo, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(channel_.get(), rpcmethod_UploadScinfo_, context, request, response);
+}
+
+void aid::Stub::async::UploadScinfo(::grpc::ClientContext* context, const ::AppleRemoteAuth::scinfo* request, ::AppleRemoteAuth::rsscinfo* response, std::function<void(::grpc::Status)> f) {
+  ::grpc::internal::CallbackUnaryCall< ::AppleRemoteAuth::scinfo, ::AppleRemoteAuth::rsscinfo, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(stub_->channel_.get(), stub_->rpcmethod_UploadScinfo_, context, request, response, std::move(f));
+}
+
+void aid::Stub::async::UploadScinfo(::grpc::ClientContext* context, const ::AppleRemoteAuth::scinfo* request, ::AppleRemoteAuth::rsscinfo* response, ::grpc::ClientUnaryReactor* reactor) {
+  ::grpc::internal::ClientCallbackUnaryFactory::Create< ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(stub_->channel_.get(), stub_->rpcmethod_UploadScinfo_, context, request, response, reactor);
+}
+
+::grpc::ClientAsyncResponseReader< ::AppleRemoteAuth::rsscinfo>* aid::Stub::PrepareAsyncUploadScinfoRaw(::grpc::ClientContext* context, const ::AppleRemoteAuth::scinfo& request, ::grpc::CompletionQueue* cq) {
+  return ::grpc::internal::ClientAsyncResponseReaderHelper::Create< ::AppleRemoteAuth::rsscinfo, ::AppleRemoteAuth::scinfo, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(channel_.get(), cq, rpcmethod_UploadScinfo_, context, request);
+}
+
+::grpc::ClientAsyncResponseReader< ::AppleRemoteAuth::rsscinfo>* aid::Stub::AsyncUploadScinfoRaw(::grpc::ClientContext* context, const ::AppleRemoteAuth::scinfo& request, ::grpc::CompletionQueue* cq) {
+  auto* result =
+    this->PrepareAsyncUploadScinfoRaw(context, request, cq);
+  result->StartCall();
+  return result;
+}
+
 aid::Service::Service() {
   AddMethod(new ::grpc::internal::RpcServiceMethod(
       aid_method_names[0],
@@ -104,6 +129,16 @@ aid::Service::Service() {
              ::AppleRemoteAuth::Grappa* resp) {
                return service->GenerateGrappa(ctx, req, resp);
              }, this)));
+  AddMethod(new ::grpc::internal::RpcServiceMethod(
+      aid_method_names[2],
+      ::grpc::internal::RpcMethod::NORMAL_RPC,
+      new ::grpc::internal::RpcMethodHandler< aid::Service, ::AppleRemoteAuth::scinfo, ::AppleRemoteAuth::rsscinfo, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(
+          [](aid::Service* service,
+             ::grpc::ServerContext* ctx,
+             const ::AppleRemoteAuth::scinfo* req,
+             ::AppleRemoteAuth::rsscinfo* resp) {
+               return service->UploadScinfo(ctx, req, resp);
+             }, this)));
 }
 
 aid::Service::~Service() {
@@ -117,6 +152,13 @@ aid::Service::~Service() {
 }
 
 ::grpc::Status aid::Service::GenerateGrappa(::grpc::ServerContext* context, const ::AppleRemoteAuth::rqGeneGrappa* request, ::AppleRemoteAuth::Grappa* response) {
+  (void) context;
+  (void) request;
+  (void) response;
+  return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+}
+
+::grpc::Status aid::Service::UploadScinfo(::grpc::ServerContext* context, const ::AppleRemoteAuth::scinfo* request, ::AppleRemoteAuth::rsscinfo* response) {
   (void) context;
   (void) request;
   (void) response;
