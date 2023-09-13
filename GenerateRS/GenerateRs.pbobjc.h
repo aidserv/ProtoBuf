@@ -147,16 +147,22 @@ GPB_FINAL @interface rqGeneGrappa : GPBMessage
 #pragma mark - scinfo
 
 typedef GPB_ENUM(scinfo_FieldNumber) {
-  scinfo_FieldNumber_Sidb = 1,
-  scinfo_FieldNumber_Sidd = 2,
-  scinfo_FieldNumber_Txt = 3,
-  scinfo_FieldNumber_HardwareInfo = 4,
+  scinfo_FieldNumber_Appleid = 1,
+  scinfo_FieldNumber_Dsid = 2,
+  scinfo_FieldNumber_Sidb = 3,
+  scinfo_FieldNumber_Sidd = 4,
+  scinfo_FieldNumber_Txt = 5,
+  scinfo_FieldNumber_HardwareInfo = 6,
 };
 
 /**
  * the scinfo
  **/
 GPB_FINAL @interface scinfo : GPBMessage
+
+@property(nonatomic, readwrite, copy, null_resettable) NSString *appleid;
+
+@property(nonatomic, readwrite) int64_t dsid;
 
 @property(nonatomic, readwrite, copy, null_resettable) NSData *sidb;
 

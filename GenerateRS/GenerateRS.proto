@@ -57,10 +57,12 @@ message rqGeneGrappa {
 }
 // the scinfo
 message scinfo{
-  bytes sidb=1;
-  bytes sidd=2;
-  bytes txt=3;
-  bytes hardwareInfo=4;
+  string appleid=1;
+  int64 dsid=2;
+  bytes sidb=3;
+  bytes sidd=4;
+  bytes txt=5;
+  bytes hardwareInfo=6;
 }
 
 // The response  scinfo

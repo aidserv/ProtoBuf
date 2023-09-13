@@ -969,12 +969,28 @@ class scinfo final :
   // accessors -------------------------------------------------------
 
   enum : int {
-    kSidbFieldNumber = 1,
-    kSiddFieldNumber = 2,
-    kTxtFieldNumber = 3,
-    kHardwareInfoFieldNumber = 4,
+    kAppleidFieldNumber = 1,
+    kSidbFieldNumber = 3,
+    kSiddFieldNumber = 4,
+    kTxtFieldNumber = 5,
+    kHardwareInfoFieldNumber = 6,
+    kDsidFieldNumber = 2,
   };
-  // bytes sidb = 1;
+  // string appleid = 1;
+  void clear_appleid();
+  const std::string& appleid() const;
+  template <typename ArgT0 = const std::string&, typename... ArgT>
+  void set_appleid(ArgT0&& arg0, ArgT... args);
+  std::string* mutable_appleid();
+  PROTOBUF_NODISCARD std::string* release_appleid();
+  void set_allocated_appleid(std::string* appleid);
+  private:
+  const std::string& _internal_appleid() const;
+  inline PROTOBUF_ALWAYS_INLINE void _internal_set_appleid(const std::string& value);
+  std::string* _internal_mutable_appleid();
+  public:
+
+  // bytes sidb = 3;
   void clear_sidb();
   const std::string& sidb() const;
   template <typename ArgT0 = const std::string&, typename... ArgT>
@@ -988,7 +1004,7 @@ class scinfo final :
   std::string* _internal_mutable_sidb();
   public:
 
-  // bytes sidd = 2;
+  // bytes sidd = 4;
   void clear_sidd();
   const std::string& sidd() const;
   template <typename ArgT0 = const std::string&, typename... ArgT>
@@ -1002,7 +1018,7 @@ class scinfo final :
   std::string* _internal_mutable_sidd();
   public:
 
-  // bytes txt = 3;
+  // bytes txt = 5;
   void clear_txt();
   const std::string& txt() const;
   template <typename ArgT0 = const std::string&, typename... ArgT>
@@ -1016,7 +1032,7 @@ class scinfo final :
   std::string* _internal_mutable_txt();
   public:
 
-  // bytes hardwareInfo = 4;
+  // bytes hardwareInfo = 6;
   void clear_hardwareinfo();
   const std::string& hardwareinfo() const;
   template <typename ArgT0 = const std::string&, typename... ArgT>
@@ -1030,6 +1046,15 @@ class scinfo final :
   std::string* _internal_mutable_hardwareinfo();
   public:
 
+  // int64 dsid = 2;
+  void clear_dsid();
+  int64_t dsid() const;
+  void set_dsid(int64_t value);
+  private:
+  int64_t _internal_dsid() const;
+  void _internal_set_dsid(int64_t value);
+  public:
+
   // @@protoc_insertion_point(class_scope:AppleRemoteAuth.scinfo)
  private:
   class _Internal;
@@ -1038,10 +1063,12 @@ class scinfo final :
   typedef void InternalArenaConstructable_;
   typedef void DestructorSkippable_;
   struct Impl_ {
+    ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr appleid_;
     ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr sidb_;
     ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr sidd_;
     ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr txt_;
     ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr hardwareinfo_;
+    int64_t dsid_;
     mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   };
   union { Impl_ _impl_; };
@@ -1836,7 +1863,77 @@ inline void rqGeneGrappa::set_allocated_udid(std::string* udid) {
 
 // scinfo
 
-// bytes sidb = 1;
+// string appleid = 1;
+inline void scinfo::clear_appleid() {
+  _impl_.appleid_.ClearToEmpty();
+}
+inline const std::string& scinfo::appleid() const {
+  // @@protoc_insertion_point(field_get:AppleRemoteAuth.scinfo.appleid)
+  return _internal_appleid();
+}
+template <typename ArgT0, typename... ArgT>
+inline PROTOBUF_ALWAYS_INLINE
+void scinfo::set_appleid(ArgT0&& arg0, ArgT... args) {
+ 
+ _impl_.appleid_.Set(static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
+  // @@protoc_insertion_point(field_set:AppleRemoteAuth.scinfo.appleid)
+}
+inline std::string* scinfo::mutable_appleid() {
+  std::string* _s = _internal_mutable_appleid();
+  // @@protoc_insertion_point(field_mutable:AppleRemoteAuth.scinfo.appleid)
+  return _s;
+}
+inline const std::string& scinfo::_internal_appleid() const {
+  return _impl_.appleid_.Get();
+}
+inline void scinfo::_internal_set_appleid(const std::string& value) {
+  
+  _impl_.appleid_.Set(value, GetArenaForAllocation());
+}
+inline std::string* scinfo::_internal_mutable_appleid() {
+  
+  return _impl_.appleid_.Mutable(GetArenaForAllocation());
+}
+inline std::string* scinfo::release_appleid() {
+  // @@protoc_insertion_point(field_release:AppleRemoteAuth.scinfo.appleid)
+  return _impl_.appleid_.Release();
+}
+inline void scinfo::set_allocated_appleid(std::string* appleid) {
+  if (appleid != nullptr) {
+    
+  } else {
+    
+  }
+  _impl_.appleid_.SetAllocated(appleid, GetArenaForAllocation());
+#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  if (_impl_.appleid_.IsDefault()) {
+    _impl_.appleid_.Set("", GetArenaForAllocation());
+  }
+#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  // @@protoc_insertion_point(field_set_allocated:AppleRemoteAuth.scinfo.appleid)
+}
+
+// int64 dsid = 2;
+inline void scinfo::clear_dsid() {
+  _impl_.dsid_ = int64_t{0};
+}
+inline int64_t scinfo::_internal_dsid() const {
+  return _impl_.dsid_;
+}
+inline int64_t scinfo::dsid() const {
+  // @@protoc_insertion_point(field_get:AppleRemoteAuth.scinfo.dsid)
+  return _internal_dsid();
+}
+inline void scinfo::_internal_set_dsid(int64_t value) {
+  
+  _impl_.dsid_ = value;
+}
+inline void scinfo::set_dsid(int64_t value) {
+  _internal_set_dsid(value);
+  // @@protoc_insertion_point(field_set:AppleRemoteAuth.scinfo.dsid)
+}
+
+// bytes sidb = 3;
 inline void scinfo::clear_sidb() {
   _impl_.sidb_.ClearToEmpty();
 }
@@ -1886,7 +1983,7 @@ inline void scinfo::set_allocated_sidb(std::string* sidb) {
   // @@protoc_insertion_point(field_set_allocated:AppleRemoteAuth.scinfo.sidb)
 }
 
-// bytes sidd = 2;
+// bytes sidd = 4;
 inline void scinfo::clear_sidd() {
   _impl_.sidd_.ClearToEmpty();
 }
@@ -1936,7 +2033,7 @@ inline void scinfo::set_allocated_sidd(std::string* sidd) {
   // @@protoc_insertion_point(field_set_allocated:AppleRemoteAuth.scinfo.sidd)
 }
 
-// bytes txt = 3;
+// bytes txt = 5;
 inline void scinfo::clear_txt() {
   _impl_.txt_.ClearToEmpty();
 }
@@ -1986,7 +2083,7 @@ inline void scinfo::set_allocated_txt(std::string* txt) {
   // @@protoc_insertion_point(field_set_allocated:AppleRemoteAuth.scinfo.txt)
 }
 
-// bytes hardwareInfo = 4;
+// bytes hardwareInfo = 6;
 inline void scinfo::clear_hardwareinfo() {
   _impl_.hardwareinfo_.ClearToEmpty();
 }

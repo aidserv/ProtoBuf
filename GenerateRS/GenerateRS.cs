@@ -33,15 +33,16 @@ namespace AppleRemoteAuth {
             "dGESDwoHcnNfZGF0YRgBIAEoDBILCgNyZXQYAiABKAgSGAoLcnNfc2lnX2Rh",
             "dGEYAyABKAxIAIgBAUIOCgxfcnNfc2lnX2RhdGEiRAoGR3JhcHBhEhIKCmdy",
             "YXBwYURhdGEYASABKAwSGQoRZ3JhcHBhX3Nlc3Npb25faWQYAiABKA0SCwoD",
-            "cmV0GAMgASgIIhwKDHJxR2VuZUdyYXBwYRIMCgR1ZGlkGAEgASgJIkcKBnNj",
-            "aW5mbxIMCgRzaWRiGAEgASgMEgwKBHNpZGQYAiABKAwSCwoDdHh0GAMgASgM",
-            "EhQKDGhhcmR3YXJlSW5mbxgEIAEoDCIXCghyc3NjaW5mbxILCgNyZXQYASAB",
-            "KAgy4wEKA2FpZBJKCgpHZW5lcmF0ZVJTEiEuQXBwbGVSZW1vdGVBdXRoLlJl",
-            "bW90ZURldmljZUluZm8aFy5BcHBsZVJlbW90ZUF1dGgucnNkYXRhIgASSgoO",
-            "R2VuZXJhdGVHcmFwcGESHS5BcHBsZVJlbW90ZUF1dGgucnFHZW5lR3JhcHBh",
-            "GhcuQXBwbGVSZW1vdGVBdXRoLkdyYXBwYSIAEkQKDFVwbG9hZFNjaW5mbxIX",
-            "LkFwcGxlUmVtb3RlQXV0aC5zY2luZm8aGS5BcHBsZVJlbW90ZUF1dGgucnNz",
-            "Y2luZm8iAGIGcHJvdG8z"));
+            "cmV0GAMgASgIIhwKDHJxR2VuZUdyYXBwYRIMCgR1ZGlkGAEgASgJImYKBnNj",
+            "aW5mbxIPCgdhcHBsZWlkGAEgASgJEgwKBGRzaWQYAiABKAMSDAoEc2lkYhgD",
+            "IAEoDBIMCgRzaWRkGAQgASgMEgsKA3R4dBgFIAEoDBIUCgxoYXJkd2FyZUlu",
+            "Zm8YBiABKAwiFwoIcnNzY2luZm8SCwoDcmV0GAEgASgIMuMBCgNhaWQSSgoK",
+            "R2VuZXJhdGVSUxIhLkFwcGxlUmVtb3RlQXV0aC5SZW1vdGVEZXZpY2VJbmZv",
+            "GhcuQXBwbGVSZW1vdGVBdXRoLnJzZGF0YSIAEkoKDkdlbmVyYXRlR3JhcHBh",
+            "Eh0uQXBwbGVSZW1vdGVBdXRoLnJxR2VuZUdyYXBwYRoXLkFwcGxlUmVtb3Rl",
+            "QXV0aC5HcmFwcGEiABJECgxVcGxvYWRTY2luZm8SFy5BcHBsZVJlbW90ZUF1",
+            "dGguc2NpbmZvGhkuQXBwbGVSZW1vdGVBdXRoLnJzc2NpbmZvIgBiBnByb3Rv",
+            "Mw=="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { },
           new pbr::GeneratedClrTypeInfo(null, null, new pbr::GeneratedClrTypeInfo[] {
@@ -49,7 +50,7 @@ namespace AppleRemoteAuth {
             new pbr::GeneratedClrTypeInfo(typeof(global::AppleRemoteAuth.rsdata), global::AppleRemoteAuth.rsdata.Parser, new[]{ "RsData", "Ret", "RsSigData" }, new[]{ "RsSigData" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::AppleRemoteAuth.Grappa), global::AppleRemoteAuth.Grappa.Parser, new[]{ "GrappaData", "GrappaSessionId", "Ret" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::AppleRemoteAuth.rqGeneGrappa), global::AppleRemoteAuth.rqGeneGrappa.Parser, new[]{ "Udid" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::AppleRemoteAuth.scinfo), global::AppleRemoteAuth.scinfo.Parser, new[]{ "Sidb", "Sidd", "Txt", "HardwareInfo" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::AppleRemoteAuth.scinfo), global::AppleRemoteAuth.scinfo.Parser, new[]{ "Appleid", "Dsid", "Sidb", "Sidd", "Txt", "HardwareInfo" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::AppleRemoteAuth.rsscinfo), global::AppleRemoteAuth.rsscinfo.Parser, new[]{ "Ret" }, null, null, null, null)
           }));
     }
@@ -1314,6 +1315,8 @@ namespace AppleRemoteAuth {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public scinfo(scinfo other) : this() {
+      appleid_ = other.appleid_;
+      dsid_ = other.dsid_;
       sidb_ = other.sidb_;
       sidd_ = other.sidd_;
       txt_ = other.txt_;
@@ -1327,8 +1330,32 @@ namespace AppleRemoteAuth {
       return new scinfo(this);
     }
 
+    /// <summary>Field number for the "appleid" field.</summary>
+    public const int AppleidFieldNumber = 1;
+    private string appleid_ = "";
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public string Appleid {
+      get { return appleid_; }
+      set {
+        appleid_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+
+    /// <summary>Field number for the "dsid" field.</summary>
+    public const int DsidFieldNumber = 2;
+    private long dsid_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public long Dsid {
+      get { return dsid_; }
+      set {
+        dsid_ = value;
+      }
+    }
+
     /// <summary>Field number for the "sidb" field.</summary>
-    public const int SidbFieldNumber = 1;
+    public const int SidbFieldNumber = 3;
     private pb::ByteString sidb_ = pb::ByteString.Empty;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -1340,7 +1367,7 @@ namespace AppleRemoteAuth {
     }
 
     /// <summary>Field number for the "sidd" field.</summary>
-    public const int SiddFieldNumber = 2;
+    public const int SiddFieldNumber = 4;
     private pb::ByteString sidd_ = pb::ByteString.Empty;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -1352,7 +1379,7 @@ namespace AppleRemoteAuth {
     }
 
     /// <summary>Field number for the "txt" field.</summary>
-    public const int TxtFieldNumber = 3;
+    public const int TxtFieldNumber = 5;
     private pb::ByteString txt_ = pb::ByteString.Empty;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -1364,7 +1391,7 @@ namespace AppleRemoteAuth {
     }
 
     /// <summary>Field number for the "hardwareInfo" field.</summary>
-    public const int HardwareInfoFieldNumber = 4;
+    public const int HardwareInfoFieldNumber = 6;
     private pb::ByteString hardwareInfo_ = pb::ByteString.Empty;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -1390,6 +1417,8 @@ namespace AppleRemoteAuth {
       if (ReferenceEquals(other, this)) {
         return true;
       }
+      if (Appleid != other.Appleid) return false;
+      if (Dsid != other.Dsid) return false;
       if (Sidb != other.Sidb) return false;
       if (Sidd != other.Sidd) return false;
       if (Txt != other.Txt) return false;
@@ -1401,6 +1430,8 @@ namespace AppleRemoteAuth {
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public override int GetHashCode() {
       int hash = 1;
+      if (Appleid.Length != 0) hash ^= Appleid.GetHashCode();
+      if (Dsid != 0L) hash ^= Dsid.GetHashCode();
       if (Sidb.Length != 0) hash ^= Sidb.GetHashCode();
       if (Sidd.Length != 0) hash ^= Sidd.GetHashCode();
       if (Txt.Length != 0) hash ^= Txt.GetHashCode();
@@ -1423,20 +1454,28 @@ namespace AppleRemoteAuth {
     #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       output.WriteRawMessage(this);
     #else
-      if (Sidb.Length != 0) {
+      if (Appleid.Length != 0) {
         output.WriteRawTag(10);
+        output.WriteString(Appleid);
+      }
+      if (Dsid != 0L) {
+        output.WriteRawTag(16);
+        output.WriteInt64(Dsid);
+      }
+      if (Sidb.Length != 0) {
+        output.WriteRawTag(26);
         output.WriteBytes(Sidb);
       }
       if (Sidd.Length != 0) {
-        output.WriteRawTag(18);
+        output.WriteRawTag(34);
         output.WriteBytes(Sidd);
       }
       if (Txt.Length != 0) {
-        output.WriteRawTag(26);
+        output.WriteRawTag(42);
         output.WriteBytes(Txt);
       }
       if (HardwareInfo.Length != 0) {
-        output.WriteRawTag(34);
+        output.WriteRawTag(50);
         output.WriteBytes(HardwareInfo);
       }
       if (_unknownFields != null) {
@@ -1449,20 +1488,28 @@ namespace AppleRemoteAuth {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
-      if (Sidb.Length != 0) {
+      if (Appleid.Length != 0) {
         output.WriteRawTag(10);
+        output.WriteString(Appleid);
+      }
+      if (Dsid != 0L) {
+        output.WriteRawTag(16);
+        output.WriteInt64(Dsid);
+      }
+      if (Sidb.Length != 0) {
+        output.WriteRawTag(26);
         output.WriteBytes(Sidb);
       }
       if (Sidd.Length != 0) {
-        output.WriteRawTag(18);
+        output.WriteRawTag(34);
         output.WriteBytes(Sidd);
       }
       if (Txt.Length != 0) {
-        output.WriteRawTag(26);
+        output.WriteRawTag(42);
         output.WriteBytes(Txt);
       }
       if (HardwareInfo.Length != 0) {
-        output.WriteRawTag(34);
+        output.WriteRawTag(50);
         output.WriteBytes(HardwareInfo);
       }
       if (_unknownFields != null) {
@@ -1475,6 +1522,12 @@ namespace AppleRemoteAuth {
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public int CalculateSize() {
       int size = 0;
+      if (Appleid.Length != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeStringSize(Appleid);
+      }
+      if (Dsid != 0L) {
+        size += 1 + pb::CodedOutputStream.ComputeInt64Size(Dsid);
+      }
       if (Sidb.Length != 0) {
         size += 1 + pb::CodedOutputStream.ComputeBytesSize(Sidb);
       }
@@ -1498,6 +1551,12 @@ namespace AppleRemoteAuth {
     public void MergeFrom(scinfo other) {
       if (other == null) {
         return;
+      }
+      if (other.Appleid.Length != 0) {
+        Appleid = other.Appleid;
+      }
+      if (other.Dsid != 0L) {
+        Dsid = other.Dsid;
       }
       if (other.Sidb.Length != 0) {
         Sidb = other.Sidb;
@@ -1527,18 +1586,26 @@ namespace AppleRemoteAuth {
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
           case 10: {
-            Sidb = input.ReadBytes();
+            Appleid = input.ReadString();
             break;
           }
-          case 18: {
-            Sidd = input.ReadBytes();
+          case 16: {
+            Dsid = input.ReadInt64();
             break;
           }
           case 26: {
-            Txt = input.ReadBytes();
+            Sidb = input.ReadBytes();
             break;
           }
           case 34: {
+            Sidd = input.ReadBytes();
+            break;
+          }
+          case 42: {
+            Txt = input.ReadBytes();
+            break;
+          }
+          case 50: {
             HardwareInfo = input.ReadBytes();
             break;
           }
@@ -1558,18 +1625,26 @@ namespace AppleRemoteAuth {
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
             break;
           case 10: {
-            Sidb = input.ReadBytes();
+            Appleid = input.ReadString();
             break;
           }
-          case 18: {
-            Sidd = input.ReadBytes();
+          case 16: {
+            Dsid = input.ReadInt64();
             break;
           }
           case 26: {
-            Txt = input.ReadBytes();
+            Sidb = input.ReadBytes();
             break;
           }
           case 34: {
+            Sidd = input.ReadBytes();
+            break;
+          }
+          case 42: {
+            Txt = input.ReadBytes();
+            break;
+          }
+          case 50: {
             HardwareInfo = input.ReadBytes();
             break;
           }

@@ -88,10 +88,12 @@ struct rqGeneGrappaDefaultTypeInternal {
 PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 rqGeneGrappaDefaultTypeInternal _rqGeneGrappa_default_instance_;
 PROTOBUF_CONSTEXPR scinfo::scinfo(
     ::_pbi::ConstantInitialized): _impl_{
-    /*decltype(_impl_.sidb_)*/{&::_pbi::fixed_address_empty_string, ::_pbi::ConstantInitialized{}}
+    /*decltype(_impl_.appleid_)*/{&::_pbi::fixed_address_empty_string, ::_pbi::ConstantInitialized{}}
+  , /*decltype(_impl_.sidb_)*/{&::_pbi::fixed_address_empty_string, ::_pbi::ConstantInitialized{}}
   , /*decltype(_impl_.sidd_)*/{&::_pbi::fixed_address_empty_string, ::_pbi::ConstantInitialized{}}
   , /*decltype(_impl_.txt_)*/{&::_pbi::fixed_address_empty_string, ::_pbi::ConstantInitialized{}}
   , /*decltype(_impl_.hardwareinfo_)*/{&::_pbi::fixed_address_empty_string, ::_pbi::ConstantInitialized{}}
+  , /*decltype(_impl_.dsid_)*/int64_t{0}
   , /*decltype(_impl_._cached_size_)*/{}} {}
 struct scinfoDefaultTypeInternal {
   PROTOBUF_CONSTEXPR scinfoDefaultTypeInternal()
@@ -177,6 +179,8 @@ const uint32_t TableStruct_GenerateRS_2eproto::offsets[] PROTOBUF_SECTION_VARIAB
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
   ~0u,  // no _inlined_string_donated_
+  PROTOBUF_FIELD_OFFSET(::AppleRemoteAuth::scinfo, _impl_.appleid_),
+  PROTOBUF_FIELD_OFFSET(::AppleRemoteAuth::scinfo, _impl_.dsid_),
   PROTOBUF_FIELD_OFFSET(::AppleRemoteAuth::scinfo, _impl_.sidb_),
   PROTOBUF_FIELD_OFFSET(::AppleRemoteAuth::scinfo, _impl_.sidd_),
   PROTOBUF_FIELD_OFFSET(::AppleRemoteAuth::scinfo, _impl_.txt_),
@@ -195,7 +199,7 @@ static const ::_pbi::MigrationSchema schemas[] PROTOBUF_SECTION_VARIABLE(protode
   { 34, -1, -1, sizeof(::AppleRemoteAuth::Grappa)},
   { 43, -1, -1, sizeof(::AppleRemoteAuth::rqGeneGrappa)},
   { 50, -1, -1, sizeof(::AppleRemoteAuth::scinfo)},
-  { 60, -1, -1, sizeof(::AppleRemoteAuth::rsscinfo)},
+  { 62, -1, -1, sizeof(::AppleRemoteAuth::rsscinfo)},
 };
 
 static const ::_pb::Message* const file_default_instances[] = {
@@ -219,19 +223,20 @@ const char descriptor_table_protodef_GenerateRS_2eproto[] PROTOBUF_SECTION_VARIA
   "\001(\014H\000\210\001\001B\016\n\014_rs_sig_data\"D\n\006Grappa\022\022\n\ngr"
   "appaData\030\001 \001(\014\022\031\n\021grappa_session_id\030\002 \001("
   "\r\022\013\n\003ret\030\003 \001(\010\"\034\n\014rqGeneGrappa\022\014\n\004udid\030\001"
-  " \001(\t\"G\n\006scinfo\022\014\n\004sidb\030\001 \001(\014\022\014\n\004sidd\030\002 \001"
-  "(\014\022\013\n\003txt\030\003 \001(\014\022\024\n\014hardwareInfo\030\004 \001(\014\"\027\n"
-  "\010rsscinfo\022\013\n\003ret\030\001 \001(\0102\343\001\n\003aid\022J\n\nGenera"
-  "teRS\022!.AppleRemoteAuth.RemoteDeviceInfo\032"
-  "\027.AppleRemoteAuth.rsdata\"\000\022J\n\016GenerateGr"
-  "appa\022\035.AppleRemoteAuth.rqGeneGrappa\032\027.Ap"
-  "pleRemoteAuth.Grappa\"\000\022D\n\014UploadScinfo\022\027"
-  ".AppleRemoteAuth.scinfo\032\031.AppleRemoteAut"
-  "h.rsscinfo\"\000b\006proto3"
+  " \001(\t\"f\n\006scinfo\022\017\n\007appleid\030\001 \001(\t\022\014\n\004dsid\030"
+  "\002 \001(\003\022\014\n\004sidb\030\003 \001(\014\022\014\n\004sidd\030\004 \001(\014\022\013\n\003txt"
+  "\030\005 \001(\014\022\024\n\014hardwareInfo\030\006 \001(\014\"\027\n\010rsscinfo"
+  "\022\013\n\003ret\030\001 \001(\0102\343\001\n\003aid\022J\n\nGenerateRS\022!.Ap"
+  "pleRemoteAuth.RemoteDeviceInfo\032\027.AppleRe"
+  "moteAuth.rsdata\"\000\022J\n\016GenerateGrappa\022\035.Ap"
+  "pleRemoteAuth.rqGeneGrappa\032\027.AppleRemote"
+  "Auth.Grappa\"\000\022D\n\014UploadScinfo\022\027.AppleRem"
+  "oteAuth.scinfo\032\031.AppleRemoteAuth.rsscinf"
+  "o\"\000b\006proto3"
   ;
 static ::_pbi::once_flag descriptor_table_GenerateRS_2eproto_once;
 const ::_pbi::DescriptorTable descriptor_table_GenerateRS_2eproto = {
-    false, false, 780, descriptor_table_protodef_GenerateRS_2eproto,
+    false, false, 811, descriptor_table_protodef_GenerateRS_2eproto,
     "GenerateRS.proto",
     &descriptor_table_GenerateRS_2eproto_once, nullptr, 0, 6,
     schemas, file_default_instances, TableStruct_GenerateRS_2eproto::offsets,
@@ -1492,13 +1497,23 @@ scinfo::scinfo(const scinfo& from)
   : ::PROTOBUF_NAMESPACE_ID::Message() {
   scinfo* const _this = this; (void)_this;
   new (&_impl_) Impl_{
-      decltype(_impl_.sidb_){}
+      decltype(_impl_.appleid_){}
+    , decltype(_impl_.sidb_){}
     , decltype(_impl_.sidd_){}
     , decltype(_impl_.txt_){}
     , decltype(_impl_.hardwareinfo_){}
+    , decltype(_impl_.dsid_){}
     , /*decltype(_impl_._cached_size_)*/{}};
 
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  _impl_.appleid_.InitDefault();
+  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+    _impl_.appleid_.Set("", GetArenaForAllocation());
+  #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  if (!from._internal_appleid().empty()) {
+    _this->_impl_.appleid_.Set(from._internal_appleid(), 
+      _this->GetArenaForAllocation());
+  }
   _impl_.sidb_.InitDefault();
   #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
     _impl_.sidb_.Set("", GetArenaForAllocation());
@@ -1531,6 +1546,7 @@ scinfo::scinfo(const scinfo& from)
     _this->_impl_.hardwareinfo_.Set(from._internal_hardwareinfo(), 
       _this->GetArenaForAllocation());
   }
+  _this->_impl_.dsid_ = from._impl_.dsid_;
   // @@protoc_insertion_point(copy_constructor:AppleRemoteAuth.scinfo)
 }
 
@@ -1539,12 +1555,18 @@ inline void scinfo::SharedCtor(
   (void)arena;
   (void)is_message_owned;
   new (&_impl_) Impl_{
-      decltype(_impl_.sidb_){}
+      decltype(_impl_.appleid_){}
+    , decltype(_impl_.sidb_){}
     , decltype(_impl_.sidd_){}
     , decltype(_impl_.txt_){}
     , decltype(_impl_.hardwareinfo_){}
+    , decltype(_impl_.dsid_){int64_t{0}}
     , /*decltype(_impl_._cached_size_)*/{}
   };
+  _impl_.appleid_.InitDefault();
+  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+    _impl_.appleid_.Set("", GetArenaForAllocation());
+  #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
   _impl_.sidb_.InitDefault();
   #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
     _impl_.sidb_.Set("", GetArenaForAllocation());
@@ -1574,6 +1596,7 @@ scinfo::~scinfo() {
 
 inline void scinfo::SharedDtor() {
   GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
+  _impl_.appleid_.Destroy();
   _impl_.sidb_.Destroy();
   _impl_.sidd_.Destroy();
   _impl_.txt_.Destroy();
@@ -1590,10 +1613,12 @@ void scinfo::Clear() {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
+  _impl_.appleid_.ClearToEmpty();
   _impl_.sidb_.ClearToEmpty();
   _impl_.sidd_.ClearToEmpty();
   _impl_.txt_.ClearToEmpty();
   _impl_.hardwareinfo_.ClearToEmpty();
+  _impl_.dsid_ = int64_t{0};
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
@@ -1603,36 +1628,54 @@ const char* scinfo::_InternalParse(const char* ptr, ::_pbi::ParseContext* ctx) {
     uint32_t tag;
     ptr = ::_pbi::ReadTag(ptr, &tag);
     switch (tag >> 3) {
-      // bytes sidb = 1;
+      // string appleid = 1;
       case 1:
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 10)) {
+          auto str = _internal_mutable_appleid();
+          ptr = ::_pbi::InlineGreedyStringParser(str, ptr, ctx);
+          CHK_(ptr);
+          CHK_(::_pbi::VerifyUTF8(str, "AppleRemoteAuth.scinfo.appleid"));
+        } else
+          goto handle_unusual;
+        continue;
+      // int64 dsid = 2;
+      case 2:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 16)) {
+          _impl_.dsid_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+          CHK_(ptr);
+        } else
+          goto handle_unusual;
+        continue;
+      // bytes sidb = 3;
+      case 3:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 26)) {
           auto str = _internal_mutable_sidb();
           ptr = ::_pbi::InlineGreedyStringParser(str, ptr, ctx);
           CHK_(ptr);
         } else
           goto handle_unusual;
         continue;
-      // bytes sidd = 2;
-      case 2:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 18)) {
+      // bytes sidd = 4;
+      case 4:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 34)) {
           auto str = _internal_mutable_sidd();
           ptr = ::_pbi::InlineGreedyStringParser(str, ptr, ctx);
           CHK_(ptr);
         } else
           goto handle_unusual;
         continue;
-      // bytes txt = 3;
-      case 3:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 26)) {
+      // bytes txt = 5;
+      case 5:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 42)) {
           auto str = _internal_mutable_txt();
           ptr = ::_pbi::InlineGreedyStringParser(str, ptr, ctx);
           CHK_(ptr);
         } else
           goto handle_unusual;
         continue;
-      // bytes hardwareInfo = 4;
-      case 4:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 34)) {
+      // bytes hardwareInfo = 6;
+      case 6:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 50)) {
           auto str = _internal_mutable_hardwareinfo();
           ptr = ::_pbi::InlineGreedyStringParser(str, ptr, ctx);
           CHK_(ptr);
@@ -1668,28 +1711,44 @@ uint8_t* scinfo::_InternalSerialize(
   uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
 
-  // bytes sidb = 1;
+  // string appleid = 1;
+  if (!this->_internal_appleid().empty()) {
+    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
+      this->_internal_appleid().data(), static_cast<int>(this->_internal_appleid().length()),
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
+      "AppleRemoteAuth.scinfo.appleid");
+    target = stream->WriteStringMaybeAliased(
+        1, this->_internal_appleid(), target);
+  }
+
+  // int64 dsid = 2;
+  if (this->_internal_dsid() != 0) {
+    target = stream->EnsureSpace(target);
+    target = ::_pbi::WireFormatLite::WriteInt64ToArray(2, this->_internal_dsid(), target);
+  }
+
+  // bytes sidb = 3;
   if (!this->_internal_sidb().empty()) {
     target = stream->WriteBytesMaybeAliased(
-        1, this->_internal_sidb(), target);
+        3, this->_internal_sidb(), target);
   }
 
-  // bytes sidd = 2;
+  // bytes sidd = 4;
   if (!this->_internal_sidd().empty()) {
     target = stream->WriteBytesMaybeAliased(
-        2, this->_internal_sidd(), target);
+        4, this->_internal_sidd(), target);
   }
 
-  // bytes txt = 3;
+  // bytes txt = 5;
   if (!this->_internal_txt().empty()) {
     target = stream->WriteBytesMaybeAliased(
-        3, this->_internal_txt(), target);
+        5, this->_internal_txt(), target);
   }
 
-  // bytes hardwareInfo = 4;
+  // bytes hardwareInfo = 6;
   if (!this->_internal_hardwareinfo().empty()) {
     target = stream->WriteBytesMaybeAliased(
-        4, this->_internal_hardwareinfo(), target);
+        6, this->_internal_hardwareinfo(), target);
   }
 
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
@@ -1708,32 +1767,44 @@ size_t scinfo::ByteSizeLong() const {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  // bytes sidb = 1;
+  // string appleid = 1;
+  if (!this->_internal_appleid().empty()) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
+        this->_internal_appleid());
+  }
+
+  // bytes sidb = 3;
   if (!this->_internal_sidb().empty()) {
     total_size += 1 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::BytesSize(
         this->_internal_sidb());
   }
 
-  // bytes sidd = 2;
+  // bytes sidd = 4;
   if (!this->_internal_sidd().empty()) {
     total_size += 1 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::BytesSize(
         this->_internal_sidd());
   }
 
-  // bytes txt = 3;
+  // bytes txt = 5;
   if (!this->_internal_txt().empty()) {
     total_size += 1 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::BytesSize(
         this->_internal_txt());
   }
 
-  // bytes hardwareInfo = 4;
+  // bytes hardwareInfo = 6;
   if (!this->_internal_hardwareinfo().empty()) {
     total_size += 1 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::BytesSize(
         this->_internal_hardwareinfo());
+  }
+
+  // int64 dsid = 2;
+  if (this->_internal_dsid() != 0) {
+    total_size += ::_pbi::WireFormatLite::Int64SizePlusOne(this->_internal_dsid());
   }
 
   return MaybeComputeUnknownFieldsSize(total_size, &_impl_._cached_size_);
@@ -1754,6 +1825,9 @@ void scinfo::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBU
   uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
 
+  if (!from._internal_appleid().empty()) {
+    _this->_internal_set_appleid(from._internal_appleid());
+  }
   if (!from._internal_sidb().empty()) {
     _this->_internal_set_sidb(from._internal_sidb());
   }
@@ -1765,6 +1839,9 @@ void scinfo::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBU
   }
   if (!from._internal_hardwareinfo().empty()) {
     _this->_internal_set_hardwareinfo(from._internal_hardwareinfo());
+  }
+  if (from._internal_dsid() != 0) {
+    _this->_internal_set_dsid(from._internal_dsid());
   }
   _this->_internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
 }
@@ -1786,6 +1863,10 @@ void scinfo::InternalSwap(scinfo* other) {
   auto* rhs_arena = other->GetArenaForAllocation();
   _internal_metadata_.InternalSwap(&other->_internal_metadata_);
   ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::InternalSwap(
+      &_impl_.appleid_, lhs_arena,
+      &other->_impl_.appleid_, rhs_arena
+  );
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::InternalSwap(
       &_impl_.sidb_, lhs_arena,
       &other->_impl_.sidb_, rhs_arena
   );
@@ -1801,6 +1882,7 @@ void scinfo::InternalSwap(scinfo* other) {
       &_impl_.hardwareinfo_, lhs_arena,
       &other->_impl_.hardwareinfo_, rhs_arena
   );
+  swap(_impl_.dsid_, other->_impl_.dsid_);
 }
 
 ::PROTOBUF_NAMESPACE_ID::Metadata scinfo::GetMetadata() const {

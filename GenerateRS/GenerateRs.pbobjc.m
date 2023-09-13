@@ -350,6 +350,8 @@ typedef struct rqGeneGrappa__storage_ {
 
 @implementation scinfo
 
+@dynamic appleid;
+@dynamic dsid;
 @dynamic sidb;
 @dynamic sidd;
 @dynamic txt;
@@ -357,10 +359,12 @@ typedef struct rqGeneGrappa__storage_ {
 
 typedef struct scinfo__storage_ {
   uint32_t _has_storage_[1];
+  NSString *appleid;
   NSData *sidb;
   NSData *sidd;
   NSData *txt;
   NSData *hardwareInfo;
+  int64_t dsid;
 } scinfo__storage_;
 
 // This method is threadsafe because it is initially called
@@ -370,10 +374,28 @@ typedef struct scinfo__storage_ {
   if (!descriptor) {
     static GPBMessageFieldDescription fields[] = {
       {
+        .name = "appleid",
+        .dataTypeSpecific.clazz = Nil,
+        .number = scinfo_FieldNumber_Appleid,
+        .hasIndex = 0,
+        .offset = (uint32_t)offsetof(scinfo__storage_, appleid),
+        .flags = (GPBFieldFlags)(GPBFieldOptional | GPBFieldClearHasIvarOnZero),
+        .dataType = GPBDataTypeString,
+      },
+      {
+        .name = "dsid",
+        .dataTypeSpecific.clazz = Nil,
+        .number = scinfo_FieldNumber_Dsid,
+        .hasIndex = 1,
+        .offset = (uint32_t)offsetof(scinfo__storage_, dsid),
+        .flags = (GPBFieldFlags)(GPBFieldOptional | GPBFieldClearHasIvarOnZero),
+        .dataType = GPBDataTypeInt64,
+      },
+      {
         .name = "sidb",
         .dataTypeSpecific.clazz = Nil,
         .number = scinfo_FieldNumber_Sidb,
-        .hasIndex = 0,
+        .hasIndex = 2,
         .offset = (uint32_t)offsetof(scinfo__storage_, sidb),
         .flags = (GPBFieldFlags)(GPBFieldOptional | GPBFieldClearHasIvarOnZero),
         .dataType = GPBDataTypeBytes,
@@ -382,7 +404,7 @@ typedef struct scinfo__storage_ {
         .name = "sidd",
         .dataTypeSpecific.clazz = Nil,
         .number = scinfo_FieldNumber_Sidd,
-        .hasIndex = 1,
+        .hasIndex = 3,
         .offset = (uint32_t)offsetof(scinfo__storage_, sidd),
         .flags = (GPBFieldFlags)(GPBFieldOptional | GPBFieldClearHasIvarOnZero),
         .dataType = GPBDataTypeBytes,
@@ -391,7 +413,7 @@ typedef struct scinfo__storage_ {
         .name = "txt",
         .dataTypeSpecific.clazz = Nil,
         .number = scinfo_FieldNumber_Txt,
-        .hasIndex = 2,
+        .hasIndex = 4,
         .offset = (uint32_t)offsetof(scinfo__storage_, txt),
         .flags = (GPBFieldFlags)(GPBFieldOptional | GPBFieldClearHasIvarOnZero),
         .dataType = GPBDataTypeBytes,
@@ -400,7 +422,7 @@ typedef struct scinfo__storage_ {
         .name = "hardwareInfo",
         .dataTypeSpecific.clazz = Nil,
         .number = scinfo_FieldNumber_HardwareInfo,
-        .hasIndex = 3,
+        .hasIndex = 5,
         .offset = (uint32_t)offsetof(scinfo__storage_, hardwareInfo),
         .flags = (GPBFieldFlags)(GPBFieldOptional | GPBFieldTextFormatNameCustom | GPBFieldClearHasIvarOnZero),
         .dataType = GPBDataTypeBytes,
@@ -416,7 +438,7 @@ typedef struct scinfo__storage_ {
                                          flags:(GPBDescriptorInitializationFlags)(GPBDescriptorInitializationFlag_UsesClassRefs | GPBDescriptorInitializationFlag_Proto3OptionalKnown)];
 #if !GPBOBJC_SKIP_MESSAGE_TEXTFORMAT_EXTRAS
     static const char *extraTextFormatInfo =
-        "\001\004\014\000";
+        "\001\006\014\000";
     [localDescriptor setupExtraTextInfo:extraTextFormatInfo];
 #endif  // !GPBOBJC_SKIP_MESSAGE_TEXTFORMAT_EXTRAS
     #if defined(DEBUG) && DEBUG

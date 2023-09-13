@@ -3128,25 +3128,43 @@ public final class GenerateRS {
       com.google.protobuf.MessageOrBuilder {
 
     /**
-     * <code>bytes sidb = 1;</code>
+     * <code>string appleid = 1;</code>
+     * @return The appleid.
+     */
+    java.lang.String getAppleid();
+    /**
+     * <code>string appleid = 1;</code>
+     * @return The bytes for appleid.
+     */
+    com.google.protobuf.ByteString
+        getAppleidBytes();
+
+    /**
+     * <code>int64 dsid = 2;</code>
+     * @return The dsid.
+     */
+    long getDsid();
+
+    /**
+     * <code>bytes sidb = 3;</code>
      * @return The sidb.
      */
     com.google.protobuf.ByteString getSidb();
 
     /**
-     * <code>bytes sidd = 2;</code>
+     * <code>bytes sidd = 4;</code>
      * @return The sidd.
      */
     com.google.protobuf.ByteString getSidd();
 
     /**
-     * <code>bytes txt = 3;</code>
+     * <code>bytes txt = 5;</code>
      * @return The txt.
      */
     com.google.protobuf.ByteString getTxt();
 
     /**
-     * <code>bytes hardwareInfo = 4;</code>
+     * <code>bytes hardwareInfo = 6;</code>
      * @return The hardwareInfo.
      */
     com.google.protobuf.ByteString getHardwareInfo();
@@ -3168,6 +3186,7 @@ public final class GenerateRS {
       super(builder);
     }
     private scinfo() {
+      appleid_ = "";
       sidb_ = com.google.protobuf.ByteString.EMPTY;
       sidd_ = com.google.protobuf.ByteString.EMPTY;
       txt_ = com.google.protobuf.ByteString.EMPTY;
@@ -3205,21 +3224,32 @@ public final class GenerateRS {
               done = true;
               break;
             case 10: {
+              java.lang.String s = input.readStringRequireUtf8();
 
-              sidb_ = input.readBytes();
+              appleid_ = s;
               break;
             }
-            case 18: {
+            case 16: {
 
-              sidd_ = input.readBytes();
+              dsid_ = input.readInt64();
               break;
             }
             case 26: {
 
-              txt_ = input.readBytes();
+              sidb_ = input.readBytes();
               break;
             }
             case 34: {
+
+              sidd_ = input.readBytes();
+              break;
+            }
+            case 42: {
+
+              txt_ = input.readBytes();
+              break;
+            }
+            case 50: {
 
               hardwareInfo_ = input.readBytes();
               break;
@@ -3258,10 +3288,59 @@ public final class GenerateRS {
               AppleRemoteAuth.GenerateRS.scinfo.class, AppleRemoteAuth.GenerateRS.scinfo.Builder.class);
     }
 
-    public static final int SIDB_FIELD_NUMBER = 1;
+    public static final int APPLEID_FIELD_NUMBER = 1;
+    private volatile java.lang.Object appleid_;
+    /**
+     * <code>string appleid = 1;</code>
+     * @return The appleid.
+     */
+    @java.lang.Override
+    public java.lang.String getAppleid() {
+      java.lang.Object ref = appleid_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        appleid_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>string appleid = 1;</code>
+     * @return The bytes for appleid.
+     */
+    @java.lang.Override
+    public com.google.protobuf.ByteString
+        getAppleidBytes() {
+      java.lang.Object ref = appleid_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        appleid_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int DSID_FIELD_NUMBER = 2;
+    private long dsid_;
+    /**
+     * <code>int64 dsid = 2;</code>
+     * @return The dsid.
+     */
+    @java.lang.Override
+    public long getDsid() {
+      return dsid_;
+    }
+
+    public static final int SIDB_FIELD_NUMBER = 3;
     private com.google.protobuf.ByteString sidb_;
     /**
-     * <code>bytes sidb = 1;</code>
+     * <code>bytes sidb = 3;</code>
      * @return The sidb.
      */
     @java.lang.Override
@@ -3269,10 +3348,10 @@ public final class GenerateRS {
       return sidb_;
     }
 
-    public static final int SIDD_FIELD_NUMBER = 2;
+    public static final int SIDD_FIELD_NUMBER = 4;
     private com.google.protobuf.ByteString sidd_;
     /**
-     * <code>bytes sidd = 2;</code>
+     * <code>bytes sidd = 4;</code>
      * @return The sidd.
      */
     @java.lang.Override
@@ -3280,10 +3359,10 @@ public final class GenerateRS {
       return sidd_;
     }
 
-    public static final int TXT_FIELD_NUMBER = 3;
+    public static final int TXT_FIELD_NUMBER = 5;
     private com.google.protobuf.ByteString txt_;
     /**
-     * <code>bytes txt = 3;</code>
+     * <code>bytes txt = 5;</code>
      * @return The txt.
      */
     @java.lang.Override
@@ -3291,10 +3370,10 @@ public final class GenerateRS {
       return txt_;
     }
 
-    public static final int HARDWAREINFO_FIELD_NUMBER = 4;
+    public static final int HARDWAREINFO_FIELD_NUMBER = 6;
     private com.google.protobuf.ByteString hardwareInfo_;
     /**
-     * <code>bytes hardwareInfo = 4;</code>
+     * <code>bytes hardwareInfo = 6;</code>
      * @return The hardwareInfo.
      */
     @java.lang.Override
@@ -3316,17 +3395,23 @@ public final class GenerateRS {
     @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(appleid_)) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 1, appleid_);
+      }
+      if (dsid_ != 0L) {
+        output.writeInt64(2, dsid_);
+      }
       if (!sidb_.isEmpty()) {
-        output.writeBytes(1, sidb_);
+        output.writeBytes(3, sidb_);
       }
       if (!sidd_.isEmpty()) {
-        output.writeBytes(2, sidd_);
+        output.writeBytes(4, sidd_);
       }
       if (!txt_.isEmpty()) {
-        output.writeBytes(3, txt_);
+        output.writeBytes(5, txt_);
       }
       if (!hardwareInfo_.isEmpty()) {
-        output.writeBytes(4, hardwareInfo_);
+        output.writeBytes(6, hardwareInfo_);
       }
       unknownFields.writeTo(output);
     }
@@ -3337,21 +3422,28 @@ public final class GenerateRS {
       if (size != -1) return size;
 
       size = 0;
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(appleid_)) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, appleid_);
+      }
+      if (dsid_ != 0L) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt64Size(2, dsid_);
+      }
       if (!sidb_.isEmpty()) {
         size += com.google.protobuf.CodedOutputStream
-          .computeBytesSize(1, sidb_);
+          .computeBytesSize(3, sidb_);
       }
       if (!sidd_.isEmpty()) {
         size += com.google.protobuf.CodedOutputStream
-          .computeBytesSize(2, sidd_);
+          .computeBytesSize(4, sidd_);
       }
       if (!txt_.isEmpty()) {
         size += com.google.protobuf.CodedOutputStream
-          .computeBytesSize(3, txt_);
+          .computeBytesSize(5, txt_);
       }
       if (!hardwareInfo_.isEmpty()) {
         size += com.google.protobuf.CodedOutputStream
-          .computeBytesSize(4, hardwareInfo_);
+          .computeBytesSize(6, hardwareInfo_);
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -3368,6 +3460,10 @@ public final class GenerateRS {
       }
       AppleRemoteAuth.GenerateRS.scinfo other = (AppleRemoteAuth.GenerateRS.scinfo) obj;
 
+      if (!getAppleid()
+          .equals(other.getAppleid())) return false;
+      if (getDsid()
+          != other.getDsid()) return false;
       if (!getSidb()
           .equals(other.getSidb())) return false;
       if (!getSidd()
@@ -3387,6 +3483,11 @@ public final class GenerateRS {
       }
       int hash = 41;
       hash = (19 * hash) + getDescriptor().hashCode();
+      hash = (37 * hash) + APPLEID_FIELD_NUMBER;
+      hash = (53 * hash) + getAppleid().hashCode();
+      hash = (37 * hash) + DSID_FIELD_NUMBER;
+      hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+          getDsid());
       hash = (37 * hash) + SIDB_FIELD_NUMBER;
       hash = (53 * hash) + getSidb().hashCode();
       hash = (37 * hash) + SIDD_FIELD_NUMBER;
@@ -3532,6 +3633,10 @@ public final class GenerateRS {
       @java.lang.Override
       public Builder clear() {
         super.clear();
+        appleid_ = "";
+
+        dsid_ = 0L;
+
         sidb_ = com.google.protobuf.ByteString.EMPTY;
 
         sidd_ = com.google.protobuf.ByteString.EMPTY;
@@ -3566,6 +3671,8 @@ public final class GenerateRS {
       @java.lang.Override
       public AppleRemoteAuth.GenerateRS.scinfo buildPartial() {
         AppleRemoteAuth.GenerateRS.scinfo result = new AppleRemoteAuth.GenerateRS.scinfo(this);
+        result.appleid_ = appleid_;
+        result.dsid_ = dsid_;
         result.sidb_ = sidb_;
         result.sidd_ = sidd_;
         result.txt_ = txt_;
@@ -3618,6 +3725,13 @@ public final class GenerateRS {
 
       public Builder mergeFrom(AppleRemoteAuth.GenerateRS.scinfo other) {
         if (other == AppleRemoteAuth.GenerateRS.scinfo.getDefaultInstance()) return this;
+        if (!other.getAppleid().isEmpty()) {
+          appleid_ = other.appleid_;
+          onChanged();
+        }
+        if (other.getDsid() != 0L) {
+          setDsid(other.getDsid());
+        }
         if (other.getSidb() != com.google.protobuf.ByteString.EMPTY) {
           setSidb(other.getSidb());
         }
@@ -3659,9 +3773,116 @@ public final class GenerateRS {
         return this;
       }
 
+      private java.lang.Object appleid_ = "";
+      /**
+       * <code>string appleid = 1;</code>
+       * @return The appleid.
+       */
+      public java.lang.String getAppleid() {
+        java.lang.Object ref = appleid_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          appleid_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>string appleid = 1;</code>
+       * @return The bytes for appleid.
+       */
+      public com.google.protobuf.ByteString
+          getAppleidBytes() {
+        java.lang.Object ref = appleid_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          appleid_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>string appleid = 1;</code>
+       * @param value The appleid to set.
+       * @return This builder for chaining.
+       */
+      public Builder setAppleid(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        appleid_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string appleid = 1;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearAppleid() {
+        
+        appleid_ = getDefaultInstance().getAppleid();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string appleid = 1;</code>
+       * @param value The bytes for appleid to set.
+       * @return This builder for chaining.
+       */
+      public Builder setAppleidBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        appleid_ = value;
+        onChanged();
+        return this;
+      }
+
+      private long dsid_ ;
+      /**
+       * <code>int64 dsid = 2;</code>
+       * @return The dsid.
+       */
+      @java.lang.Override
+      public long getDsid() {
+        return dsid_;
+      }
+      /**
+       * <code>int64 dsid = 2;</code>
+       * @param value The dsid to set.
+       * @return This builder for chaining.
+       */
+      public Builder setDsid(long value) {
+        
+        dsid_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>int64 dsid = 2;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearDsid() {
+        
+        dsid_ = 0L;
+        onChanged();
+        return this;
+      }
+
       private com.google.protobuf.ByteString sidb_ = com.google.protobuf.ByteString.EMPTY;
       /**
-       * <code>bytes sidb = 1;</code>
+       * <code>bytes sidb = 3;</code>
        * @return The sidb.
        */
       @java.lang.Override
@@ -3669,7 +3890,7 @@ public final class GenerateRS {
         return sidb_;
       }
       /**
-       * <code>bytes sidb = 1;</code>
+       * <code>bytes sidb = 3;</code>
        * @param value The sidb to set.
        * @return This builder for chaining.
        */
@@ -3683,7 +3904,7 @@ public final class GenerateRS {
         return this;
       }
       /**
-       * <code>bytes sidb = 1;</code>
+       * <code>bytes sidb = 3;</code>
        * @return This builder for chaining.
        */
       public Builder clearSidb() {
@@ -3695,7 +3916,7 @@ public final class GenerateRS {
 
       private com.google.protobuf.ByteString sidd_ = com.google.protobuf.ByteString.EMPTY;
       /**
-       * <code>bytes sidd = 2;</code>
+       * <code>bytes sidd = 4;</code>
        * @return The sidd.
        */
       @java.lang.Override
@@ -3703,7 +3924,7 @@ public final class GenerateRS {
         return sidd_;
       }
       /**
-       * <code>bytes sidd = 2;</code>
+       * <code>bytes sidd = 4;</code>
        * @param value The sidd to set.
        * @return This builder for chaining.
        */
@@ -3717,7 +3938,7 @@ public final class GenerateRS {
         return this;
       }
       /**
-       * <code>bytes sidd = 2;</code>
+       * <code>bytes sidd = 4;</code>
        * @return This builder for chaining.
        */
       public Builder clearSidd() {
@@ -3729,7 +3950,7 @@ public final class GenerateRS {
 
       private com.google.protobuf.ByteString txt_ = com.google.protobuf.ByteString.EMPTY;
       /**
-       * <code>bytes txt = 3;</code>
+       * <code>bytes txt = 5;</code>
        * @return The txt.
        */
       @java.lang.Override
@@ -3737,7 +3958,7 @@ public final class GenerateRS {
         return txt_;
       }
       /**
-       * <code>bytes txt = 3;</code>
+       * <code>bytes txt = 5;</code>
        * @param value The txt to set.
        * @return This builder for chaining.
        */
@@ -3751,7 +3972,7 @@ public final class GenerateRS {
         return this;
       }
       /**
-       * <code>bytes txt = 3;</code>
+       * <code>bytes txt = 5;</code>
        * @return This builder for chaining.
        */
       public Builder clearTxt() {
@@ -3763,7 +3984,7 @@ public final class GenerateRS {
 
       private com.google.protobuf.ByteString hardwareInfo_ = com.google.protobuf.ByteString.EMPTY;
       /**
-       * <code>bytes hardwareInfo = 4;</code>
+       * <code>bytes hardwareInfo = 6;</code>
        * @return The hardwareInfo.
        */
       @java.lang.Override
@@ -3771,7 +3992,7 @@ public final class GenerateRS {
         return hardwareInfo_;
       }
       /**
-       * <code>bytes hardwareInfo = 4;</code>
+       * <code>bytes hardwareInfo = 6;</code>
        * @param value The hardwareInfo to set.
        * @return This builder for chaining.
        */
@@ -3785,7 +4006,7 @@ public final class GenerateRS {
         return this;
       }
       /**
-       * <code>bytes hardwareInfo = 4;</code>
+       * <code>bytes hardwareInfo = 6;</code>
        * @return This builder for chaining.
        */
       public Builder clearHardwareInfo() {
@@ -4396,15 +4617,16 @@ public final class GenerateRS {
       "\001(\014H\000\210\001\001B\016\n\014_rs_sig_data\"D\n\006Grappa\022\022\n\ngr" +
       "appaData\030\001 \001(\014\022\031\n\021grappa_session_id\030\002 \001(" +
       "\r\022\013\n\003ret\030\003 \001(\010\"\034\n\014rqGeneGrappa\022\014\n\004udid\030\001" +
-      " \001(\t\"G\n\006scinfo\022\014\n\004sidb\030\001 \001(\014\022\014\n\004sidd\030\002 \001" +
-      "(\014\022\013\n\003txt\030\003 \001(\014\022\024\n\014hardwareInfo\030\004 \001(\014\"\027\n" +
-      "\010rsscinfo\022\013\n\003ret\030\001 \001(\0102\343\001\n\003aid\022J\n\nGenera" +
-      "teRS\022!.AppleRemoteAuth.RemoteDeviceInfo\032" +
-      "\027.AppleRemoteAuth.rsdata\"\000\022J\n\016GenerateGr" +
-      "appa\022\035.AppleRemoteAuth.rqGeneGrappa\032\027.Ap" +
-      "pleRemoteAuth.Grappa\"\000\022D\n\014UploadScinfo\022\027" +
-      ".AppleRemoteAuth.scinfo\032\031.AppleRemoteAut" +
-      "h.rsscinfo\"\000b\006proto3"
+      " \001(\t\"f\n\006scinfo\022\017\n\007appleid\030\001 \001(\t\022\014\n\004dsid\030" +
+      "\002 \001(\003\022\014\n\004sidb\030\003 \001(\014\022\014\n\004sidd\030\004 \001(\014\022\013\n\003txt" +
+      "\030\005 \001(\014\022\024\n\014hardwareInfo\030\006 \001(\014\"\027\n\010rsscinfo" +
+      "\022\013\n\003ret\030\001 \001(\0102\343\001\n\003aid\022J\n\nGenerateRS\022!.Ap" +
+      "pleRemoteAuth.RemoteDeviceInfo\032\027.AppleRe" +
+      "moteAuth.rsdata\"\000\022J\n\016GenerateGrappa\022\035.Ap" +
+      "pleRemoteAuth.rqGeneGrappa\032\027.AppleRemote" +
+      "Auth.Grappa\"\000\022D\n\014UploadScinfo\022\027.AppleRem" +
+      "oteAuth.scinfo\032\031.AppleRemoteAuth.rsscinf" +
+      "o\"\000b\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -4439,7 +4661,7 @@ public final class GenerateRS {
     internal_static_AppleRemoteAuth_scinfo_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_AppleRemoteAuth_scinfo_descriptor,
-        new java.lang.String[] { "Sidb", "Sidd", "Txt", "HardwareInfo", });
+        new java.lang.String[] { "Appleid", "Dsid", "Sidb", "Sidd", "Txt", "HardwareInfo", });
     internal_static_AppleRemoteAuth_rsscinfo_descriptor =
       getDescriptor().getMessageTypes().get(5);
     internal_static_AppleRemoteAuth_rsscinfo_fieldAccessorTable = new
