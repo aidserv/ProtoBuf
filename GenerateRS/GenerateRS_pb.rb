@@ -31,10 +31,9 @@ Google::Protobuf::DescriptorPool.generated_pool.build do
     add_message "AppleRemoteAuth.scinfo" do
       optional :appleid, :string, 1
       optional :dsid, :int64, 2
-      optional :sidb, :bytes, 3
-      optional :sidd, :bytes, 4
-      optional :txt, :bytes, 5
-      optional :hardwareInfo, :bytes, 6
+      optional :hardwareInfo, :bytes, 3
+      optional :sidb, :bytes, 4
+      optional :sidd, :bytes, 5
     end
     add_message "AppleRemoteAuth.rsscinfo" do
       optional :ret, :bool, 1

@@ -352,18 +352,16 @@ typedef struct rqGeneGrappa__storage_ {
 
 @dynamic appleid;
 @dynamic dsid;
+@dynamic hardwareInfo;
 @dynamic sidb;
 @dynamic sidd;
-@dynamic txt;
-@dynamic hardwareInfo;
 
 typedef struct scinfo__storage_ {
   uint32_t _has_storage_[1];
   NSString *appleid;
+  NSData *hardwareInfo;
   NSData *sidb;
   NSData *sidd;
-  NSData *txt;
-  NSData *hardwareInfo;
   int64_t dsid;
 } scinfo__storage_;
 
@@ -392,10 +390,19 @@ typedef struct scinfo__storage_ {
         .dataType = GPBDataTypeInt64,
       },
       {
+        .name = "hardwareInfo",
+        .dataTypeSpecific.clazz = Nil,
+        .number = scinfo_FieldNumber_HardwareInfo,
+        .hasIndex = 2,
+        .offset = (uint32_t)offsetof(scinfo__storage_, hardwareInfo),
+        .flags = (GPBFieldFlags)(GPBFieldOptional | GPBFieldTextFormatNameCustom | GPBFieldClearHasIvarOnZero),
+        .dataType = GPBDataTypeBytes,
+      },
+      {
         .name = "sidb",
         .dataTypeSpecific.clazz = Nil,
         .number = scinfo_FieldNumber_Sidb,
-        .hasIndex = 2,
+        .hasIndex = 3,
         .offset = (uint32_t)offsetof(scinfo__storage_, sidb),
         .flags = (GPBFieldFlags)(GPBFieldOptional | GPBFieldClearHasIvarOnZero),
         .dataType = GPBDataTypeBytes,
@@ -404,27 +411,9 @@ typedef struct scinfo__storage_ {
         .name = "sidd",
         .dataTypeSpecific.clazz = Nil,
         .number = scinfo_FieldNumber_Sidd,
-        .hasIndex = 3,
+        .hasIndex = 4,
         .offset = (uint32_t)offsetof(scinfo__storage_, sidd),
         .flags = (GPBFieldFlags)(GPBFieldOptional | GPBFieldClearHasIvarOnZero),
-        .dataType = GPBDataTypeBytes,
-      },
-      {
-        .name = "txt",
-        .dataTypeSpecific.clazz = Nil,
-        .number = scinfo_FieldNumber_Txt,
-        .hasIndex = 4,
-        .offset = (uint32_t)offsetof(scinfo__storage_, txt),
-        .flags = (GPBFieldFlags)(GPBFieldOptional | GPBFieldClearHasIvarOnZero),
-        .dataType = GPBDataTypeBytes,
-      },
-      {
-        .name = "hardwareInfo",
-        .dataTypeSpecific.clazz = Nil,
-        .number = scinfo_FieldNumber_HardwareInfo,
-        .hasIndex = 5,
-        .offset = (uint32_t)offsetof(scinfo__storage_, hardwareInfo),
-        .flags = (GPBFieldFlags)(GPBFieldOptional | GPBFieldTextFormatNameCustom | GPBFieldClearHasIvarOnZero),
         .dataType = GPBDataTypeBytes,
       },
     };
@@ -438,7 +427,7 @@ typedef struct scinfo__storage_ {
                                          flags:(GPBDescriptorInitializationFlags)(GPBDescriptorInitializationFlag_UsesClassRefs | GPBDescriptorInitializationFlag_Proto3OptionalKnown)];
 #if !GPBOBJC_SKIP_MESSAGE_TEXTFORMAT_EXTRAS
     static const char *extraTextFormatInfo =
-        "\001\006\014\000";
+        "\001\003\014\000";
     [localDescriptor setupExtraTextInfo:extraTextFormatInfo];
 #endif  // !GPBOBJC_SKIP_MESSAGE_TEXTFORMAT_EXTRAS
     #if defined(DEBUG) && DEBUG

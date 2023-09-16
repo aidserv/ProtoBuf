@@ -970,10 +970,9 @@ class scinfo final :
 
   enum : int {
     kAppleidFieldNumber = 1,
-    kSidbFieldNumber = 3,
-    kSiddFieldNumber = 4,
-    kTxtFieldNumber = 5,
-    kHardwareInfoFieldNumber = 6,
+    kHardwareInfoFieldNumber = 3,
+    kSidbFieldNumber = 4,
+    kSiddFieldNumber = 5,
     kDsidFieldNumber = 2,
   };
   // string appleid = 1;
@@ -990,7 +989,21 @@ class scinfo final :
   std::string* _internal_mutable_appleid();
   public:
 
-  // bytes sidb = 3;
+  // bytes hardwareInfo = 3;
+  void clear_hardwareinfo();
+  const std::string& hardwareinfo() const;
+  template <typename ArgT0 = const std::string&, typename... ArgT>
+  void set_hardwareinfo(ArgT0&& arg0, ArgT... args);
+  std::string* mutable_hardwareinfo();
+  PROTOBUF_NODISCARD std::string* release_hardwareinfo();
+  void set_allocated_hardwareinfo(std::string* hardwareinfo);
+  private:
+  const std::string& _internal_hardwareinfo() const;
+  inline PROTOBUF_ALWAYS_INLINE void _internal_set_hardwareinfo(const std::string& value);
+  std::string* _internal_mutable_hardwareinfo();
+  public:
+
+  // bytes sidb = 4;
   void clear_sidb();
   const std::string& sidb() const;
   template <typename ArgT0 = const std::string&, typename... ArgT>
@@ -1004,7 +1017,7 @@ class scinfo final :
   std::string* _internal_mutable_sidb();
   public:
 
-  // bytes sidd = 4;
+  // bytes sidd = 5;
   void clear_sidd();
   const std::string& sidd() const;
   template <typename ArgT0 = const std::string&, typename... ArgT>
@@ -1016,34 +1029,6 @@ class scinfo final :
   const std::string& _internal_sidd() const;
   inline PROTOBUF_ALWAYS_INLINE void _internal_set_sidd(const std::string& value);
   std::string* _internal_mutable_sidd();
-  public:
-
-  // bytes txt = 5;
-  void clear_txt();
-  const std::string& txt() const;
-  template <typename ArgT0 = const std::string&, typename... ArgT>
-  void set_txt(ArgT0&& arg0, ArgT... args);
-  std::string* mutable_txt();
-  PROTOBUF_NODISCARD std::string* release_txt();
-  void set_allocated_txt(std::string* txt);
-  private:
-  const std::string& _internal_txt() const;
-  inline PROTOBUF_ALWAYS_INLINE void _internal_set_txt(const std::string& value);
-  std::string* _internal_mutable_txt();
-  public:
-
-  // bytes hardwareInfo = 6;
-  void clear_hardwareinfo();
-  const std::string& hardwareinfo() const;
-  template <typename ArgT0 = const std::string&, typename... ArgT>
-  void set_hardwareinfo(ArgT0&& arg0, ArgT... args);
-  std::string* mutable_hardwareinfo();
-  PROTOBUF_NODISCARD std::string* release_hardwareinfo();
-  void set_allocated_hardwareinfo(std::string* hardwareinfo);
-  private:
-  const std::string& _internal_hardwareinfo() const;
-  inline PROTOBUF_ALWAYS_INLINE void _internal_set_hardwareinfo(const std::string& value);
-  std::string* _internal_mutable_hardwareinfo();
   public:
 
   // int64 dsid = 2;
@@ -1064,10 +1049,9 @@ class scinfo final :
   typedef void DestructorSkippable_;
   struct Impl_ {
     ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr appleid_;
+    ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr hardwareinfo_;
     ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr sidb_;
     ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr sidd_;
-    ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr txt_;
-    ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr hardwareinfo_;
     int64_t dsid_;
     mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   };
@@ -1933,7 +1917,57 @@ inline void scinfo::set_dsid(int64_t value) {
   // @@protoc_insertion_point(field_set:AppleRemoteAuth.scinfo.dsid)
 }
 
-// bytes sidb = 3;
+// bytes hardwareInfo = 3;
+inline void scinfo::clear_hardwareinfo() {
+  _impl_.hardwareinfo_.ClearToEmpty();
+}
+inline const std::string& scinfo::hardwareinfo() const {
+  // @@protoc_insertion_point(field_get:AppleRemoteAuth.scinfo.hardwareInfo)
+  return _internal_hardwareinfo();
+}
+template <typename ArgT0, typename... ArgT>
+inline PROTOBUF_ALWAYS_INLINE
+void scinfo::set_hardwareinfo(ArgT0&& arg0, ArgT... args) {
+ 
+ _impl_.hardwareinfo_.SetBytes(static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
+  // @@protoc_insertion_point(field_set:AppleRemoteAuth.scinfo.hardwareInfo)
+}
+inline std::string* scinfo::mutable_hardwareinfo() {
+  std::string* _s = _internal_mutable_hardwareinfo();
+  // @@protoc_insertion_point(field_mutable:AppleRemoteAuth.scinfo.hardwareInfo)
+  return _s;
+}
+inline const std::string& scinfo::_internal_hardwareinfo() const {
+  return _impl_.hardwareinfo_.Get();
+}
+inline void scinfo::_internal_set_hardwareinfo(const std::string& value) {
+  
+  _impl_.hardwareinfo_.Set(value, GetArenaForAllocation());
+}
+inline std::string* scinfo::_internal_mutable_hardwareinfo() {
+  
+  return _impl_.hardwareinfo_.Mutable(GetArenaForAllocation());
+}
+inline std::string* scinfo::release_hardwareinfo() {
+  // @@protoc_insertion_point(field_release:AppleRemoteAuth.scinfo.hardwareInfo)
+  return _impl_.hardwareinfo_.Release();
+}
+inline void scinfo::set_allocated_hardwareinfo(std::string* hardwareinfo) {
+  if (hardwareinfo != nullptr) {
+    
+  } else {
+    
+  }
+  _impl_.hardwareinfo_.SetAllocated(hardwareinfo, GetArenaForAllocation());
+#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  if (_impl_.hardwareinfo_.IsDefault()) {
+    _impl_.hardwareinfo_.Set("", GetArenaForAllocation());
+  }
+#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  // @@protoc_insertion_point(field_set_allocated:AppleRemoteAuth.scinfo.hardwareInfo)
+}
+
+// bytes sidb = 4;
 inline void scinfo::clear_sidb() {
   _impl_.sidb_.ClearToEmpty();
 }
@@ -1983,7 +2017,7 @@ inline void scinfo::set_allocated_sidb(std::string* sidb) {
   // @@protoc_insertion_point(field_set_allocated:AppleRemoteAuth.scinfo.sidb)
 }
 
-// bytes sidd = 4;
+// bytes sidd = 5;
 inline void scinfo::clear_sidd() {
   _impl_.sidd_.ClearToEmpty();
 }
@@ -2031,106 +2065,6 @@ inline void scinfo::set_allocated_sidd(std::string* sidd) {
   }
 #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
   // @@protoc_insertion_point(field_set_allocated:AppleRemoteAuth.scinfo.sidd)
-}
-
-// bytes txt = 5;
-inline void scinfo::clear_txt() {
-  _impl_.txt_.ClearToEmpty();
-}
-inline const std::string& scinfo::txt() const {
-  // @@protoc_insertion_point(field_get:AppleRemoteAuth.scinfo.txt)
-  return _internal_txt();
-}
-template <typename ArgT0, typename... ArgT>
-inline PROTOBUF_ALWAYS_INLINE
-void scinfo::set_txt(ArgT0&& arg0, ArgT... args) {
- 
- _impl_.txt_.SetBytes(static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
-  // @@protoc_insertion_point(field_set:AppleRemoteAuth.scinfo.txt)
-}
-inline std::string* scinfo::mutable_txt() {
-  std::string* _s = _internal_mutable_txt();
-  // @@protoc_insertion_point(field_mutable:AppleRemoteAuth.scinfo.txt)
-  return _s;
-}
-inline const std::string& scinfo::_internal_txt() const {
-  return _impl_.txt_.Get();
-}
-inline void scinfo::_internal_set_txt(const std::string& value) {
-  
-  _impl_.txt_.Set(value, GetArenaForAllocation());
-}
-inline std::string* scinfo::_internal_mutable_txt() {
-  
-  return _impl_.txt_.Mutable(GetArenaForAllocation());
-}
-inline std::string* scinfo::release_txt() {
-  // @@protoc_insertion_point(field_release:AppleRemoteAuth.scinfo.txt)
-  return _impl_.txt_.Release();
-}
-inline void scinfo::set_allocated_txt(std::string* txt) {
-  if (txt != nullptr) {
-    
-  } else {
-    
-  }
-  _impl_.txt_.SetAllocated(txt, GetArenaForAllocation());
-#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
-  if (_impl_.txt_.IsDefault()) {
-    _impl_.txt_.Set("", GetArenaForAllocation());
-  }
-#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
-  // @@protoc_insertion_point(field_set_allocated:AppleRemoteAuth.scinfo.txt)
-}
-
-// bytes hardwareInfo = 6;
-inline void scinfo::clear_hardwareinfo() {
-  _impl_.hardwareinfo_.ClearToEmpty();
-}
-inline const std::string& scinfo::hardwareinfo() const {
-  // @@protoc_insertion_point(field_get:AppleRemoteAuth.scinfo.hardwareInfo)
-  return _internal_hardwareinfo();
-}
-template <typename ArgT0, typename... ArgT>
-inline PROTOBUF_ALWAYS_INLINE
-void scinfo::set_hardwareinfo(ArgT0&& arg0, ArgT... args) {
- 
- _impl_.hardwareinfo_.SetBytes(static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
-  // @@protoc_insertion_point(field_set:AppleRemoteAuth.scinfo.hardwareInfo)
-}
-inline std::string* scinfo::mutable_hardwareinfo() {
-  std::string* _s = _internal_mutable_hardwareinfo();
-  // @@protoc_insertion_point(field_mutable:AppleRemoteAuth.scinfo.hardwareInfo)
-  return _s;
-}
-inline const std::string& scinfo::_internal_hardwareinfo() const {
-  return _impl_.hardwareinfo_.Get();
-}
-inline void scinfo::_internal_set_hardwareinfo(const std::string& value) {
-  
-  _impl_.hardwareinfo_.Set(value, GetArenaForAllocation());
-}
-inline std::string* scinfo::_internal_mutable_hardwareinfo() {
-  
-  return _impl_.hardwareinfo_.Mutable(GetArenaForAllocation());
-}
-inline std::string* scinfo::release_hardwareinfo() {
-  // @@protoc_insertion_point(field_release:AppleRemoteAuth.scinfo.hardwareInfo)
-  return _impl_.hardwareinfo_.Release();
-}
-inline void scinfo::set_allocated_hardwareinfo(std::string* hardwareinfo) {
-  if (hardwareinfo != nullptr) {
-    
-  } else {
-    
-  }
-  _impl_.hardwareinfo_.SetAllocated(hardwareinfo, GetArenaForAllocation());
-#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
-  if (_impl_.hardwareinfo_.IsDefault()) {
-    _impl_.hardwareinfo_.Set("", GetArenaForAllocation());
-  }
-#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
-  // @@protoc_insertion_point(field_set_allocated:AppleRemoteAuth.scinfo.hardwareInfo)
 }
 
 // -------------------------------------------------------------------
