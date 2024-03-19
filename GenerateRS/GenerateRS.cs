@@ -41,7 +41,8 @@ namespace AppleRemoteAuth {
             "ZUF1dGgucnNkYXRhIgASSgoOR2VuZXJhdGVHcmFwcGESHS5BcHBsZVJlbW90",
             "ZUF1dGgucnFHZW5lR3JhcHBhGhcuQXBwbGVSZW1vdGVBdXRoLkdyYXBwYSIA",
             "EkQKDFVwbG9hZFNjaW5mbxIXLkFwcGxlUmVtb3RlQXV0aC5zY2luZm8aGS5B",
-            "cHBsZVJlbW90ZUF1dGgucnNzY2luZm8iAGIGcHJvdG8z"));
+            "cHBsZVJlbW90ZUF1dGgucnNzY2luZm8iAEIZWhdhaWRzZXJ2L0FwcGxlUmVt",
+            "b3RlQXV0aGIGcHJvdG8z"));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { },
           new pbr::GeneratedClrTypeInfo(null, null, new pbr::GeneratedClrTypeInfo[] {

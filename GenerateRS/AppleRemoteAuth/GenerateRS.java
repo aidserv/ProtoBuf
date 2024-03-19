@@ -4551,7 +4551,8 @@ public final class GenerateRS {
       "ta\"\000\022J\n\016GenerateGrappa\022\035.AppleRemoteAuth" +
       ".rqGeneGrappa\032\027.AppleRemoteAuth.Grappa\"\000" +
       "\022D\n\014UploadScinfo\022\027.AppleRemoteAuth.scinf" +
-      "o\032\031.AppleRemoteAuth.rsscinfo\"\000b\006proto3"
+      "o\032\031.AppleRemoteAuth.rsscinfo\"\000B\031Z\027aidser" +
+      "v/AppleRemoteAuthb\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,

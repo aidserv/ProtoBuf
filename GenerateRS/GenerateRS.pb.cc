@@ -229,11 +229,12 @@ const char descriptor_table_protodef_GenerateRS_2eproto[] PROTOBUF_SECTION_VARIA
   "ta\"\000\022J\n\016GenerateGrappa\022\035.AppleRemoteAuth"
   ".rqGeneGrappa\032\027.AppleRemoteAuth.Grappa\"\000"
   "\022D\n\014UploadScinfo\022\027.AppleRemoteAuth.scinf"
-  "o\032\031.AppleRemoteAuth.rsscinfo\"\000b\006proto3"
+  "o\032\031.AppleRemoteAuth.rsscinfo\"\000B\031Z\027aidser"
+  "v/AppleRemoteAuthb\006proto3"
   ;
 static ::_pbi::once_flag descriptor_table_GenerateRS_2eproto_once;
 const ::_pbi::DescriptorTable descriptor_table_GenerateRS_2eproto = {
-    false, false, 798, descriptor_table_protodef_GenerateRS_2eproto,
+    false, false, 825, descriptor_table_protodef_GenerateRS_2eproto,
     "GenerateRS.proto",
     &descriptor_table_GenerateRS_2eproto_once, nullptr, 0, 6,
     schemas, file_default_instances, TableStruct_GenerateRS_2eproto::offsets,
