@@ -93,6 +93,17 @@ public final class GenerateRS {
      * @return The dsid.
      */
     long getDsid();
+
+    /**
+     * <code>optional int64 keyTypeSupportVersion = 11;</code>
+     * @return Whether the keyTypeSupportVersion field is set.
+     */
+    boolean hasKeyTypeSupportVersion();
+    /**
+     * <code>optional int64 keyTypeSupportVersion = 11;</code>
+     * @return The keyTypeSupportVersion.
+     */
+    long getKeyTypeSupportVersion();
   }
   /**
    * <pre>
@@ -188,6 +199,11 @@ public final class GenerateRS {
             case 80: {
               bitField0_ |= 0x00000002;
               dsid_ = input.readInt64();
+              break;
+            }
+            case 88: {
+              bitField0_ |= 0x00000004;
+              keyTypeSupportVersion_ = input.readInt64();
               break;
             }
             default: {
@@ -368,6 +384,25 @@ public final class GenerateRS {
       return dsid_;
     }
 
+    public static final int KEYTYPESUPPORTVERSION_FIELD_NUMBER = 11;
+    private long keyTypeSupportVersion_;
+    /**
+     * <code>optional int64 keyTypeSupportVersion = 11;</code>
+     * @return Whether the keyTypeSupportVersion field is set.
+     */
+    @java.lang.Override
+    public boolean hasKeyTypeSupportVersion() {
+      return ((bitField0_ & 0x00000004) != 0);
+    }
+    /**
+     * <code>optional int64 keyTypeSupportVersion = 11;</code>
+     * @return The keyTypeSupportVersion.
+     */
+    @java.lang.Override
+    public long getKeyTypeSupportVersion() {
+      return keyTypeSupportVersion_;
+    }
+
     private byte memoizedIsInitialized = -1;
     @java.lang.Override
     public final boolean isInitialized() {
@@ -405,6 +440,9 @@ public final class GenerateRS {
       }
       if (((bitField0_ & 0x00000002) != 0)) {
         output.writeInt64(10, dsid_);
+      }
+      if (((bitField0_ & 0x00000004) != 0)) {
+        output.writeInt64(11, keyTypeSupportVersion_);
       }
       unknownFields.writeTo(output);
     }
@@ -446,6 +484,10 @@ public final class GenerateRS {
         size += com.google.protobuf.CodedOutputStream
           .computeInt64Size(10, dsid_);
       }
+      if (((bitField0_ & 0x00000004) != 0)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt64Size(11, keyTypeSupportVersion_);
+      }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
       return size;
@@ -483,6 +525,11 @@ public final class GenerateRS {
         if (getDsid()
             != other.getDsid()) return false;
       }
+      if (hasKeyTypeSupportVersion() != other.hasKeyTypeSupportVersion()) return false;
+      if (hasKeyTypeSupportVersion()) {
+        if (getKeyTypeSupportVersion()
+            != other.getKeyTypeSupportVersion()) return false;
+      }
       if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
@@ -515,6 +562,11 @@ public final class GenerateRS {
         hash = (37 * hash) + DSID_FIELD_NUMBER;
         hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
             getDsid());
+      }
+      if (hasKeyTypeSupportVersion()) {
+        hash = (37 * hash) + KEYTYPESUPPORTVERSION_FIELD_NUMBER;
+        hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+            getKeyTypeSupportVersion());
       }
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
@@ -669,6 +721,8 @@ public final class GenerateRS {
         bitField0_ = (bitField0_ & ~0x00000001);
         dsid_ = 0L;
         bitField0_ = (bitField0_ & ~0x00000002);
+        keyTypeSupportVersion_ = 0L;
+        bitField0_ = (bitField0_ & ~0x00000004);
         return this;
       }
 
@@ -710,6 +764,10 @@ public final class GenerateRS {
         if (((from_bitField0_ & 0x00000002) != 0)) {
           result.dsid_ = dsid_;
           to_bitField0_ |= 0x00000002;
+        }
+        if (((from_bitField0_ & 0x00000004) != 0)) {
+          result.keyTypeSupportVersion_ = keyTypeSupportVersion_;
+          to_bitField0_ |= 0x00000004;
         }
         result.bitField0_ = to_bitField0_;
         onBuilt();
@@ -784,6 +842,9 @@ public final class GenerateRS {
         }
         if (other.hasDsid()) {
           setDsid(other.getDsid());
+        }
+        if (other.hasKeyTypeSupportVersion()) {
+          setKeyTypeSupportVersion(other.getKeyTypeSupportVersion());
         }
         this.mergeUnknownFields(other.unknownFields);
         onChanged();
@@ -1164,6 +1225,45 @@ public final class GenerateRS {
       public Builder clearDsid() {
         bitField0_ = (bitField0_ & ~0x00000002);
         dsid_ = 0L;
+        onChanged();
+        return this;
+      }
+
+      private long keyTypeSupportVersion_ ;
+      /**
+       * <code>optional int64 keyTypeSupportVersion = 11;</code>
+       * @return Whether the keyTypeSupportVersion field is set.
+       */
+      @java.lang.Override
+      public boolean hasKeyTypeSupportVersion() {
+        return ((bitField0_ & 0x00000004) != 0);
+      }
+      /**
+       * <code>optional int64 keyTypeSupportVersion = 11;</code>
+       * @return The keyTypeSupportVersion.
+       */
+      @java.lang.Override
+      public long getKeyTypeSupportVersion() {
+        return keyTypeSupportVersion_;
+      }
+      /**
+       * <code>optional int64 keyTypeSupportVersion = 11;</code>
+       * @param value The keyTypeSupportVersion to set.
+       * @return This builder for chaining.
+       */
+      public Builder setKeyTypeSupportVersion(long value) {
+        bitField0_ |= 0x00000004;
+        keyTypeSupportVersion_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional int64 keyTypeSupportVersion = 11;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearKeyTypeSupportVersion() {
+        bitField0_ = (bitField0_ & ~0x00000004);
+        keyTypeSupportVersion_ = 0L;
         onChanged();
         return this;
       }
@@ -4532,27 +4632,29 @@ public final class GenerateRS {
       descriptor;
   static {
     java.lang.String[] descriptorData = {
-      "\n\020GenerateRS.proto\022\017AppleRemoteAuth\"\340\001\n\020" +
+      "\n\020GenerateRS.proto\022\017AppleRemoteAuth\"\236\002\n\020" +
       "RemoteDeviceInfo\022\017\n\007rq_data\030\001 \001(\014\022\023\n\013rq_" +
       "sig_data\030\002 \001(\014\022\031\n\021grappa_session_id\030\003 \001(" +
       "\r\022\035\n\025fair_play_certificate\030\005 \001(\014\022\030\n\020fair" +
       "_device_type\030\006 \001(\003\022\026\n\016fair_play_guid\030\010 \001" +
       "(\t\022\023\n\006grappa\030\t \001(\014H\000\210\001\001\022\021\n\004dsid\030\n \001(\003H\001\210" +
-      "\001\001B\t\n\007_grappaB\007\n\005_dsid\"P\n\006rsdata\022\017\n\007rs_d" +
-      "ata\030\001 \001(\014\022\013\n\003ret\030\002 \001(\010\022\030\n\013rs_sig_data\030\003 " +
-      "\001(\014H\000\210\001\001B\016\n\014_rs_sig_data\"D\n\006Grappa\022\022\n\ngr" +
-      "appaData\030\001 \001(\014\022\031\n\021grappa_session_id\030\002 \001(" +
-      "\r\022\013\n\003ret\030\003 \001(\010\"\034\n\014rqGeneGrappa\022\014\n\004udid\030\001" +
-      " \001(\t\"Y\n\006scinfo\022\017\n\007appleid\030\001 \001(\t\022\014\n\004dsid\030" +
-      "\002 \001(\003\022\024\n\014hardwareInfo\030\003 \001(\014\022\014\n\004sidb\030\004 \001(" +
-      "\014\022\014\n\004sidd\030\005 \001(\014\"\027\n\010rsscinfo\022\013\n\003ret\030\001 \001(\010" +
-      "2\343\001\n\003aid\022J\n\nGenerateRS\022!.AppleRemoteAuth" +
-      ".RemoteDeviceInfo\032\027.AppleRemoteAuth.rsda" +
-      "ta\"\000\022J\n\016GenerateGrappa\022\035.AppleRemoteAuth" +
-      ".rqGeneGrappa\032\027.AppleRemoteAuth.Grappa\"\000" +
-      "\022D\n\014UploadScinfo\022\027.AppleRemoteAuth.scinf" +
-      "o\032\031.AppleRemoteAuth.rsscinfo\"\000B\031Z\027aidser" +
-      "v/AppleRemoteAuthb\006proto3"
+      "\001\001\022\"\n\025keyTypeSupportVersion\030\013 \001(\003H\002\210\001\001B\t" +
+      "\n\007_grappaB\007\n\005_dsidB\030\n\026_keyTypeSupportVer" +
+      "sion\"P\n\006rsdata\022\017\n\007rs_data\030\001 \001(\014\022\013\n\003ret\030\002" +
+      " \001(\010\022\030\n\013rs_sig_data\030\003 \001(\014H\000\210\001\001B\016\n\014_rs_si" +
+      "g_data\"D\n\006Grappa\022\022\n\ngrappaData\030\001 \001(\014\022\031\n\021" +
+      "grappa_session_id\030\002 \001(\r\022\013\n\003ret\030\003 \001(\010\"\034\n\014" +
+      "rqGeneGrappa\022\014\n\004udid\030\001 \001(\t\"Y\n\006scinfo\022\017\n\007" +
+      "appleid\030\001 \001(\t\022\014\n\004dsid\030\002 \001(\003\022\024\n\014hardwareI" +
+      "nfo\030\003 \001(\014\022\014\n\004sidb\030\004 \001(\014\022\014\n\004sidd\030\005 \001(\014\"\027\n" +
+      "\010rsscinfo\022\013\n\003ret\030\001 \001(\0102\343\001\n\003aid\022J\n\nGenera" +
+      "teRS\022!.AppleRemoteAuth.RemoteDeviceInfo\032" +
+      "\027.AppleRemoteAuth.rsdata\"\000\022J\n\016GenerateGr" +
+      "appa\022\035.AppleRemoteAuth.rqGeneGrappa\032\027.Ap" +
+      "pleRemoteAuth.Grappa\"\000\022D\n\014UploadScinfo\022\027" +
+      ".AppleRemoteAuth.scinfo\032\031.AppleRemoteAut" +
+      "h.rsscinfo\"\000B\031Z\027aidserv/AppleRemoteAuthb" +
+      "\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -4563,7 +4665,7 @@ public final class GenerateRS {
     internal_static_AppleRemoteAuth_RemoteDeviceInfo_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_AppleRemoteAuth_RemoteDeviceInfo_descriptor,
-        new java.lang.String[] { "RqData", "RqSigData", "GrappaSessionId", "FairPlayCertificate", "FairDeviceType", "FairPlayGuid", "Grappa", "Dsid", "Grappa", "Dsid", });
+        new java.lang.String[] { "RqData", "RqSigData", "GrappaSessionId", "FairPlayCertificate", "FairDeviceType", "FairPlayGuid", "Grappa", "Dsid", "KeyTypeSupportVersion", "Grappa", "Dsid", "KeyTypeSupportVersion", });
     internal_static_AppleRemoteAuth_rsdata_descriptor =
       getDescriptor().getMessageTypes().get(1);
     internal_static_AppleRemoteAuth_rsdata_fieldAccessorTable = new

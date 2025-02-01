@@ -55,6 +55,7 @@ typedef GPB_ENUM(RemoteDeviceInfo_FieldNumber) {
   RemoteDeviceInfo_FieldNumber_FairPlayGuid = 8,
   RemoteDeviceInfo_FieldNumber_Grappa = 9,
   RemoteDeviceInfo_FieldNumber_Dsid = 10,
+  RemoteDeviceInfo_FieldNumber_KeyTypeSupportVersion = 11,
 };
 
 /**
@@ -83,6 +84,9 @@ GPB_FINAL @interface RemoteDeviceInfo : GPBMessage
 @property(nonatomic, readwrite) int64_t dsid;
 
 @property(nonatomic, readwrite) BOOL hasDsid;
+@property(nonatomic, readwrite) int64_t keyTypeSupportVersion;
+
+@property(nonatomic, readwrite) BOOL hasKeyTypeSupportVersion;
 @end
 
 #pragma mark - rsdata

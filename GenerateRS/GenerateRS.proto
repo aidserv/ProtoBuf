@@ -38,6 +38,7 @@ message RemoteDeviceInfo {
   string fair_play_guid=8;
   optional bytes grappa=9;
   optional int64 dsid=10;
+  optional int64 keyTypeSupportVersion=11;
 }
 
 // The response GenerateRS message 

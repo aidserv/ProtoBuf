@@ -54,6 +54,7 @@ static GPBFileDescriptor *GenerateRsRoot_FileDescriptor(void) {
 @dynamic fairPlayGuid;
 @dynamic hasGrappa, grappa;
 @dynamic hasDsid, dsid;
+@dynamic hasKeyTypeSupportVersion, keyTypeSupportVersion;
 
 typedef struct RemoteDeviceInfo__storage_ {
   uint32_t _has_storage_[1];
@@ -65,6 +66,7 @@ typedef struct RemoteDeviceInfo__storage_ {
   NSData *grappa;
   int64_t fairDeviceType;
   int64_t dsid;
+  int64_t keyTypeSupportVersion;
 } RemoteDeviceInfo__storage_;
 
 // This method is threadsafe because it is initially called
@@ -145,6 +147,15 @@ typedef struct RemoteDeviceInfo__storage_ {
         .flags = GPBFieldOptional,
         .dataType = GPBDataTypeInt64,
       },
+      {
+        .name = "keyTypeSupportVersion",
+        .dataTypeSpecific.clazz = Nil,
+        .number = RemoteDeviceInfo_FieldNumber_KeyTypeSupportVersion,
+        .hasIndex = 8,
+        .offset = (uint32_t)offsetof(RemoteDeviceInfo__storage_, keyTypeSupportVersion),
+        .flags = (GPBFieldFlags)(GPBFieldOptional | GPBFieldTextFormatNameCustom),
+        .dataType = GPBDataTypeInt64,
+      },
     };
     GPBDescriptor *localDescriptor =
         [GPBDescriptor allocDescriptorForClass:[RemoteDeviceInfo class]
@@ -154,6 +165,11 @@ typedef struct RemoteDeviceInfo__storage_ {
                                     fieldCount:(uint32_t)(sizeof(fields) / sizeof(GPBMessageFieldDescription))
                                    storageSize:sizeof(RemoteDeviceInfo__storage_)
                                          flags:(GPBDescriptorInitializationFlags)(GPBDescriptorInitializationFlag_UsesClassRefs | GPBDescriptorInitializationFlag_Proto3OptionalKnown)];
+#if !GPBOBJC_SKIP_MESSAGE_TEXTFORMAT_EXTRAS
+    static const char *extraTextFormatInfo =
+        "\001\013\025\000";
+    [localDescriptor setupExtraTextInfo:extraTextFormatInfo];
+#endif  // !GPBOBJC_SKIP_MESSAGE_TEXTFORMAT_EXTRAS
     #if defined(DEBUG) && DEBUG
       NSAssert(descriptor == nil, @"Startup recursed!");
     #endif  // DEBUG

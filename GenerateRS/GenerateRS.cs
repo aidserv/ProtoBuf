@@ -24,29 +24,30 @@ namespace AppleRemoteAuth {
     static GenerateRSReflection() {
       byte[] descriptorData = global::System.Convert.FromBase64String(
           string.Concat(
-            "ChBHZW5lcmF0ZVJTLnByb3RvEg9BcHBsZVJlbW90ZUF1dGgi4AEKEFJlbW90",
+            "ChBHZW5lcmF0ZVJTLnByb3RvEg9BcHBsZVJlbW90ZUF1dGgingIKEFJlbW90",
             "ZURldmljZUluZm8SDwoHcnFfZGF0YRgBIAEoDBITCgtycV9zaWdfZGF0YRgC",
             "IAEoDBIZChFncmFwcGFfc2Vzc2lvbl9pZBgDIAEoDRIdChVmYWlyX3BsYXlf",
             "Y2VydGlmaWNhdGUYBSABKAwSGAoQZmFpcl9kZXZpY2VfdHlwZRgGIAEoAxIW",
             "Cg5mYWlyX3BsYXlfZ3VpZBgIIAEoCRITCgZncmFwcGEYCSABKAxIAIgBARIR",
-            "CgRkc2lkGAogASgDSAGIAQFCCQoHX2dyYXBwYUIHCgVfZHNpZCJQCgZyc2Rh",
-            "dGESDwoHcnNfZGF0YRgBIAEoDBILCgNyZXQYAiABKAgSGAoLcnNfc2lnX2Rh",
-            "dGEYAyABKAxIAIgBAUIOCgxfcnNfc2lnX2RhdGEiRAoGR3JhcHBhEhIKCmdy",
-            "YXBwYURhdGEYASABKAwSGQoRZ3JhcHBhX3Nlc3Npb25faWQYAiABKA0SCwoD",
-            "cmV0GAMgASgIIhwKDHJxR2VuZUdyYXBwYRIMCgR1ZGlkGAEgASgJIlkKBnNj",
-            "aW5mbxIPCgdhcHBsZWlkGAEgASgJEgwKBGRzaWQYAiABKAMSFAoMaGFyZHdh",
-            "cmVJbmZvGAMgASgMEgwKBHNpZGIYBCABKAwSDAoEc2lkZBgFIAEoDCIXCghy",
-            "c3NjaW5mbxILCgNyZXQYASABKAgy4wEKA2FpZBJKCgpHZW5lcmF0ZVJTEiEu",
-            "QXBwbGVSZW1vdGVBdXRoLlJlbW90ZURldmljZUluZm8aFy5BcHBsZVJlbW90",
-            "ZUF1dGgucnNkYXRhIgASSgoOR2VuZXJhdGVHcmFwcGESHS5BcHBsZVJlbW90",
-            "ZUF1dGgucnFHZW5lR3JhcHBhGhcuQXBwbGVSZW1vdGVBdXRoLkdyYXBwYSIA",
-            "EkQKDFVwbG9hZFNjaW5mbxIXLkFwcGxlUmVtb3RlQXV0aC5zY2luZm8aGS5B",
-            "cHBsZVJlbW90ZUF1dGgucnNzY2luZm8iAEIZWhdhaWRzZXJ2L0FwcGxlUmVt",
-            "b3RlQXV0aGIGcHJvdG8z"));
+            "CgRkc2lkGAogASgDSAGIAQESIgoVa2V5VHlwZVN1cHBvcnRWZXJzaW9uGAsg",
+            "ASgDSAKIAQFCCQoHX2dyYXBwYUIHCgVfZHNpZEIYChZfa2V5VHlwZVN1cHBv",
+            "cnRWZXJzaW9uIlAKBnJzZGF0YRIPCgdyc19kYXRhGAEgASgMEgsKA3JldBgC",
+            "IAEoCBIYCgtyc19zaWdfZGF0YRgDIAEoDEgAiAEBQg4KDF9yc19zaWdfZGF0",
+            "YSJECgZHcmFwcGESEgoKZ3JhcHBhRGF0YRgBIAEoDBIZChFncmFwcGFfc2Vz",
+            "c2lvbl9pZBgCIAEoDRILCgNyZXQYAyABKAgiHAoMcnFHZW5lR3JhcHBhEgwK",
+            "BHVkaWQYASABKAkiWQoGc2NpbmZvEg8KB2FwcGxlaWQYASABKAkSDAoEZHNp",
+            "ZBgCIAEoAxIUCgxoYXJkd2FyZUluZm8YAyABKAwSDAoEc2lkYhgEIAEoDBIM",
+            "CgRzaWRkGAUgASgMIhcKCHJzc2NpbmZvEgsKA3JldBgBIAEoCDLjAQoDYWlk",
+            "EkoKCkdlbmVyYXRlUlMSIS5BcHBsZVJlbW90ZUF1dGguUmVtb3RlRGV2aWNl",
+            "SW5mbxoXLkFwcGxlUmVtb3RlQXV0aC5yc2RhdGEiABJKCg5HZW5lcmF0ZUdy",
+            "YXBwYRIdLkFwcGxlUmVtb3RlQXV0aC5ycUdlbmVHcmFwcGEaFy5BcHBsZVJl",
+            "bW90ZUF1dGguR3JhcHBhIgASRAoMVXBsb2FkU2NpbmZvEhcuQXBwbGVSZW1v",
+            "dGVBdXRoLnNjaW5mbxoZLkFwcGxlUmVtb3RlQXV0aC5yc3NjaW5mbyIAQhla",
+            "F2FpZHNlcnYvQXBwbGVSZW1vdGVBdXRoYgZwcm90bzM="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { },
           new pbr::GeneratedClrTypeInfo(null, null, new pbr::GeneratedClrTypeInfo[] {
-            new pbr::GeneratedClrTypeInfo(typeof(global::AppleRemoteAuth.RemoteDeviceInfo), global::AppleRemoteAuth.RemoteDeviceInfo.Parser, new[]{ "RqData", "RqSigData", "GrappaSessionId", "FairPlayCertificate", "FairDeviceType", "FairPlayGuid", "Grappa", "Dsid" }, new[]{ "Grappa", "Dsid" }, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::AppleRemoteAuth.RemoteDeviceInfo), global::AppleRemoteAuth.RemoteDeviceInfo.Parser, new[]{ "RqData", "RqSigData", "GrappaSessionId", "FairPlayCertificate", "FairDeviceType", "FairPlayGuid", "Grappa", "Dsid", "KeyTypeSupportVersion" }, new[]{ "Grappa", "Dsid", "KeyTypeSupportVersion" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::AppleRemoteAuth.rsdata), global::AppleRemoteAuth.rsdata.Parser, new[]{ "RsData", "Ret", "RsSigData" }, new[]{ "RsSigData" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::AppleRemoteAuth.Grappa), global::AppleRemoteAuth.Grappa.Parser, new[]{ "GrappaData", "GrappaSessionId", "Ret" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::AppleRemoteAuth.rqGeneGrappa), global::AppleRemoteAuth.rqGeneGrappa.Parser, new[]{ "Udid" }, null, null, null, null),
@@ -105,6 +106,7 @@ namespace AppleRemoteAuth {
       fairPlayGuid_ = other.fairPlayGuid_;
       grappa_ = other.grappa_;
       dsid_ = other.dsid_;
+      keyTypeSupportVersion_ = other.keyTypeSupportVersion_;
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
@@ -241,6 +243,31 @@ namespace AppleRemoteAuth {
       _hasBits0 &= ~1;
     }
 
+    /// <summary>Field number for the "keyTypeSupportVersion" field.</summary>
+    public const int KeyTypeSupportVersionFieldNumber = 11;
+    private long keyTypeSupportVersion_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public long KeyTypeSupportVersion {
+      get { if ((_hasBits0 & 2) != 0) { return keyTypeSupportVersion_; } else { return 0L; } }
+      set {
+        _hasBits0 |= 2;
+        keyTypeSupportVersion_ = value;
+      }
+    }
+    /// <summary>Gets whether the "keyTypeSupportVersion" field is set</summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public bool HasKeyTypeSupportVersion {
+      get { return (_hasBits0 & 2) != 0; }
+    }
+    /// <summary>Clears the value of the "keyTypeSupportVersion" field</summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void ClearKeyTypeSupportVersion() {
+      _hasBits0 &= ~2;
+    }
+
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public override bool Equals(object other) {
@@ -264,6 +291,7 @@ namespace AppleRemoteAuth {
       if (FairPlayGuid != other.FairPlayGuid) return false;
       if (Grappa != other.Grappa) return false;
       if (Dsid != other.Dsid) return false;
+      if (KeyTypeSupportVersion != other.KeyTypeSupportVersion) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
 
@@ -279,6 +307,7 @@ namespace AppleRemoteAuth {
       if (FairPlayGuid.Length != 0) hash ^= FairPlayGuid.GetHashCode();
       if (HasGrappa) hash ^= Grappa.GetHashCode();
       if (HasDsid) hash ^= Dsid.GetHashCode();
+      if (HasKeyTypeSupportVersion) hash ^= KeyTypeSupportVersion.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
       }
@@ -329,6 +358,10 @@ namespace AppleRemoteAuth {
         output.WriteRawTag(80);
         output.WriteInt64(Dsid);
       }
+      if (HasKeyTypeSupportVersion) {
+        output.WriteRawTag(88);
+        output.WriteInt64(KeyTypeSupportVersion);
+      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
       }
@@ -371,6 +404,10 @@ namespace AppleRemoteAuth {
         output.WriteRawTag(80);
         output.WriteInt64(Dsid);
       }
+      if (HasKeyTypeSupportVersion) {
+        output.WriteRawTag(88);
+        output.WriteInt64(KeyTypeSupportVersion);
+      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(ref output);
       }
@@ -404,6 +441,9 @@ namespace AppleRemoteAuth {
       }
       if (HasDsid) {
         size += 1 + pb::CodedOutputStream.ComputeInt64Size(Dsid);
+      }
+      if (HasKeyTypeSupportVersion) {
+        size += 1 + pb::CodedOutputStream.ComputeInt64Size(KeyTypeSupportVersion);
       }
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
@@ -440,6 +480,9 @@ namespace AppleRemoteAuth {
       }
       if (other.HasDsid) {
         Dsid = other.Dsid;
+      }
+      if (other.HasKeyTypeSupportVersion) {
+        KeyTypeSupportVersion = other.KeyTypeSupportVersion;
       }
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
     }
@@ -488,6 +531,10 @@ namespace AppleRemoteAuth {
             Dsid = input.ReadInt64();
             break;
           }
+          case 88: {
+            KeyTypeSupportVersion = input.ReadInt64();
+            break;
+          }
         }
       }
     #endif
@@ -533,6 +580,10 @@ namespace AppleRemoteAuth {
           }
           case 80: {
             Dsid = input.ReadInt64();
+            break;
+          }
+          case 88: {
+            KeyTypeSupportVersion = input.ReadInt64();
             break;
           }
         }

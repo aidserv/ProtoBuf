@@ -204,6 +204,7 @@ class RemoteDeviceInfo final :
     kGrappaFieldNumber = 9,
     kFairDeviceTypeFieldNumber = 6,
     kDsidFieldNumber = 10,
+    kKeyTypeSupportVersionFieldNumber = 11,
     kGrappaSessionIdFieldNumber = 3,
   };
   // bytes rq_data = 1;
@@ -302,6 +303,19 @@ class RemoteDeviceInfo final :
   void _internal_set_dsid(int64_t value);
   public:
 
+  // optional int64 keyTypeSupportVersion = 11;
+  bool has_keytypesupportversion() const;
+  private:
+  bool _internal_has_keytypesupportversion() const;
+  public:
+  void clear_keytypesupportversion();
+  int64_t keytypesupportversion() const;
+  void set_keytypesupportversion(int64_t value);
+  private:
+  int64_t _internal_keytypesupportversion() const;
+  void _internal_set_keytypesupportversion(int64_t value);
+  public:
+
   // uint32 grappa_session_id = 3;
   void clear_grappa_session_id();
   uint32_t grappa_session_id() const;
@@ -328,6 +342,7 @@ class RemoteDeviceInfo final :
     ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr grappa_;
     int64_t fair_device_type_;
     int64_t dsid_;
+    int64_t keytypesupportversion_;
     uint32_t grappa_session_id_;
   };
   union { Impl_ _impl_; };
@@ -1551,6 +1566,34 @@ inline void RemoteDeviceInfo::_internal_set_dsid(int64_t value) {
 inline void RemoteDeviceInfo::set_dsid(int64_t value) {
   _internal_set_dsid(value);
   // @@protoc_insertion_point(field_set:AppleRemoteAuth.RemoteDeviceInfo.dsid)
+}
+
+// optional int64 keyTypeSupportVersion = 11;
+inline bool RemoteDeviceInfo::_internal_has_keytypesupportversion() const {
+  bool value = (_impl_._has_bits_[0] & 0x00000004u) != 0;
+  return value;
+}
+inline bool RemoteDeviceInfo::has_keytypesupportversion() const {
+  return _internal_has_keytypesupportversion();
+}
+inline void RemoteDeviceInfo::clear_keytypesupportversion() {
+  _impl_.keytypesupportversion_ = int64_t{0};
+  _impl_._has_bits_[0] &= ~0x00000004u;
+}
+inline int64_t RemoteDeviceInfo::_internal_keytypesupportversion() const {
+  return _impl_.keytypesupportversion_;
+}
+inline int64_t RemoteDeviceInfo::keytypesupportversion() const {
+  // @@protoc_insertion_point(field_get:AppleRemoteAuth.RemoteDeviceInfo.keyTypeSupportVersion)
+  return _internal_keytypesupportversion();
+}
+inline void RemoteDeviceInfo::_internal_set_keytypesupportversion(int64_t value) {
+  _impl_._has_bits_[0] |= 0x00000004u;
+  _impl_.keytypesupportversion_ = value;
+}
+inline void RemoteDeviceInfo::set_keytypesupportversion(int64_t value) {
+  _internal_set_keytypesupportversion(value);
+  // @@protoc_insertion_point(field_set:AppleRemoteAuth.RemoteDeviceInfo.keyTypeSupportVersion)
 }
 
 // -------------------------------------------------------------------

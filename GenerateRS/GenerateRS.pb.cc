@@ -32,6 +32,7 @@ PROTOBUF_CONSTEXPR RemoteDeviceInfo::RemoteDeviceInfo(
   , /*decltype(_impl_.grappa_)*/{&::_pbi::fixed_address_empty_string, ::_pbi::ConstantInitialized{}}
   , /*decltype(_impl_.fair_device_type_)*/int64_t{0}
   , /*decltype(_impl_.dsid_)*/int64_t{0}
+  , /*decltype(_impl_.keytypesupportversion_)*/int64_t{0}
   , /*decltype(_impl_.grappa_session_id_)*/0u} {}
 struct RemoteDeviceInfoDefaultTypeInternal {
   PROTOBUF_CONSTEXPR RemoteDeviceInfoDefaultTypeInternal()
@@ -136,6 +137,7 @@ const uint32_t TableStruct_GenerateRS_2eproto::offsets[] PROTOBUF_SECTION_VARIAB
   PROTOBUF_FIELD_OFFSET(::AppleRemoteAuth::RemoteDeviceInfo, _impl_.fair_play_guid_),
   PROTOBUF_FIELD_OFFSET(::AppleRemoteAuth::RemoteDeviceInfo, _impl_.grappa_),
   PROTOBUF_FIELD_OFFSET(::AppleRemoteAuth::RemoteDeviceInfo, _impl_.dsid_),
+  PROTOBUF_FIELD_OFFSET(::AppleRemoteAuth::RemoteDeviceInfo, _impl_.keytypesupportversion_),
   ~0u,
   ~0u,
   ~0u,
@@ -144,6 +146,7 @@ const uint32_t TableStruct_GenerateRS_2eproto::offsets[] PROTOBUF_SECTION_VARIAB
   ~0u,
   0,
   1,
+  2,
   PROTOBUF_FIELD_OFFSET(::AppleRemoteAuth::rsdata, _impl_._has_bits_),
   PROTOBUF_FIELD_OFFSET(::AppleRemoteAuth::rsdata, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -192,12 +195,12 @@ const uint32_t TableStruct_GenerateRS_2eproto::offsets[] PROTOBUF_SECTION_VARIAB
   PROTOBUF_FIELD_OFFSET(::AppleRemoteAuth::rsscinfo, _impl_.ret_),
 };
 static const ::_pbi::MigrationSchema schemas[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) = {
-  { 0, 14, -1, sizeof(::AppleRemoteAuth::RemoteDeviceInfo)},
-  { 22, 31, -1, sizeof(::AppleRemoteAuth::rsdata)},
-  { 34, -1, -1, sizeof(::AppleRemoteAuth::Grappa)},
-  { 43, -1, -1, sizeof(::AppleRemoteAuth::rqGeneGrappa)},
-  { 50, -1, -1, sizeof(::AppleRemoteAuth::scinfo)},
-  { 61, -1, -1, sizeof(::AppleRemoteAuth::rsscinfo)},
+  { 0, 15, -1, sizeof(::AppleRemoteAuth::RemoteDeviceInfo)},
+  { 24, 33, -1, sizeof(::AppleRemoteAuth::rsdata)},
+  { 36, -1, -1, sizeof(::AppleRemoteAuth::Grappa)},
+  { 45, -1, -1, sizeof(::AppleRemoteAuth::rqGeneGrappa)},
+  { 52, -1, -1, sizeof(::AppleRemoteAuth::scinfo)},
+  { 63, -1, -1, sizeof(::AppleRemoteAuth::rsscinfo)},
 };
 
 static const ::_pb::Message* const file_default_instances[] = {
@@ -210,31 +213,33 @@ static const ::_pb::Message* const file_default_instances[] = {
 };
 
 const char descriptor_table_protodef_GenerateRS_2eproto[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) =
-  "\n\020GenerateRS.proto\022\017AppleRemoteAuth\"\340\001\n\020"
+  "\n\020GenerateRS.proto\022\017AppleRemoteAuth\"\236\002\n\020"
   "RemoteDeviceInfo\022\017\n\007rq_data\030\001 \001(\014\022\023\n\013rq_"
   "sig_data\030\002 \001(\014\022\031\n\021grappa_session_id\030\003 \001("
   "\r\022\035\n\025fair_play_certificate\030\005 \001(\014\022\030\n\020fair"
   "_device_type\030\006 \001(\003\022\026\n\016fair_play_guid\030\010 \001"
   "(\t\022\023\n\006grappa\030\t \001(\014H\000\210\001\001\022\021\n\004dsid\030\n \001(\003H\001\210"
-  "\001\001B\t\n\007_grappaB\007\n\005_dsid\"P\n\006rsdata\022\017\n\007rs_d"
-  "ata\030\001 \001(\014\022\013\n\003ret\030\002 \001(\010\022\030\n\013rs_sig_data\030\003 "
-  "\001(\014H\000\210\001\001B\016\n\014_rs_sig_data\"D\n\006Grappa\022\022\n\ngr"
-  "appaData\030\001 \001(\014\022\031\n\021grappa_session_id\030\002 \001("
-  "\r\022\013\n\003ret\030\003 \001(\010\"\034\n\014rqGeneGrappa\022\014\n\004udid\030\001"
-  " \001(\t\"Y\n\006scinfo\022\017\n\007appleid\030\001 \001(\t\022\014\n\004dsid\030"
-  "\002 \001(\003\022\024\n\014hardwareInfo\030\003 \001(\014\022\014\n\004sidb\030\004 \001("
-  "\014\022\014\n\004sidd\030\005 \001(\014\"\027\n\010rsscinfo\022\013\n\003ret\030\001 \001(\010"
-  "2\343\001\n\003aid\022J\n\nGenerateRS\022!.AppleRemoteAuth"
-  ".RemoteDeviceInfo\032\027.AppleRemoteAuth.rsda"
-  "ta\"\000\022J\n\016GenerateGrappa\022\035.AppleRemoteAuth"
-  ".rqGeneGrappa\032\027.AppleRemoteAuth.Grappa\"\000"
-  "\022D\n\014UploadScinfo\022\027.AppleRemoteAuth.scinf"
-  "o\032\031.AppleRemoteAuth.rsscinfo\"\000B\031Z\027aidser"
-  "v/AppleRemoteAuthb\006proto3"
+  "\001\001\022\"\n\025keyTypeSupportVersion\030\013 \001(\003H\002\210\001\001B\t"
+  "\n\007_grappaB\007\n\005_dsidB\030\n\026_keyTypeSupportVer"
+  "sion\"P\n\006rsdata\022\017\n\007rs_data\030\001 \001(\014\022\013\n\003ret\030\002"
+  " \001(\010\022\030\n\013rs_sig_data\030\003 \001(\014H\000\210\001\001B\016\n\014_rs_si"
+  "g_data\"D\n\006Grappa\022\022\n\ngrappaData\030\001 \001(\014\022\031\n\021"
+  "grappa_session_id\030\002 \001(\r\022\013\n\003ret\030\003 \001(\010\"\034\n\014"
+  "rqGeneGrappa\022\014\n\004udid\030\001 \001(\t\"Y\n\006scinfo\022\017\n\007"
+  "appleid\030\001 \001(\t\022\014\n\004dsid\030\002 \001(\003\022\024\n\014hardwareI"
+  "nfo\030\003 \001(\014\022\014\n\004sidb\030\004 \001(\014\022\014\n\004sidd\030\005 \001(\014\"\027\n"
+  "\010rsscinfo\022\013\n\003ret\030\001 \001(\0102\343\001\n\003aid\022J\n\nGenera"
+  "teRS\022!.AppleRemoteAuth.RemoteDeviceInfo\032"
+  "\027.AppleRemoteAuth.rsdata\"\000\022J\n\016GenerateGr"
+  "appa\022\035.AppleRemoteAuth.rqGeneGrappa\032\027.Ap"
+  "pleRemoteAuth.Grappa\"\000\022D\n\014UploadScinfo\022\027"
+  ".AppleRemoteAuth.scinfo\032\031.AppleRemoteAut"
+  "h.rsscinfo\"\000B\031Z\027aidserv/AppleRemoteAuthb"
+  "\006proto3"
   ;
 static ::_pbi::once_flag descriptor_table_GenerateRS_2eproto_once;
 const ::_pbi::DescriptorTable descriptor_table_GenerateRS_2eproto = {
-    false, false, 825, descriptor_table_protodef_GenerateRS_2eproto,
+    false, false, 887, descriptor_table_protodef_GenerateRS_2eproto,
     "GenerateRS.proto",
     &descriptor_table_GenerateRS_2eproto_once, nullptr, 0, 6,
     schemas, file_default_instances, TableStruct_GenerateRS_2eproto::offsets,
@@ -260,6 +265,9 @@ class RemoteDeviceInfo::_Internal {
   static void set_has_dsid(HasBits* has_bits) {
     (*has_bits)[0] |= 2u;
   }
+  static void set_has_keytypesupportversion(HasBits* has_bits) {
+    (*has_bits)[0] |= 4u;
+  }
 };
 
 RemoteDeviceInfo::RemoteDeviceInfo(::PROTOBUF_NAMESPACE_ID::Arena* arena,
@@ -281,6 +289,7 @@ RemoteDeviceInfo::RemoteDeviceInfo(const RemoteDeviceInfo& from)
     , decltype(_impl_.grappa_){}
     , decltype(_impl_.fair_device_type_){}
     , decltype(_impl_.dsid_){}
+    , decltype(_impl_.keytypesupportversion_){}
     , decltype(_impl_.grappa_session_id_){}};
 
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
@@ -344,6 +353,7 @@ inline void RemoteDeviceInfo::SharedCtor(
     , decltype(_impl_.grappa_){}
     , decltype(_impl_.fair_device_type_){int64_t{0}}
     , decltype(_impl_.dsid_){int64_t{0}}
+    , decltype(_impl_.keytypesupportversion_){int64_t{0}}
     , decltype(_impl_.grappa_session_id_){0u}
   };
   _impl_.rq_data_.InitDefault();
@@ -405,7 +415,11 @@ void RemoteDeviceInfo::Clear() {
     _impl_.grappa_.ClearNonDefaultToEmpty();
   }
   _impl_.fair_device_type_ = int64_t{0};
-  _impl_.dsid_ = int64_t{0};
+  if (cached_has_bits & 0x00000006u) {
+    ::memset(&_impl_.dsid_, 0, static_cast<size_t>(
+        reinterpret_cast<char*>(&_impl_.keytypesupportversion_) -
+        reinterpret_cast<char*>(&_impl_.dsid_)) + sizeof(_impl_.keytypesupportversion_));
+  }
   _impl_.grappa_session_id_ = 0u;
   _impl_._has_bits_.Clear();
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
@@ -485,6 +499,15 @@ const char* RemoteDeviceInfo::_InternalParse(const char* ptr, ::_pbi::ParseConte
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 80)) {
           _Internal::set_has_dsid(&has_bits);
           _impl_.dsid_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+          CHK_(ptr);
+        } else
+          goto handle_unusual;
+        continue;
+      // optional int64 keyTypeSupportVersion = 11;
+      case 11:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 88)) {
+          _Internal::set_has_keytypesupportversion(&has_bits);
+          _impl_.keytypesupportversion_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
           CHK_(ptr);
         } else
           goto handle_unusual;
@@ -571,6 +594,12 @@ uint8_t* RemoteDeviceInfo::_InternalSerialize(
     target = ::_pbi::WireFormatLite::WriteInt64ToArray(10, this->_internal_dsid(), target);
   }
 
+  // optional int64 keyTypeSupportVersion = 11;
+  if (_internal_has_keytypesupportversion()) {
+    target = stream->EnsureSpace(target);
+    target = ::_pbi::WireFormatLite::WriteInt64ToArray(11, this->_internal_keytypesupportversion(), target);
+  }
+
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
     target = ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
         _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
@@ -628,11 +657,18 @@ size_t RemoteDeviceInfo::ByteSizeLong() const {
     total_size += ::_pbi::WireFormatLite::Int64SizePlusOne(this->_internal_fair_device_type());
   }
 
-  // optional int64 dsid = 10;
-  if (cached_has_bits & 0x00000002u) {
-    total_size += ::_pbi::WireFormatLite::Int64SizePlusOne(this->_internal_dsid());
-  }
+  if (cached_has_bits & 0x00000006u) {
+    // optional int64 dsid = 10;
+    if (cached_has_bits & 0x00000002u) {
+      total_size += ::_pbi::WireFormatLite::Int64SizePlusOne(this->_internal_dsid());
+    }
 
+    // optional int64 keyTypeSupportVersion = 11;
+    if (cached_has_bits & 0x00000004u) {
+      total_size += ::_pbi::WireFormatLite::Int64SizePlusOne(this->_internal_keytypesupportversion());
+    }
+
+  }
   // uint32 grappa_session_id = 3;
   if (this->_internal_grappa_session_id() != 0) {
     total_size += ::_pbi::WireFormatLite::UInt32SizePlusOne(this->_internal_grappa_session_id());
@@ -674,8 +710,15 @@ void RemoteDeviceInfo::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const
   if (from._internal_fair_device_type() != 0) {
     _this->_internal_set_fair_device_type(from._internal_fair_device_type());
   }
-  if (from._internal_has_dsid()) {
-    _this->_internal_set_dsid(from._internal_dsid());
+  cached_has_bits = from._impl_._has_bits_[0];
+  if (cached_has_bits & 0x00000006u) {
+    if (cached_has_bits & 0x00000002u) {
+      _this->_impl_.dsid_ = from._impl_.dsid_;
+    }
+    if (cached_has_bits & 0x00000004u) {
+      _this->_impl_.keytypesupportversion_ = from._impl_.keytypesupportversion_;
+    }
+    _this->_impl_._has_bits_[0] |= cached_has_bits;
   }
   if (from._internal_grappa_session_id() != 0) {
     _this->_internal_set_grappa_session_id(from._internal_grappa_session_id());
